@@ -1,0 +1,325 @@
+﻿body {
+    background: url(../Content/Images/studybg.jpg)repeat 0px 0px; 
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover; 
+	background-attachment: fixed;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+}
+
+.bg-esfe{
+    width: 100%;
+    height: 5rem;
+    background-color: rgba(0,0,0,.5);
+}
+
+.logo-esfe{
+    max-height: 90%;
+    z-index: 5;
+    position: absolute;
+    top: 1%;
+    left: 3%;
+}
+
+.advice{
+    background-color: rgba(0, 0, 0, .5);
+    padding: 15px 8px;
+    margin: 10px 0;
+}
+
+.link{
+    margin-left: 0;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.link:hover{
+    color: grey;
+    text-decoration: none;
+}
+
+.carts-centradas{
+    margin: 3% auto;
+}
+
+.cartas{
+    max-width: 100%;
+}
+
+.espacio{
+    margin: 10px 0;
+}
+
+.spaceTop{
+    margin-top: 10px;
+}
+
+.spaceBottom{
+    margin-bottom: 10px;
+}
+
+/* start Responsive design*/
+@media (min-width: 1200px) {
+  .card-body a{
+        margin-left: 36%;
+    }
+
+  .navbar{
+        width: 100%;
+    }
+
+  
+}
+
+    .link{
+        color: #fff;
+        font-size: 18px;
+        font-weight: 600;
+        margin-right: 12px;
+    }
+}
+
+@media(min-width: 992px){
+    .card-body a{
+        margin-left: 34%;
+    }
+
+    .navbar{
+        width: 100%;
+    }
+
+    .nav-frame{
+        margin-left: 4%;
+}
+
+    .link{
+        color: #fff;
+        font-size: 18px;
+        font-weight: 600;
+        margin-right: 12px;
+    }
+}
+
+@media(max-width: 992px){
+    .card-body a{
+        margin-left: 28%;
+    }
+
+    .navbar{
+        width: 100%;
+    }
+
+    .nav-frame{
+        margin-left: 12%;
+}
+
+    .link{
+        color: #fff;
+        font-size: 18px;
+        font-weight: 600;
+        margin-right: 12px;
+    }
+}
+
+@media(max-width: 768px){
+    .card-body a{
+        margin-left: 34%;
+    }
+
+    .navbar{
+        width: 100%;
+    }
+
+    .nav-frame{
+        margin-left: 15%;
+}
+
+    .link{
+        color: #fff;
+        font-size: 18px;
+        font-weight: 600;
+        margin-right: 5px;
+    }
+}
+
+@media(max-width: 576px){
+    .card-body a{
+        margin-left: 24%;
+    }
+
+    footer{
+        position: relative;
+        bottom: 0;
+        clear:both;
+        padding-top: 3%;
+        font-size: 14px;
+    }
+
+    .navbar{
+        width: 100%;
+    }
+
+    .nav-frame{
+        margin-left: 24%;
+}
+
+    .link{
+        color: #fff;
+        font-size: 15px;
+        font-weight: 700;
+        margin-right: 9px;
+    }
+}
+
+@media(max-width: 360px){
+    .card-body a{
+        margin-left: 12%;
+    }
+
+    footer{
+        position: relative;
+        bottom: 0;
+        clear:both;
+        padding-top: 3%;
+        font-size: 13px;
+    }
+
+    .navbar{
+        width: 100%;
+    }
+
+    .nav-frame{
+        margin-left: 26%;
+}
+
+    .link{
+        color: #fff;
+        font-size: 15px;
+        font-weight: 700;
+        margin-right: 9px;
+    }
+}
+
+/* end Responsive design*/
+
+.frame{
+    margin: 0 auto;
+    max-height: 70%;
+    max-width: 70%;
+}
+
+footer{
+    position: fixed;
+    bottom: 0;
+    clear:both;
+    padding-top: 2%;
+}
+
+/*Menu responsive con icons*/
+
+.frame-nav{
+    padding-right: 0;
+    padding-left: 5%;
+}
+
+header{
+	width: 100%;
+}
+
+header nav{
+	width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.menu_bar{
+	display: none;
+}
+
+header nav ul{
+	overflow: hidden;
+	list-style: none;
+    margin: 0;
+}
+
+header nav ul li{
+	float: left;
+}
+
+header nav ul li a{
+	color: #fff;
+	padding: 12px 10px;
+	display: block;
+	text-decoration: none;
+}
+
+header nav ul li span{
+	margin-right: 7px;
+}
+
+header nav ul li a:hover{
+    color: grey;
+    text-decoration: none;
+}
+
+
+@media screen and (max-width: 500px){
+	header nav{
+        z-index: 1;
+		width: 75%;
+		height: 100%;
+        background-color: rgba(0,0,0,.8);
+		margin: 0;
+        padding-top: 75px;
+		position: fixed;
+        top: 0;
+		left: -100%;
+	}
+
+	header nav ul li{
+		display: block;
+		float: none;
+		border-bottom: 1px solid rgba(250,250,250, .3);
+        text-decoration: none;
+	}
+
+	.menu_bar{
+		display: block;
+		width: 100%;
+		background-color: #ccc;
+	}
+
+	.menu_bar .btn-menu{
+        z-index: 2;
+        position: absolute;
+        top: 1%;
+        right: 2%;
+		display: block;
+		padding: 20px;
+		color: #fff;
+		text-decoration: none;
+		font-weight: bold;
+		font-size: 25px;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+
+	.menu_bar .btn-menu:hover{
+		color: grey;
+        text-decoration: none;
+	}
+}

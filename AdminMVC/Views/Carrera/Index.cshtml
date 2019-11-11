@@ -1,0 +1,74 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-12">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary espacio-btn" data-toggle="modal" data-target="#exampleModalLong">
+                Crear Nueva Carrera
+            </button>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Agrega una nueva Carrera</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                        <div id="" class="">
+                            <form id="formulario">
+                                <input type="hidden" id="id" name="Id" />
+                                <div class="form-group">
+                                    <label>Nombre:</label>
+                                    <input type="text" id="nombre" name="NombreCarrera" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" id="btnGuardar" value="Guardar Registro" class="btn btn-outline-primary" />
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        @*<button type="button" class="btn btn-primary">Save changes</button>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="table-responsive">
+                <table class="table table-dark table-hover" id="tbcarrera">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Id</th>
+                            <th>Nombre de Carrera</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="~/Scripts/carreraAJAX.js"></script>
+

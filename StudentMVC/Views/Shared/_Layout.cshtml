@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Notas esfe agape, entrega de notas esfe, notas online esfe" />
+    <link rel="icon" type="image/png" href="~/Content/Images/isotipo-ESFE.png" />
+    <title>@ViewBag.Title - Notas Online ESFE</title>
+    <!-- References -->
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <script src="~/Scripts/jquery-3.0.0.min.js"></script>
+    <link href="~/Content/fonts.css" rel="stylesheet" />
+    <script src="~/Scripts/toastr.min.js"></script>
+    <link href="~/Content/toastr.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="navbar navbar-dark bg-esfe">
+        <img src="~/Content/Images/esfe.png" alt="Logo-esfe" class="logo-esfe" />
+        <div class="frame-nav">
+
+            <header>
+                <div class="menu_bar">
+                    <a href="#" class="btn-menu"><span class="icon-menu"></span></a>
+                </div>
+
+                <nav>
+                    <ul>
+                        @if (Request.IsAuthenticated)
+                        {
+                            <li><a href="/Home/Notas"><span class="icon-user"></span>Notas</a></li>
+                            <li><a href="/Home/Cerrar"><span class="icon-switch"></span>Cerrar</a></li>
+                        }
+                        else
+                        {
+                            <li><a href="/Home/Index"><span class="icon-home3"></span>INICIAR SESION</a></li>
+                        }
+                    </ul>
+                </nav>
+            </header>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav"></ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+    <br /><br /><br /><br />
+    <footer class="text-white bg-esfe">
+        <div class="container">
+            <p>&copy; @DateTime.Now.Year ESCUELA SUPERIOR FRANCISCANA ESPECIALIZADA / AGAPE. ALL RIGHTS RESERVED</p>
+        </div>
+    </footer>
+
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/menu.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+﻿
+@{
+    ViewBag.Title = "LoginAdmin";
+}
+
+
+<link href="~/Content/Style.css" rel="stylesheet" />
+<!-- main -->
+<div class="main-agileinfo slider ">
+    <div class="items-group">
+        <div class="item agileits-w3layouts">
+            <div class="block text main-agileits">
+                <!-- login form -->
+                <div class="login-form loginw3-agile">
+                    <div class="agile-row">
+                        <h1>Inicio de sesión</h1>
+                        <div class="login-agileits-top">
+                            <form action="#" method="post" id="frmlogin">
+                                <div class="form-group">
+                                    <label>Correo institucional </label>
+                                    <input type="email" class="form-control" id="pemail" name="Email" placeholder="Introduce tu email"/>
+                                </div>
+                                <div class="form-group">
+                                    <label>Contraseña</label>
+                                    <input type="password" class="form-control" id="pass" name="Password" placeholder="Introduce tu password"/>
+                                </div>
+                                <input type="submit" value="Entrar" id="btnSubmit">
+                                <a href="#" id="btnRegistrar" class="btn" data-toggle="modal" data-target="#exampleModalLong">Registrate</a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- //main -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Agrega un nuevo Administrador</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <div id="" class="">
+                    <form id="frmAdmin">
+                        <input type="hidden" id="mid" name="Id" />
+                        <div class="form-group">
+                            <label>Nombre:</label>
+                            <input type="text" id="mnombre" name="NombreAdministrador" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label>Apellido:</label>
+                            <input type="text" id="mapellido" name="ApellidoAdministrador" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label>Correo institucional:</label>
+                            <input type="text" id="memail" name="Email" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label>Contraseña:</label>
+                            <input type="password" id="mpass" name="Password" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" id="btnGuardar" value="Guardar Registro" class="btn btn-outline-primary" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--fin modal-->
+<script src="~/Scripts/loginAdminAjax.js"></script>

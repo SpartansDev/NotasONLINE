@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "Notas";
+    var id = ViewBag.Idstudent;
+}
+<div class="container text-white">
+    <input type="hidden" value="@id" id="alumn" />
+    <div>
+        <div>
+            <div>
+                <div>
+                    <div class="advice" id="DatosPersonales">
+                        <h3>Bienvenido</h3>
+                        <div>
+                        </div>
+                        <p><strong>Importante:</strong> si no estas solvente con tus pagos, o entrega de libros en Biblioteca; tus notas no seran visibles.</p>
+                    </div>
+                    <table class="table table-dark table-hover table-responsive-sm" id="nota">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Módulo</th>
+                                <th>Nota 1</th>
+                                <th>Nota 2</th>
+                                <th>Nota 3</th>
+                                <th>Nota 4</th>
+                                <th>Nota 5</th>
+                                <th>Nota Final</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/misNotasAjax.js"></script>
+

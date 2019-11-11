@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div class="container">
+    <div class="frame">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 carts-centradas">
+                <div class="card cartas">
+                    <img src="~/Content/Images/teacher01.jpg" class="card-img-top" alt="Teacher">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Profesor(a)</h5>
+                        @*<p class="card-text">Si eres profesor(a), presiona el boton de abajo para entrar con tu credenciales.</p>*@
+                        <a href="/Home/LoginProfe" class="btn btn-outline-primary">Iniciar sesión</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 carts-centradas">
+                <div class="card cartas">
+                    <img src="~/Content/Images/admin01.jpg" class="card-img-top" alt="Administrador">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Administrador(a)</h5>
+                        @*<p class="card-text">Si eres Administrador(a), presiona el boton de abajo para entrar con tu credenciales.</p>*@
+                        <a href="/Home/LoginAdmin" class="btn btn-outline-primary">Iniciar sesión</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

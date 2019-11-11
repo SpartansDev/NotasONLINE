@@ -1,0 +1,130 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-12">
+            <button type="button" class="btn btn-primary espacio-btn" data-toggle="modal" data-target="#exampleModalLong">
+                Crear Nuevo Profesor
+            </button>
+        </div>
+
+        <!--Modal-->
+        <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Agregar un nuevo Profesor</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                        <!--Formulario-->
+                        <div class="" id="">
+                            <form id="frmProfesor">
+                                <input type="hidden" name="Id" id="id" />
+                                <div class="form-group">
+                                    <label>Nombre:</label>
+                                    <input type="text" id="nombre" class="form-control" name="NombreProfesor" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Apellido:</label>
+                                    <input type="text" id="apellido" class="form-control" name="ApellidoProfesor" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Email:</label>
+                                    <input type="email" id="email" name="Email" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Contraseña:</label>
+                                    <input type="password" id="pass" name="Contraseña" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" id="btnGuardar" value="Guardar Registro" class="btn btn-outline-primary" />
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="VerificarNoExiste()">Cerrar</button>
+                        @*<button type="button" class="btn btn-primary">Save changes</button>*@
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!--Modal-->
+        <div class="modal fade" id="modalModificar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Modificar Profesor</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                        <!--Formulario-->
+                        <div class="" id="">
+                            <form id="frmModificar">
+                                <input type="hidden" name="Id" id="mid" />
+                                <div class="form-group">
+                                    <label>Nombres:</label>
+                                    <input type="text" id="mnombre" class="form-control" name="NombreProfesor" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Apellidos:</label>
+                                    <input type="text" id="mapellido" class="form-control" name="ApellidoProfesor" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Email:</label>
+                                    <input type="text" id="memail" name="Email" class="form-control" disabled />
+                                </div>
+                                <div class="form-group">
+                                    <label>Contraseña:</label>
+                                    <input type="text" id="mpass" name="Contraseña" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" id="mbtnGuardar" value="Modificar Registro" class="btn btn-outline-primary" />
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="Modificar">Cerrar</button>
+                        @*<button type="button" class="btn btn-primary">Save changes</button>*@
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!--Tabla-->
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="table-responsive">
+                <table class="table table-dark table-hover" id="tbprofe">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Código</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Correo</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-white"></tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="~/Scripts/profesorAjax.js"></script>

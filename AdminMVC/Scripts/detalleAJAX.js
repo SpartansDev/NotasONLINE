@@ -1,0 +1,212 @@
+﻿//se ejecutan al mostrar la vista
+$(function () {
+    mostrarInscripciones();
+    cargarMatricula();
+    cargarModulo();
+})
+
+$('#frmNotas').submit(function (event) {
+    event.preventDefault();
+    agregar();
+});
+
+$(document).ready(function () {
+    $('#frmNotas').on('keyup', function () {
+        var n1 = parseFloat($('#nota1').val());
+        var n2 = parseFloat($('#nota2').val());
+        var n3 = parseFloat($('#nota3').val());
+        var n4 = parseFloat($('#nota4').val());
+        var n5 = parseFloat($('#nota5').val());
+
+
+        if (isNaN(n1)) {
+            n1 = 0;
+        }
+        if (isNaN(n2)) {
+            n2 = 0;
+        }
+        if (isNaN(n3)) {
+            n3 = 0;
+        }
+        if (isNaN(n4)) {
+            n4 = 0;
+        }
+        if (isNaN(n5)) {
+            n5 = 0;
+        }
+        var neto = (n1 + n2 + n3 + n4 + n5) * 0.2;
+
+        $('#notafinal').val(neto);
+    })
+});
+
+function agregar() {
+    if (!($('#matricula').val() == '' || $('#modulo').val() == '' || $('#nota1').val() == '' || $('#nota2').val() == '' || $('#nota3').val() == '' ||
+        $('#nota4').val() == '' || $('#nota5').val() == '' || $('#notafinal').val() == '' || $('#status').val() == '')) {
+        var obj = {
+            Id: $('#id').val(),
+            MatriculaId: { Id: $('#matricula').val(), Año: '', Ciclo: '', CarreraId: '', EstudianteId: '', GrupoId: '' },
+            ModuloId: { Id: $('#modulo').val(), NombreModulo: '', CarreraId: '', UV: '' },
+            Nota1: $('#nota1').val(),
+            Nota2: $('#nota2').val(),
+            Nota3: $('#nota3').val(),
+            Nota4: $('#nota4').val(),
+            Nota5: $('#nota4').val(),
+            NotaFinal: $('#notafinal').val(),
+            Status: $('#status').val()
+        }
+        var id = $('#id').val();
+        var ruta = '';
+        if (id) {
+            ruta = "/DetalleInscripcion/Modificar";
+        }
+        else {
+            ruta = "/DetalleInscripcion/Agregar";
+        }
+        $.ajax({
+            url: ruta,
+            type: 'POST',
+            contentType: 'application/json;charset=utf-8',
+            dataType: "json",
+            data: JSON.stringify(obj),
+            success: function (respuesta) {
+                limpiar();
+                toastr.success("Registro guardado");
+                mostrarInscripciones();
+            },
+            error: function (err) {
+                toastr.error('Error inesperado');
+            }
+        });
+    }
+    else {
+        toastr.warning("Todos los campos son requeridos");
+    }
+}
+
+function detalles(id) {
+    $.ajax({
+        url: "/DetalleInscripcion/ObtenerPorId?pId=" + id,
+        type: "GET",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (datos) {
+            $('#id').val(datos.Id);
+            $('#matricula').val(datos.MatriculaId.Id);
+            $('#modulo').val(datos.ModuloId.Id);
+            $('#nota1').val(datos.Nota1);
+            $('#nota2').val(datos.Nota2);
+            $('#nota3').val(datos.Nota3);
+            $('#nota4').val(datos.Nota4);
+            $('#nota5').val(datos.Nota5);
+            $('#notafinal').val(datos.NotaFinal);
+            $('#status').val(datos.Status);
+        },
+        error: function (err) {
+            toastr.error('No se pudo completar solicitud');
+        }
+    });
+}
+function cargarMatricula() {
+    $.ajax({
+        url: "/Matricula/Mostrar",
+        type: "GET",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (data) {
+            var html = '';
+            $.each(data, function (key, item) {
+                html += '<option value="' + item.Id + '">' + item.EstudianteId.NombreEstudiante + '</option>';
+            });
+            $('#matricula').append(html);
+        },
+        error: function (err) {
+            toastr.error("No se pudieron cargar las matriculas");
+        }
+    });
+}
+function cargarModulo() {
+    $.ajax({
+        url: "/Modulo/Obtener",
+        type: "GET",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (data) {
+            var html = '';
+            $.each(data, function (key, item) {
+                html += '<option value="' + item.Id + '">' + item.NombreModulo + '</option>';
+            });
+            $("#modulo").append(html);
+        },
+        error: function (err) {
+            toastr.error("No se pudieron cargar los modulos");
+        }
+    });
+}
+function mostrarInscripciones() {
+    $.ajax({
+        url: "/DetalleInscripcion/Mostrar",
+        type: "GET",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (data) {
+            var html = "";
+            $.each(data, function (key, item) {
+                html += '<tr>';
+                html += '<td>' + item.Id + '</td>';
+                html += '<td>' + item.MatriculaId.EstudianteId.NombreEstudiante + '</td>';
+                html += '<td>' + item.MatriculaId.EstudianteId.ApellidoEstudiante + '</td>';
+                html += '<td>' + item.ModuloId.NombreModulo + '</td>';
+                html += '<td>' + item.Nota1 + '</td>';
+                html += '<td>' + item.Nota2 + '</td>';
+                html += '<td>' + item.Nota3 + '</td>';
+                html += '<td>' + item.Nota4 + '</td>';
+                html += '<td>' + item.Nota5 + '</td>';
+                html += '<td>' + item.NotaFinal + '</td>';
+                html += '<td>';
+                html += '<a href="#" onclick="detalles(' + item.Id + ')" class="badge badge-danger" data-toggle="modal" data-target="#exampleModalLong">Modificar</a>||';
+                html += '<a href="#" onclick="eliminar(' + item.Id + ')" class="badge badge-danger">Eliminar</a>';
+                html += '</td>';
+                html += '</tr>';
+            });
+
+            $('#tbNotas tbody').html(html);
+        },
+        error: function (err) {
+            toastr.error("Ocurrió un error, no se pudo completar la solicitud");
+        }
+    })
+}
+function eliminar(id) {
+     $.ajax({
+         url: "/DetalleInscripcion/eliminar?pId=" + id,
+         type: "GET",
+         contentType: "application/json;charset=utf-8",
+         dataType: "json",
+         success: function (resp) {
+             if (resp > 0) {
+                 toastr.success("Registro borrado", "Exito");
+                 mostrarInscripciones();
+             }
+             else {
+                 toastr.error("Vaya! ocurrio un error, intentalo mas tarde", "Error");
+             }
+         },
+         error: function (err) {
+             toastr.error("Vaya! ocurrio un error en el sistema, intentalo mas tarde", "Error");
+         }
+     })
+ }
+
+function limpiar() {
+    $('#id').val('');
+    $('#matricula').val('');
+    $('#modulo').val('');
+    $('#nota1').val('');
+    $('#nota2').val('');
+    $('#nota3').val('');
+    $('#nota4').val('');
+    $('#nota5').val('');
+    $('#notafinal').val('');
+    $('#status').val('');
+}

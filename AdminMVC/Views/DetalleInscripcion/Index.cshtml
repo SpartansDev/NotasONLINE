@@ -1,0 +1,128 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-12">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary espacio-btn" data-toggle="modal" data-target="#exampleModalLong">
+                Nueva Inscripcion
+            </button>
+        </div>
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Agregar nuevas Notas</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                        <!--Formulario-->
+                        <div id="contenido" class="">
+                            <form id="frmNotas">
+
+                                <input type="hidden" id="id" name="Id" class="form-control" />
+
+                                <div class="form-group">
+                                    <label>Estudiante</label>
+                                    <select id="matricula" name="matriculaId" class="form-control">
+                                        <option value="">Selecciona un alumno</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Módulo</label>
+                                    <select id="modulo" name="ModuloId" class="form-control">
+                                        <option value="-1">Selecciona módulo</option>
+                                    </select>
+                                </div>
+                                <!--Obtener notas-->
+                                <div id="final">
+                                    <div class="form-group">
+                                        <label>Primer Nota</label>
+                                        <input type="text" id="nota1" name="Nota1" class="form-control" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Segunda Nota</label>
+                                        <input type="text" id="nota2" name="Nota2" class="form-control" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Tercera Nota</label>
+                                        <input type="text" id="nota3" name="Nota3" class="form-control" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Cuarta Nota</label>
+                                        <input type="text" id="nota4" name="Nota4" class="form-control" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Quinta Nota</label>
+                                        <input type="text" id="nota5" name="Nota5" class="form-control" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Nota Final</label>
+                                        <input type="text" id="notafinal" name="NotaFinal" class="form-control" disabled />
+                                    </div>
+                                </div>
+                                <!--fin Obtener-->
+                                <div class="form-group">
+                                    <label>Visibilidad</label>
+                                    <select id="status" name="Status" class="form-control">
+                                        <option value="">Selecciona un Status</option>
+                                        <option value="0">Ocultar</option>
+                                        <option value="1">Mostrar</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" id="btnGuardar" value="Guardar Registro" class="btn btn-outline-primary" />
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        @*<button type="button" class="btn btn-primary">Save changes</button>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--tabla-->
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="table-responsive">
+                <table id="tbNotas" class="table table-dark table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Código</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Módulo</th>
+                            <th>Nota1</th>
+                            <th>Nota2</th>
+                            <th>Nota3</th>
+                            <th>Nota4</th>
+                            <th>Nota5</th>
+                            <th>NotaFinal</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-white"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="~/Scripts/detalleAJAX.js"></script>

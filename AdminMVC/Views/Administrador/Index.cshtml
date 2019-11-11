@@ -1,0 +1,133 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-12">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary espacio-btn" data-toggle="modal" data-target="#exampleModalLong">
+                Crear Nuevo Administrador
+            </button>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Agrega un nuevo Administrador</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                        <div id="" class="">
+                            <form id="frmAdmin">
+                                <input type="hidden" id="id" name="Id" />
+                                <div class="form-group">
+                                    <label>Nombre:</label>
+                                    <input type="text" id="nombre" name="NombreAdministrador" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Apellido:</label>
+                                    <input type="text" id="apellido" name="ApellidoAdministrador" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Correo institucional:</label>
+                                    <input type="text" id="email" name="Email" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Contraseña:</label>
+                                    <input type="password" id="pass" name="Password" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" id="btnGuardar" value="Guardar Registro" class="btn btn-outline-primary" />
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        @*<button type="button" class="btn btn-primary">Save changes</button>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Modal Modificar-->
+        <div class="modal fade" id="modalModificar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Modificar Administrador</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                        <div id="" class="">
+                            <form id="frmModificar">
+                                <input type="hidden" id="mid" name="Id" />
+                                <div class="form-group">
+                                    <label>Nombre:</label>
+                                    <input type="text" id="mnombre" name="NombreAdministrador" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Apellido:</label>
+                                    <input type="text" id="mapellido" name="ApellidoAdministrador" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Correo institucional:</label>
+                                    <input type="text" id="memail" name="Email" disabled class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Contraseña:</label>
+                                    <input type="password" id="mpass" name="Password" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" id="btnGuardar" value="Guardar Registro" class="btn btn-outline-primary" />
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="table-responsive">
+                <table class="table table-dark table-hover" id="tbAdmin">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Código</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Correo institucional</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="~/Scripts/administradorAjax.js"></script>
+

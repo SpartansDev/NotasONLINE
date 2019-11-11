@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "LoginProfe";
+}
+
+<link href="~/Content/Style.css" rel="stylesheet" />
+<!-- main -->
+<div class="main-agileinfo slider ">
+    <div class="items-group">
+        <div class="item agileits-w3layouts">
+            <div class="block text main-agileits">
+                <!-- login form -->
+                <div class="login-form loginw3-agile">
+                    <div class="agile-row">
+                        <h1>Inicio de sesión</h1>
+                        <div class="login-agileits-top">
+                            <form action="#" method="post" id="frmLogin">
+                                <div class="form-group">
+                                    <label>Correo institucional </label>
+                                    <input type="email" class="form-control" id="pemail" name="Email" placeholder="Introduce tu email" required="" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Contraseña</label>
+                                    <input type="password" class="form-control" id="pass" name="Password" placeholder="Introduce tu password" required="" />
+                                </div>
+                                <input type="submit" value="Entrar" id="btnSubmit">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- //main --> 
+<script src="~/Scripts/loginProfeAjax.js"></script>

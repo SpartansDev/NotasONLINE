@@ -1,0 +1,89 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<!--MAtricula-->
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary espacio-btn" data-toggle="modal" data-target="#exampleModalLong">
+                Crear Nueva Matricula
+            </button>
+        </div>
+        <!--modal-->
+        <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Nueva Matricula</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body">
+                        <div id="" class="">
+                            <form id="frmMatricula">
+                                <input type="hidden" name="Id" id="id" />
+                                <div class="form-group">
+                                    <label>Año:</label>
+                                    <input type="date" id="año" name="Año" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Ciclo:</label>
+                                    <input type="text" id="ciclo" name="Ciclo" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Carrera:</label>
+                                    <select id="carrera" name="CarreraId" class="form-control">
+                                        <option value="-1">Selecciona una Carrera</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Estudiante:</label>
+                                    <select id="estudiante" name="EstudianteId" class="form-control">
+                                        <option value="-1">Selecciona un Alumno</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Grupo:</label>
+                                    <select id="grupo" name="GrupoId" class="form-control">
+                                        <option value="-1">Selecciona un Grupo</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" id="btnGuardar" value="Guardar Registro" class="btn btn-outline-primary" />
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-sm-12 col-md-12 col-lg-12">
+    <div class="table-responsive">
+        <table id="tbmatricula" class="table table-dark table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Codigo</th>
+                    <th>Año</th>
+                    <th>Ciclo</th>
+                    <th>Carrera</th>
+                    <th>Estudiante</th>
+                    <th>Grupo</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody class="text-white"></tbody>
+        </table>
+    </div>
+</div>
+<script src="~/Scripts/matriculaAJAX.js"></script>

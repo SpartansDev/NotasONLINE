@@ -1,0 +1,204 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-12">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary espacio-btn" data-toggle="modal" data-target="#exampleModalLong">
+                Crear Nuevo Estudiante
+            </button>
+        </div>
+
+        <div class="col-12">
+            <form id="frmbuscar">
+                <div class="form-group">
+                    <input type="text" class="form-control espacio-btn" placeholder="Escribe el nombre del alumno" id="alumno" onkeyup="ejecutar()" />
+                </div>
+            </form>
+        </div>
+
+
+        <!-- Modal Agregar-->
+        <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Agrega un nuevo Estudiante</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                        <!--Formulario de registro-->
+                        <div class="" id="">
+                            <form id="formulario">
+                                <input type="hidden" name="Id" id="id" />
+                                <div class="form-group">
+                                    <label>Nombre:</label>
+                                    <input type="text" id="nombre" class="form-control" name="NombreEstudiante" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Apellido:</label>
+                                    <input type="text" id="apellido" class="form-control" name="ApellidoEstudiante" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Código:</label>
+                                    <input type="text" id="codigo" name="Codigo" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Carrera:</label>
+                                    <select id="carrera" name="CarreraId" class="form-control">
+                                        <option value="-1">Selecciona una Carrera</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Contraseña:</label>
+                                    <input type="password" id="pass" name="Contraseña" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" id="btnGuardar" value="Guardar Registro" class="btn btn-outline-primary" />
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal Modificar-->
+        <div class="modal fade" id="modalModificar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Modificar Estudiante</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                        <!--Formulario de registro-->
+                        <div class="" id="">
+                            <form id="formularioModificar">
+                                <input type="hidden" name="Id" id="mid" />
+                                <div class="form-group">
+                                    <label>Nombres:</label>
+                                    <input type="text" id="mnombre" class="form-control" name="NombreEstudiante" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Apellidos:</label>
+                                    <input type="text" id="mapellido" class="form-control" name="ApellidoEstudiante" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Código:</label>
+                                    <input type="text" id="mcodigo" name="Codigo" class="form-control" disabled/>
+                                </div>
+                                <div class="form-group">
+                                    <label>Carrera:</label>
+                                    <select id="mcarrera" name="CarreraId" class="form-control">
+                                        <option value="-1">Selecciona una Carrera</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Contraseña:</label>
+                                    <input type="password" id="mpass" name="Contraseña" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" id="btnGuardar" value="Guardar Registro" class="btn btn-outline-primary" />
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--modal Matricular-->
+        <div class="modal fade" id="modalMatricula" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Nueva Matricula</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body">
+                        <div id="" class="">
+                            <form id="matricula">
+                                <div class="form-group">
+                                    <input type="text" class="form-control text-center" id="lnombre" disabled />
+                                </div>
+                                <input type="hidden" name="Id" id="id" />
+                                <div class="form-group">
+                                    <label>Año:</label>
+                                    <input type="date" id="laño" name="Año" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Ciclo:</label>
+                                    <input type="text" id="lciclo" name="Ciclo" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Carrera:</label>
+                                    <select id="lcarrera" name="CarreraId" class="form-control">
+                                        <option value="-1">Selecciona una Carrera</option>
+                                    </select>
+                                </div>
+                                
+                                    <input type="hidden" id="lestudiante" name="EstudianteId" class="form-control"  />
+                                
+                                <div class="form-group">
+                                    <label>Grupo:</label>
+                                    <select id="lgrupo" name="GrupoId" class="form-control">
+                                        <option value="-1">Selecciona un Grupo</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" id="btnGuardar" value="Guardar Registro"  class="btn btn-outline-primary" />
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--tabla-->
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="">
+                <table class="table table-dark table-hover table-responsive" id="tbEstudent">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Código</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Cod.Institucional</th>
+                            <th>Carrera</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-white"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/EstudianteAjax.js"></script>
+
+
+
