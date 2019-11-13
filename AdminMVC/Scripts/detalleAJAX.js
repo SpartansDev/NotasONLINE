@@ -160,8 +160,7 @@ function mostrarInscripciones() {
             $.each(data, function (key, item) {
                 html += '<tr>';
                 html += '<td>' + item.Id + '</td>';
-                html += '<td>' + item.MatriculaId.EstudianteId.NombreEstudiante + '</td>';
-                html += '<td>' + item.MatriculaId.EstudianteId.ApellidoEstudiante + '</td>';
+                html += '<td>' + item.MatriculaId.EstudianteId.NombreEstudiante + ' ' + item.MatriculaId.EstudianteId.ApellidoEstudiante + '</td>';
                 html += '<td>' + item.ModuloId.NombreModulo + '</td>';
                 html += '<td>' + item.Nota1 + '</td>';
                 html += '<td>' + item.Nota2 + '</td>';

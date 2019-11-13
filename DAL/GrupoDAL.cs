@@ -17,7 +17,7 @@ namespace DAL
             using (SqlConnection con = ConexionBD.Conectar())
             {
                 con.Open();
-                string ssql = "insert into Grupos(NombreGrupo,Turno,CarreraId,ProfesoresId)values('{0}','{1}',{2},{3})";
+                string ssql = "insert into Grupos(NombreGrupo,Turno,CarreraId,ProfesorId)values('{0}','{1}',{2},{3})";
                 string sentencia = string.Format(ssql, pGrupo.NombreGrupo, pGrupo.Turno, pGrupo.CarreraId.Id, pGrupo.ProfesorId.Id);
                 SqlCommand comando = new SqlCommand(sentencia, con);
                 comando.CommandType = CommandType.Text;
