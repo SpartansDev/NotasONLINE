@@ -92,5 +92,29 @@ namespace DAL
             }
             return matricula;
         }
+        public List<Matricula> misAlumnos(Int64 pId)
+        {
+            List<Matricula> lista = new List<Matricula>();
+            using (SqlConnection con = ConexionBD.Conectar())
+            {
+                con.Open();
+                string ssql = "select a.*,b.Id, b.ProfesorId, c.Id from Matriculas as a inner join Grupos as b on a.GrupoId=b.Id inner join Profesores as c on b.ProfesorId=c.Id where c.Id={0}";
+                string sentencia = string.Format(ssql, pId);
+                SqlCommand comando = new SqlCommand(sentencia, con);
+                comando.CommandType = CommandType.Text;
+                IDataReader lector = comando.ExecuteReader();
+                while (lector.Read())
+                {
+                    lista.Add(new Matricula(lector.GetInt64(0),
+                                            lector.GetString(1),
+                                            lector.GetString(2),
+                                            CarreraDAL.ObtenerPorId(lector.GetInt64(3)),
+                                            EstudianteDAL.ObtenerPorId(lector.GetInt64(4)),
+                                            GrupoDAL.ObtenerPorId(lector.GetInt64(5))));
+                }
+                con.Close();
+            }
+            return lista;
+        }
     }
 }

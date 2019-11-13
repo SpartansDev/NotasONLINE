@@ -45,5 +45,11 @@ namespace AdminMVC.Controllers
         {
             return Json(bl.Mostrar(),JsonRequestBehavior.AllowGet);
         }
+        [Authorize]
+        [HttpGet]
+        public JsonResult misAlumnos(Int64 pId)
+        {
+            return Json(bl.misAlumnos(pId), JsonRequestBehavior.AllowGet);
+        }
     }
 }

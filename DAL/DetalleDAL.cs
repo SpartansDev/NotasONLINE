@@ -27,37 +27,6 @@ namespace DAL
             }
             return result;
         }
-
-        public List<DetalleInscripcion>MisAlumnos(Int64 pId)
-        {
-            List<DetalleInscripcion> detalle = new List<DetalleInscripcion>();
-            using (SqlConnection con = ConexionBD.Conectar())
-            {
-                con.Open();
-                string ssql = @"select a.*, b.GrupoId, c.ProfesorId, d.Id from DetallesInscripcion as a inner join Matriculas as b on 
-                                a.MatriculaId = b.Id inner join Grupos as c on b.GrupoId = c.Id inner join Profesores as d on 
-                                c.ProfesorId = d.Id where d.Id = {0}; ";
-                string sentencia = string.Format(ssql, pId);
-                SqlCommand comando = new SqlCommand(sentencia, con);
-                comando.CommandType = CommandType.Text;
-                IDataReader lector = comando.ExecuteReader();
-                while (lector.Read())
-                {
-                    detalle.Add(new DetalleInscripcion(lector.GetInt64(0),
-                                                     MatriculaDAL.ObtenerPorId(lector.GetInt64(1)),
-                                                     ModuloDAL.ObtenerPorId(lector.GetInt64(2)),
-                                                     lector.GetDecimal(3),
-                                                     lector.GetDecimal(4),
-                                                     lector.GetDecimal(5),
-                                                     lector.GetDecimal(6),
-                                                     lector.GetDecimal(7),
-                                                     lector.GetDecimal(8),
-                                                     lector.GetInt64(9)));
-                }
-                con.Close();
-            }
-            return detalle;
-        }
         public int Modificar(DetalleInscripcion pDetalle)
         {
             int result = 0;

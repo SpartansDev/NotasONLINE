@@ -48,13 +48,6 @@ namespace AdminMVC.Controllers
         {
             return Json(DetalleBL.ObtenerPorId(pId), JsonRequestBehavior.AllowGet);
         }
-
-        [Authorize]
-        [HttpGet]
-        public JsonResult misAlumnos(Int64 pId)
-        {
-            return Json(bl.misALumnos(pId), JsonRequestBehavior.AllowGet);
-        }
         [Authorize]
         [HttpGet]
         public JsonResult eliminar(Int64 pId)

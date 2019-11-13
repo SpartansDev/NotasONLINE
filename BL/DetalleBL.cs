@@ -36,9 +36,5 @@ namespace BL
         {
             return dal.notasPorEstudianteId(pId);
         }
-        public List<DetalleInscripcion>misALumnos(Int64 pId)
-        {
-            return dal.MisAlumnos(pId);
-        }
     }
 }

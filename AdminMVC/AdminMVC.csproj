@@ -187,7 +187,6 @@
     <Content Include="Views\Estudiante\Index.cshtml" />
     <Content Include="Views\Modulo\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutProfe.cshtml" />
-    <Content Include="Views\Matricula\Matricula.cshtml" />
     <Content Include="Views\DetalleInscripcion\Notas.cshtml" />
     <Content Include="Views\Profesor\Perfil.cshtml" />
     <Content Include="Views\Administrador\Index.cshtml" />

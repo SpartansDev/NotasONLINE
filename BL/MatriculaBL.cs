@@ -23,6 +23,10 @@ namespace BL
         {
             return dal.ListarMatricula();
         }
+        public List<Matricula> misAlumnos(Int64 pId)
+        {
+            return dal.misAlumnos(pId);
+        }
         public static Matricula ObtenerPorId(Int64 pId)
         {
             return MatriculaDAL.ObtenerPorId(pId);
