@@ -190,6 +190,7 @@
     <Content Include="Views\DetalleInscripcion\Notas.cshtml" />
     <Content Include="Views\Profesor\Perfil.cshtml" />
     <Content Include="Views\Administrador\Index.cshtml" />
+    <Content Include="BaseDatos\NotasOnline.bak" />
     <None Include="Properties\PublishProfiles\admin.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
