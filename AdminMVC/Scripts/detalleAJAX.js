@@ -43,41 +43,47 @@ $(document).ready(function () {
 function agregar() {
     if (!($('#matricula').val() == '' || $('#modulo').val() == '' || $('#nota1').val() == '' || $('#nota2').val() == '' || $('#nota3').val() == '' ||
         $('#nota4').val() == '' || $('#nota5').val() == '' || $('#notafinal').val() == '' || $('#status').val() == '')) {
-        var obj = {
-            Id: $('#id').val(),
-            MatriculaId: { Id: $('#matricula').val(), Año: '', Ciclo: '', CarreraId: '', EstudianteId: '', GrupoId: '' },
-            ModuloId: { Id: $('#modulo').val(), NombreModulo: '', CarreraId: '', UV: '' },
-            Nota1: $('#nota1').val(),
-            Nota2: $('#nota2').val(),
-            Nota3: $('#nota3').val(),
-            Nota4: $('#nota4').val(),
-            Nota5: $('#nota4').val(),
-            NotaFinal: $('#notafinal').val(),
-            Status: $('#status').val()
-        }
-        var id = $('#id').val();
-        var ruta = '';
-        if (id) {
-            ruta = "/DetalleInscripcion/Modificar";
-        }
-        else {
-            ruta = "/DetalleInscripcion/Agregar";
-        }
-        $.ajax({
-            url: ruta,
-            type: 'POST',
-            contentType: 'application/json;charset=utf-8',
-            dataType: "json",
-            data: JSON.stringify(obj),
-            success: function (respuesta) {
-                limpiar();
-                toastr.success("Registro guardado");
-                mostrarInscripciones();
-            },
-            error: function (err) {
-                toastr.error('Error inesperado');
+        //verificar que nota no sea mayor a 10 o menor a 0
+        if ($('#nota1').val() >10 || $('#nota2').val() >10 || $('#nota3').val() >10 || $('#nota4').val() >10 || $('#nota5').val()>10||
+            $('#nota1').val()<0 || $('#nota2').val()<0 || $('#nota3').val()<0 || $('#nota4').val()<0 || $('#nota5').val()<0) {
+            toastr.warning("Verifica si no haz escrito numeros negativos o mayor a 10","Advertencia");
+        }else{
+            var obj = {
+                Id: $('#id').val(),
+                MatriculaId: { Id: $('#matricula').val(), Año: '', Ciclo: '', CarreraId: '', EstudianteId: '', GrupoId: '' },
+                ModuloId: { Id: $('#modulo').val(), NombreModulo: '', CarreraId: '', UV: '' },
+                Nota1: $('#nota1').val(),
+                Nota2: $('#nota2').val(),
+                Nota3: $('#nota3').val(),
+                Nota4: $('#nota4').val(),
+                Nota5: $('#nota4').val(),
+                NotaFinal: $('#notafinal').val(),
+                Status: $('#status').val()
             }
-        });
+            var id = $('#id').val();
+            var ruta = '';
+            if (id) {
+                ruta = "/DetalleInscripcion/Modificar";
+            }
+            else {
+                ruta = "/DetalleInscripcion/Agregar";
+            }
+            $.ajax({
+                url: ruta,
+                type: 'POST',
+                contentType: 'application/json;charset=utf-8',
+                dataType: "json",
+                data: JSON.stringify(obj),
+                success: function (respuesta) {
+                    limpiar();
+                    toastr.success("Registro guardado");
+                    mostrarInscripciones();
+                },
+                error: function (err) {
+                    toastr.error('Error inesperado');
+                }
+            });
+        }
     }
     else {
         toastr.warning("Todos los campos son requeridos");
