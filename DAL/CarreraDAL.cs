@@ -11,6 +11,7 @@ namespace DAL
 {
     public class CarreraDAL
     {
+        #region metodo para agregar
         public int Agregar(Carrera pCarrera)
         {
             int resultado = 0;
@@ -26,6 +27,9 @@ namespace DAL
             }
             return resultado;
         }
+        #endregion
+
+        #region metodo para modificar 
         public int Modificar(Carrera pCarrera)
         {
             int resultado = 0;
@@ -41,6 +45,9 @@ namespace DAL
             }
             return resultado;
         }
+        #endregion
+
+        #region metodo para mostrar los registro existentes
         public List<Carrera> ListarCarrera()
         {
             List<Carrera> lista = new List<Carrera>();
@@ -60,6 +67,9 @@ namespace DAL
             }
             return lista;
         }
+        #endregion
+
+        #region metodo para mostrar a detalle un registro
         public static Carrera ObtenerPorId(Int64 pId)
         {
             Carrera car = new Carrera();
@@ -81,5 +91,6 @@ namespace DAL
             }
             return car;
         }
+        #endregion
     }
 }

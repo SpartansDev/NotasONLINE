@@ -11,6 +11,7 @@ namespace DAL
 {
     public class GrupoDAL
     {
+        #region metodo para agregar
         public int Agregar(Grupo pGrupo)
         {
             int resultado = 0;
@@ -26,6 +27,9 @@ namespace DAL
             }
             return resultado;
         }
+        #endregion
+
+        #region metodo para modificar
         public int Modificar(Grupo pGrupo)
         {
             int resultado = 0;
@@ -45,10 +49,9 @@ namespace DAL
             }
             return resultado;
         }
+        #endregion
 
-
-        //metodo buscar
-
+        #region metodo para buscar por nombre grupo
         public List<Grupo> ObtenerGrupos(string pBuscar)
         {
             List<Grupo> lista = new List<Grupo>();
@@ -71,8 +74,10 @@ namespace DAL
                 con.Close();
             }
             return lista;
-        } 
+        }
+        #endregion
 
+        #region metodo para eliminar 
         public int Eliminar(Int64 pId)
         {
             int result = 0;
@@ -88,6 +93,10 @@ namespace DAL
             }
             return result;
         }
+
+        #endregion
+
+        #region metodo para mostrar a detalle un registro
         public static Grupo ObtenerPorId(Int64 pId)
         {
             Grupo grupo = new Grupo();
@@ -111,6 +120,9 @@ namespace DAL
             }
             return grupo;
         }
+        #endregion
+
+        #region metodo para mostrar los resgitros existentes
         public List<Grupo>ListarGrupos()
         {
             List<Grupo> grupo = new List<Grupo>();
@@ -133,5 +145,6 @@ namespace DAL
             }
             return grupo;
         }
+        #endregion
     }
 }

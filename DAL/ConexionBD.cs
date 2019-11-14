@@ -9,7 +9,7 @@ namespace DAL
 {
     public class ConexionBD
     {
-        public static string cadena = @"Data Source=.;Initial Catalog=NotasOnline;Integrated Security=True";
+        private static string cadena = @"Data Source=.;Initial Catalog=NotasOnline;Integrated Security=True";
         public static SqlConnection Conectar()
         {
             return new SqlConnection(cadena);

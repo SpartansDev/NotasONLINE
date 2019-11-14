@@ -10,6 +10,7 @@ namespace DAL
 {
     public class ProfesorDAL
     {
+        #region metodo para agregar
         public int Agregar(Profesor pProfesor)
         {
             int resultado = 0;
@@ -25,6 +26,9 @@ namespace DAL
             }
             return resultado;
         }
+        #endregion
+
+        #region metodo para modificar
         public int Modificar(Profesor pProfesor)
         {
             int resultado = 0;
@@ -40,6 +44,9 @@ namespace DAL
             }
             return resultado;
         }
+        #endregion
+
+        #region metodo para mostrar datos existentes
         public List<Profesor>ListarProfesores()
         {
             List<Profesor> lista = new List<Profesor>();
@@ -62,7 +69,9 @@ namespace DAL
             }
             return lista;
         }
+        #endregion
 
+        #region metodo para ver a detalle un registro
         public static Profesor ObtenerPorId(Int64 pId)
         {
             Profesor profe = new Profesor();
@@ -86,6 +95,9 @@ namespace DAL
             }
             return profe;
         }
+        #endregion
+
+        #region metodo para loguear
         public Profesor Login(Profesor pProfesor)
         {
             Profesor _profe = new Profesor();
@@ -120,6 +132,9 @@ namespace DAL
                 return _profe;
             }
         }
+        #endregion
+
+        #region metodo para verificar que no se repita el correo
         public int ProfesorNoExiste(Profesor pProfesor)
         {
             int _profe = 0;
@@ -143,5 +158,6 @@ namespace DAL
                 return _profe;
             }
         }
+        #endregion
     }
 }

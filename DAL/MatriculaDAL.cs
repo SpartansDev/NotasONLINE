@@ -11,6 +11,33 @@ namespace DAL
 {
     public class MatriculaDAL
     {
+        #region metodo que verifica que la matricula no se repita
+        public int matriculaNoExist(Matricula pMatricual)
+        {
+            int result = 0;
+            using (SqlConnection con = ConexionBD.Conectar())
+            {
+                con.Open();
+                string ssql = "select * from Matriculas where Ciclo='{0}'";
+                string sentencia = string.Format(ssql, pMatricual.Ciclo);
+                SqlCommand comando = new SqlCommand(sentencia, con);
+                comando.CommandType = CommandType.Text;
+                IDataReader lector = comando.ExecuteReader();
+                if (lector.Read())
+                {
+                    result = 1;
+                }
+                else
+                {
+                    result = 0;
+                }
+                con.Close();
+            }
+            return result;
+        }
+        #endregion
+
+        #region metodo para guardar
         public int Agregar(Matricula pMatricula)
         {
             int resultado = 0;
@@ -26,6 +53,9 @@ namespace DAL
             }
             return resultado;
         }
+        #endregion
+
+        #region metodo para modificar
         public int Modificar(Matricula pMatricula)
         {
             int resultado = 0;
@@ -45,6 +75,9 @@ namespace DAL
             }
             return resultado;
         }
+        #endregion
+
+        #region metodo para mostrar todas las matriculas existentes
         public List<Matricula> ListarMatricula()
         {
             List<Matricula> lista = new List<Matricula>();
@@ -68,6 +101,9 @@ namespace DAL
             }
             return lista;
         }
+        #endregion
+
+        #region metodo para obtener a detalle un registro
         public static Matricula ObtenerPorId(Int64 pId)
         {
             Matricula matricula = new Matricula();
@@ -92,6 +128,9 @@ namespace DAL
             }
             return matricula;
         }
+        #endregion
+
+        #region metodo para mostrar los alumnos que estan en el grupo que el profesor esta encargado
         public List<Matricula> misAlumnos(Int64 pId)
         {
             List<Matricula> lista = new List<Matricula>();
@@ -116,5 +155,6 @@ namespace DAL
             }
             return lista;
         }
+        #endregion
     }
 }

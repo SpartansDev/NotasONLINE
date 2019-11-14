@@ -11,6 +11,7 @@ namespace DAL
 {
     public class DetalleDAL
     {
+        #region metodo para agregar
         public int Agregar(DetalleInscripcion pDetalle)
         {
             int result = 0;
@@ -27,6 +28,9 @@ namespace DAL
             }
             return result;
         }
+        #endregion
+
+        #region metodo para modificar
         public int Modificar(DetalleInscripcion pDetalle)
         {
             int result = 0;
@@ -43,7 +47,8 @@ namespace DAL
                                                             NotaFinal={7},
                                                             Status={8}
                                                             where Id={9}";
-                string sentencia = string.Format(ssql, pDetalle.MatriculaId.Id, pDetalle.ModuloId.Id, pDetalle.Nota1, pDetalle.Nota2, pDetalle.Nota3, pDetalle.Nota4, pDetalle.Nota5, pDetalle.NotaFinal, pDetalle.Status, pDetalle.Id);
+                string sentencia = string.Format(ssql, pDetalle.MatriculaId.Id, pDetalle.ModuloId.Id, pDetalle.Nota1, pDetalle.Nota2, 
+                                                 pDetalle.Nota3, pDetalle.Nota4, pDetalle.Nota5, pDetalle.NotaFinal, pDetalle.Status, pDetalle.Id);
                 SqlCommand comando = new SqlCommand(sentencia, con);
                 comando.CommandType = CommandType.Text;
                 result = comando.ExecuteNonQuery();
@@ -51,6 +56,9 @@ namespace DAL
             }
             return result;
         }
+        #endregion
+
+        #region metodo para mostrar registros existentes
         public List<DetalleInscripcion>ListaDetalles()//para admin
         {
             List<DetalleInscripcion> lista = new List<DetalleInscripcion>();
@@ -78,6 +86,9 @@ namespace DAL
             }
             return lista;
         }
+        #endregion
+
+        #region metodo para ver a detalle un registro
         public static DetalleInscripcion obtenerPorId(Int64 pId)
         {
             DetalleInscripcion detalle = new DetalleInscripcion();
@@ -106,7 +117,9 @@ namespace DAL
             }
             return detalle;
         }
+        #endregion
 
+        #region metodo para que el alumno vea sus notas
         public List<DetalleInscripcion>notasPorEstudianteId(Int64 pId)//para alumno
         {
             List<DetalleInscripcion> lista = new List<DetalleInscripcion>();
@@ -136,6 +149,9 @@ namespace DAL
             }
             return lista;
         }
+        #endregion
+
+        #region metodo para eliminar un registro
         public int eliminar(Int64 pId)//admin
         {
             int resultado = 0;
@@ -151,5 +167,6 @@ namespace DAL
             }
             return resultado;
         }
+        #endregion
     }
 }

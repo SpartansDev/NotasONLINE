@@ -11,6 +11,7 @@ namespace DAL
 {
     public class EstudianteDAL
     {
+        #region metodo para verificar que el codigo no se repita
         public int codigoNoExist(Estudiante pEstudiante)
         {
             int result = 0;
@@ -33,6 +34,9 @@ namespace DAL
             }
             return result;
         }
+        #endregion
+
+        #region metodo para agregar
         public int Agregar(Estudiante pEstudiante)
         {
             int resultado = 0;
@@ -48,6 +52,9 @@ namespace DAL
             }
             return resultado;
         }
+        #endregion
+
+        #region metodo para modificar
         public int Modificar(Estudiante pEstudiante)
         {
             int resultado = 0;
@@ -63,6 +70,9 @@ namespace DAL
             }
             return resultado;
         }
+        #endregion
+
+        #region metodo para mostrar los registros existentes
         public List<Estudiante> ListarEstudiante()
         {
             List<Estudiante> lista = new List<Estudiante>();
@@ -86,6 +96,9 @@ namespace DAL
             }
             return lista;
         }
+        #endregion
+
+        #region metodo para mostrar a detalle un registro
         public static Estudiante ObtenerPorId(Int64 pId)
         {
             Estudiante estud = new Estudiante();
@@ -110,8 +123,9 @@ namespace DAL
             }
             return estud;
         }
+        #endregion
 
-
+        #region metodo para buscar un resgistro por nombre o codigo
         //buscar
         public List<Estudiante> ObtenerPorEstudiante(string pBuscar)
         {
@@ -137,7 +151,9 @@ namespace DAL
             }
             return lista;
         }
+        #endregion
 
+        #region metodo para loguear
         public Estudiante Login(Estudiante pEstudiante)
         {
             Estudiante BE = new Estudiante();
@@ -173,5 +189,6 @@ namespace DAL
                 return BE;
             }
         }
+        #endregion
     }
 }

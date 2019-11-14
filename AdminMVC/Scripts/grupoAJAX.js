@@ -7,6 +7,17 @@ $("#formulario").submit(function (event) {
     guardar();
 });
 
+function capturarTexto() {
+    var pBuscar = $("#grupos").val();
+    if (pBuscar == "") {
+        cargarGrupos();
+    }
+    else {
+        buscar(pBuscar);
+    }
+
+}
+
 function cargarProfesor() {
     $.ajax({
         url: "/Profesor/Mostrar",
@@ -71,17 +82,6 @@ function cargarGrupos() {
             toastr.error("Ocurrió un error, no se pudo completar la solicitud");
         }
     })
-}
-
-function inicio() {
-    var pBuscar = $("#grupos").val();
-    if (pBuscar == "") {
-        mostrarGrupo();//// 
-    }
-    else {
-        buscar(pBuscar);
-    }
-
 }
 
 //buscar

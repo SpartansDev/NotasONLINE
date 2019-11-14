@@ -11,6 +11,7 @@ namespace DAL
 {
     public class AdministradorDAL
     {
+        #region metodo para guardar
         public int Agregar(Administrador pAdmin)
         {
             int result = 0;
@@ -26,6 +27,9 @@ namespace DAL
             }
             return result;
         }
+        #endregion
+
+        #region metodo para modificar
         public int Modificar(Administrador pAdmin)
         {
             int result = 0;
@@ -45,6 +49,9 @@ namespace DAL
             }
             return result;
         }
+        #endregion
+
+        #region metodo para mostrar los administradores existentes
         public List<Administrador>ListarAdmin()
         {
             List<Administrador> lista = new List<Administrador>();
@@ -67,6 +74,9 @@ namespace DAL
             }
             return lista;
         }
+        #endregion
+
+        #region metodo para eliminar a un admin
         public int Eliminar(Int64 pId)
         {
             int result = 0;
@@ -82,7 +92,9 @@ namespace DAL
             }
             return result;
         }
+        #endregion
 
+        #region metodo para obtener a detalle un registro
         public static Administrador obetenerPorId(Int64 pId)
         {
             Administrador _admin = new Administrador();
@@ -105,7 +117,9 @@ namespace DAL
             }
             return _admin;
         }
+        #endregion
 
+        #region metodo de login 
         public Administrador Login(Administrador pAdmin)
         {
             Administrador BE = new Administrador();
@@ -140,6 +154,9 @@ namespace DAL
                 return BE;
             }
         }
+        #endregion
+
+        #region verificar que el correo no se repita
         public int EmailNoExist(Administrador pAdmin)
         {
             int result = 0;
@@ -163,6 +180,9 @@ namespace DAL
             }
             return result;
         }
+        #endregion
+
+        #region metodo que activa o desactiva el boton de registro en el login de admin
         public int adminNoExist()
         {
             int result = 0;
@@ -185,5 +205,6 @@ namespace DAL
             }
             return result;
         }
+        #endregion
     }
 }

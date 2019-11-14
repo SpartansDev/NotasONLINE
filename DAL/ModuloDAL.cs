@@ -11,6 +11,7 @@ namespace DAL
 {
     public class ModuloDAL
     {
+        #region metodo para agregar
         public int Agregar(Modulo pModulo)
         {
             int resultado = 0;
@@ -26,6 +27,9 @@ namespace DAL
             }
             return resultado;
         }
+        #endregion
+
+        #region metodo para modificar
         public int Modificar(Modulo pModulo)
         {
             int resultado = 0;
@@ -41,6 +45,9 @@ namespace DAL
             }
             return resultado;
         }
+        #endregion
+
+        #region metodo para mostrar resgitros existentes
         public List<Modulo> ListarModulo()
         {
             List<Modulo> lista = new List<Modulo>();
@@ -62,9 +69,9 @@ namespace DAL
             }
             return lista;
         }
+        #endregion
 
-        //metodo buscar
-
+        #region metodo para buscar por nombre
         public List<Modulo> ObtenerPorModulo(string pBuscar)
         {
             List<Modulo> lista = new List<Modulo>();
@@ -87,7 +94,9 @@ namespace DAL
             }
             return lista;
         }
+        #endregion
 
+        #region metodo para ver a detalle un registro
         public static Modulo ObtenerPorId(Int64 pId)
         {
             Modulo mod = new Modulo();
@@ -111,5 +120,6 @@ namespace DAL
             }
             return mod;
         }
+        #endregion
     }
 }
