@@ -36,6 +36,12 @@ function cargarEstudiante() {
                 html += '<td>' + item.ApellidoEstudiante + '</td>';
                 html += '<td>' + item.Codigo + '</td>';
                 html += '<td>' + item.CarreraId.NombreCarrera + '</td>';
+                if (item.StatusStudent == 1) {
+                    html += '<td>Activo</td>';
+                }
+                else {
+                    html += '<td>Inactivo</td>';
+                }
                 html += '<td>';
                 html += '<a href="#" onclick="detalle(' + item.Id + ')" class="badge badge-danger" data-toggle="modal" data-target="#modalModificar">Modificar</a> | | ';
                 html += '<a href="#" onclick="detalleMatricula(' + item.Id + ')" class="badge badge-danger" data-toggle="modal" data-target="#modalMatricula">Matricular</a>';
