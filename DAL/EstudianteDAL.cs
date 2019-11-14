@@ -43,8 +43,8 @@ namespace DAL
             using (SqlConnection con = ConexionBD.Conectar())
             {
                 con.Open();
-                string ssql = "insert into Estudiantes(NombreEstudiante, ApellidoEstudiante, Codigo, CarreraId,Contraseña)values('{0}','{1}','{2}',{3},'{4}')";
-                string sentencia = string.Format(ssql, pEstudiante.NombreEstudiante, pEstudiante.ApellidoEstudiante, pEstudiante.Codigo, pEstudiante.CarreraId.Id, pEstudiante.Contraseña);
+                string ssql = "insert into Estudiantes(NombreEstudiante, ApellidoEstudiante, Codigo, CarreraId,Contraseña, StatusStudent)values('{0}','{1}','{2}',{3},'{4}',{5})";
+                string sentencia = string.Format(ssql, pEstudiante.NombreEstudiante, pEstudiante.ApellidoEstudiante, pEstudiante.Codigo, pEstudiante.CarreraId.Id, pEstudiante.Contraseña, pEstudiante.StatusStudent);
                 SqlCommand comando = new SqlCommand(sentencia, con);
                 comando.CommandType = CommandType.Text;
                 resultado = comando.ExecuteNonQuery();
@@ -61,7 +61,7 @@ namespace DAL
             using (SqlConnection con = ConexionBD.Conectar())
             {
                 con.Open();
-                string ssql = "update Estudiantes set NombreEstudiante='{0}', ApellidoEstudiante='{1}', Codigo='{2}',CarreraId='{3}', Contraseña='{4}' where Id={5}";
+                string ssql = "update Estudiantes set NombreEstudiante='{0}', ApellidoEstudiante='{1}', Codigo='{2}',CarreraId='{3}', Contraseña='{4}', StatusStudent {6} where Id={7}";
                 string sentencia = string.Format(ssql, pEstudiante.NombreEstudiante, pEstudiante.ApellidoEstudiante, pEstudiante.Codigo, pEstudiante.CarreraId.Id, pEstudiante.Contraseña, pEstudiante.Id);
                 SqlCommand comando = new SqlCommand(sentencia, con);
                 comando.CommandType = CommandType.Text;
@@ -90,7 +90,8 @@ namespace DAL
                                            lector.GetString(2),
                                            lector.GetString(3),
                                            CarreraDAL.ObtenerPorId(lector.GetInt64(4)),
-                                           lector.GetString(5)));
+                                           lector.GetString(5),
+                                           lector.GetInt64(6)));
                 }
                 con.Close();
             }
@@ -118,6 +119,7 @@ namespace DAL
                     estud.Codigo = lector.GetString(3);
                     estud.CarreraId = CarreraDAL.ObtenerPorId(lector.GetInt64(4));
                     estud.Contraseña = lector.GetString(5);
+                    estud.StatusStudent = lector.GetInt64(5);
                 }
                 con.Close();
             }
@@ -145,7 +147,8 @@ namespace DAL
                                              reader.GetString(2), 
                                              reader.GetString(3), 
                                              CarreraDAL.ObtenerPorId(reader.GetInt64(4)), 
-                                             reader.GetString(5)));
+                                             reader.GetString(5),
+                                             reader.GetInt64(6)));
                 }
                 con.Close();
             }
@@ -175,6 +178,7 @@ namespace DAL
                         BE.Codigo = lector.GetString(3);
                         BE.CarreraId = CarreraDAL.ObtenerPorId(lector.GetInt64(4));
                         BE.Contraseña = lector.GetString(5);
+                        BE.StatusStudent = lector.GetInt64(6);
                     }
                     else
                     {

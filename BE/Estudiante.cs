@@ -14,11 +14,12 @@ namespace BE
         public string Codigo { get; set; }
         public Carrera CarreraId { get; set; }
         public string Contraseña { get; set; }
+        public Int64 StatusStudent { get; set; }
 
 
         public Estudiante() { }
 
-        public Estudiante(Int64 pId,string pNombre, string pApellido, string pCodigo, Carrera pCarrera, string pContraseña)
+        public Estudiante(Int64 pId,string pNombre, string pApellido, string pCodigo, Carrera pCarrera, string pContraseña, Int64 pStatusStudent)
         {
             Id = pId;
             NombreEstudiante = pNombre;
@@ -26,6 +27,7 @@ namespace BE
             Codigo = pCodigo;
             CarreraId = pCarrera;
             Contraseña = pContraseña;
+            StatusStudent = pStatusStudent; 
         }
     }
 }

@@ -39,6 +39,7 @@ function cargarStudent() {
                 html += '<td>' + item.ApellidoEstudiante + '</td>';
                 html += '<td>' + item.Codigo + '</td>';
                 html += '<td>' + item.CarreraId.NombreCarrera + '</td>';
+                html += '<td>' + item.StatusStudent + '</td>';
                 html += '<td>';
                 html += '<a href="#" onclick="detalle(' + item.Id + ')" class="badge badge-danger" data-toggle="modal" data-target="#modalModificar">Modificar</a> | | ';
                 html += '<a href="#" onclick="detalleMatricula(' + item.Id + ')" class="badge badge-danger" data-toggle="modal" data-target="#modalMatricula">Matricular</a>';
@@ -83,6 +84,7 @@ function buscar(pBuscar) {
                 html += '<td>' + item.ApellidoEstudiante + '</td>';
                 html += '<td>' + item.Codigo + '</td>';
                 html += '<td>' + item.CarreraId.NombreCarrera + '</td>';
+                html += '<td>' + item.StatusStudent + '</td>';
                 html += '<td>';
                 html += '<a href="#" onclick="detalle(' + item.Id + ')" class="badge badge-danger" data-toggle="modal" data-target="#modalModificar">Modificar</a> | | ';
                 html += '<a href="#" onclick="detalleMatricula(' + item.Id + ')" class="badge badge-danger" data-toggle="modal" data-target="#modalMatricula">Matricular</a>';
@@ -100,14 +102,15 @@ function buscar(pBuscar) {
 };
 
 function VerificarNoExiste() {
-    if (!($('#nombre').val() == "" || $('#apellido').val() == "" || $('#codigo').val() == "" || $('#carrera').val() == "" || $('#pass').val() == "")) {
+    if (!($('#nombre').val() == "" || $('#apellido').val() == "" || $('#codigo').val() == "" || $('#carrera').val() == "" || $('#pass').val() == "" || $('#statusstudent').val() == "")) {
         var obj = {
             Id: $('#id').val(),
             NombreEstudiante: $('#nombre').val(),
             ApellidoEstudiante: $('#apellido').val(),
             Codigo: $('#codigo').val(),
             CarreraId: { Id: $('#carrera').val(), NombreCarrera: '' },
-            Contraseña: $('#pass').val()
+            Contraseña: $('#pass').val(),
+            StatusStudent: $('#statusstudent').val()
         }
         $.ajax({
             url: "/Estudiante/CodigoNoExist",
@@ -164,6 +167,7 @@ function detalle(id) {
             $('#mcodigo').val(data.Codigo);
             $('#mcarrera').val(data.CarreraId.Id);
             Contraseña: $('#mpass').val(data.Contraseña);
+            $('#mstatuss').val(data.StatusStudent);
         },
         error: function (err) {
             toastr.error("No se pudo completar");
@@ -184,6 +188,7 @@ function detalleMatricula(id) {
             $("#lciclo").val("");
             $("#lcarrera").val("");
             $("#lgrupo").val("");
+            $("#lstatus").val("");
         },
         error: function (err) {
             toastr.error("No se pudo completar la solicitud");
@@ -192,14 +197,15 @@ function detalleMatricula(id) {
 }
 
 function Guardar() {
-    if (!($('#nombre').val() == "" || $('#apellido').val() == "" || $('#codigo').val() == "" || $('#carrera').val() == "" || $('#pass').val() == "")) {
+    if (!($('#nombre').val() == "" || $('#apellido').val() == "" || $('#codigo').val() == "" || $('#carrera').val() == "" || $('#pass').val() == "" || $('#statusstudent').val() == "")) {
         var obj = {
             Id: $('#id').val(),
             NombreEstudiante: $('#nombre').val(),
             ApellidoEstudiante: $('#apellido').val(),
             Codigo: $('#codigo').val(),
             CarreraId: { Id: $('#carrera').val(), NombreCarrera: '' },
-            Contraseña: $('#pass').val()
+            Contraseña: $('#pass').val(),
+            StatusStudent: $('#statusstudent').val()
         }
         $.ajax({
             url: "/Estudiante/Agregar",
@@ -228,14 +234,15 @@ function Guardar() {
 }
 
 function Modificar() {
-    if (!($('#mnombre').val() == "" || $('#mapellido').val() == "" || $('#mcodigo').val() == "" || $('#mcarrera').val() == "" || $('#mpass').val() == "")) {
+    if (!($('#mnombre').val() == "" || $('#mapellido').val() == "" || $('#mcodigo').val() == "" || $('#mcarrera').val() == "" || $('#mpass').val() == "" || $('#mstatuss').val() == "")) {
         var obj = {
             Id: $('#mid').val(),
             NombreEstudiante: $('#mnombre').val(),
             ApellidoEstudiante: $('#mapellido').val(),
             Codigo: $('#mcodigo').val(),
             CarreraId: { Id: $('#mcarrera').val(), NombreCarrera: '' },
-            Contraseña: $('#mpass').val()
+            Contraseña: $('#mpass').val(),
+            StatusStudent: $('#mstatuss').val(),
         };
         $.ajax({
             url: "/Estudiante/Modificar",
@@ -329,12 +336,14 @@ function limpiar() {
     $('#carrera').val('-1');
     $('#codigo').val('');
     $('#pass').val('');
+    $('#statusstudent').val('');
     $('#mid').val('');
     $('#mnombre').val('');
     $('#mapellido').val('');
     $('#mcarrera').val('-1');
     $('#mcodigo').val('');
     $('#mpass').val('');
+    $('#mstatuss').val('');
     $("#lid").val('');
     $("#laño").val('');
     $("#lciclo").val('');
@@ -342,6 +351,7 @@ function limpiar() {
     $('#lestudiante').val('');
     $("#lgrupo").val('-1');
     $('#lnombre').val('');
+    $('#lstatus').val('');
 }
 
 function guardarMatricula() {
@@ -352,7 +362,8 @@ function guardarMatricula() {
             Ciclo: $("#lciclo").val(),
             CarreraId: { Id: $("#lcarrera").val(), NombreCarrera: '' },
             EstudianteId: { Id: $('#lestudiante').val(), NombreEstudiante: '', ApellidoEsdudiante: '', Codigo: '', CarreraId: '', Contraseña: '' },
-            GrupoId: { Id: $("#lgrupo").val(), NombreGrupo: '', Turno: '', CarreraId: '', ProfesorId: '' }
+            GrupoId: { Id: $("#lgrupo").val(), NombreGrupo: '', Turno: '', CarreraId: '', ProfesorId: '' },
+            StatusStudent: $("#lstatus").val(),
         }
         $.ajax({
             url: "/Matricula/Agregar",
