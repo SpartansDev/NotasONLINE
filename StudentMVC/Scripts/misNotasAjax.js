@@ -17,7 +17,7 @@
             dataType: "json",
             success: function (data) {
                 var html = "";
-                html += "<label>" + data.NombreEstudiante + " " + data.ApellidoEstudiante + "</label>";
+                html += "<strong>" + data.NombreEstudiante + " " + data.ApellidoEstudiante + "</strong>";
                 html += "<br>";
                 $("#DatosPersonales div").append(html);
             },
