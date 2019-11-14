@@ -77,5 +77,14 @@ namespace AdminMVC.Controllers
             return RedirectToAction("Index");
         }
 
+
+        //estudiante activo
+        [Authorize]
+        [HttpGet]
+        public JsonResult alumnosActivo()
+        {
+            return Json(bl.estudiantesActivo(), JsonRequestBehavior.AllowGet);
+        }
+
     }
 }

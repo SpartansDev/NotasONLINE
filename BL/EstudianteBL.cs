@@ -40,5 +40,13 @@ namespace BL
         {
             return dal.Login(pEstudiante);
         }
+
+
+        //////////////////////////////////////estudiante activo///////////////////
+
+        public List<Estudiante> estudiantesActivo()
+        {
+            return dal.EstudianteActivo();
+        }
     }
 }

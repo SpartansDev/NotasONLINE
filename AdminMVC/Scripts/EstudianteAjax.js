@@ -24,7 +24,7 @@ $('#formularioModificar').submit(function (event) {
     Modificar();
 });
 
-function cargarStudent() {
+function cargarEstudiante() {
     $.ajax({
         url: "/Estudiante/Mostrar",
         type: "GET",

@@ -194,5 +194,33 @@ namespace DAL
             }
         }
         #endregion
+
+        #region metodo para mostrar los estudiantes activos
+        public List<Estudiante> EstudianteActivo()
+        {
+            List<Estudiante> lista = new List<Estudiante>();
+            using (SqlConnection con = ConexionBD.Conectar())
+            {
+                con.Open();
+                string ssql = "select * from Estudiantes where StatusStudent = 1";
+                SqlCommand comando = new SqlCommand(ssql, con);
+                comando.CommandType = CommandType.Text;
+                IDataReader lector = comando.ExecuteReader();
+                while (lector.Read())
+                {
+                    lista.Add(new Estudiante(lector.GetInt64(0),
+                                           lector.GetString(1),
+                                           lector.GetString(2),
+                                           lector.GetString(3),
+                                           CarreraDAL.ObtenerPorId(lector.GetInt64(4)),
+                                           lector.GetString(5),
+                                           lector.GetInt64(6)));
+                }
+                con.Close();
+            }
+            return lista;
+        }
+        #endregion
+
     }
 }
