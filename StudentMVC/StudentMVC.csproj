@@ -143,6 +143,7 @@
     <Content Include="Scripts\misNotasAjax.js" />
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\ScrollEventJquery.js" />
     <Content Include="Scripts\toastr.js" />
     <Content Include="Scripts\toastr.min.js" />
     <Content Include="Scripts\umd\popper-utils.js" />

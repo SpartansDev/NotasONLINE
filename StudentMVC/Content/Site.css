@@ -56,6 +56,8 @@ textarea {
     font-size: 28px;
     font-weight: 700;
     line-height: 33.6px;
+    margin-top: 3%;
+    margin-left: 2%;
 }
 
 .advice{
@@ -178,6 +180,30 @@ textarea {
         font-weight: 600;
         margin-right: 5px;
     }
+
+    .logo-esfe {
+        position: fixed;
+        left: 4%;
+        top: 3%;
+        max-height: 10%;
+        z-index: 3;
+    }
+
+    .logo-agape {
+        position: fixed;
+        top: 3%;
+        left: 85%;
+        max-height: 9%;
+        z-index: 3;
+    }
+
+    .titulo-esfe{
+        position: fixed;
+        top: 2%;
+        left: 25%;
+        font-size: 25px;
+        line-height: 30px;
+    }
 }
 
 @media(max-width: 576px){
@@ -229,6 +255,7 @@ textarea {
         left: 25%;
         font-size: 15px;
         line-height: 20px;
+        z-index: 3;
     }
 }
 
