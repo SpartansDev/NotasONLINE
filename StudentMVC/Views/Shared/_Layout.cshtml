@@ -16,28 +16,49 @@
     <link href="~/Content/toastr.min.css" rel="stylesheet" />
 </head>
 <body>
+    <div class="navbar baner-esfe">
+        <div class="container">
+            <div class="container" id="containerNoflex">
+                <div class="row">
+                    <div class="col-sm-2 col-md-2 col-lg-2">
+                        <img src="~/Content/Images/esfe.png" alt="Logo-esfe" class="logo-esfe" />
+                    </div>
+                    <div class="col-sm-1 col-md-9 col-lg-9">
+                        <div class="titulo-esfe">
+                            Escuela Superior Franciscana Especializada/AGAPE
+                        </div>
+                    </div>
+                    <div class="col-sm-1 col-md-1 col-lg-1">
+                        <img src="~/Content/Images/voyagape.png" alt="Logo-agape" class="logo-agape" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="navbar navbar-dark bg-esfe">
-        <img src="~/Content/Images/esfe.png" alt="Logo-esfe" class="logo-esfe" />
+        
         <div class="frame-nav">
 
             <header>
                 <div class="menu_bar">
                     <a href="#" class="btn-menu"><span class="icon-menu"></span></a>
                 </div>
-
-                <nav>
-                    <ul>
-                        @if (Request.IsAuthenticated)
-                        {
-                            <li><a href="/Home/Notas"><span class="icon-user"></span>Notas</a></li>
-                            <li><a href="/Home/Cerrar"><span class="icon-switch"></span>Cerrar</a></li>
-                        }
-                        else
-                        {
-                            <li><a href="/Home/Index"><span class="icon-home3"></span>INICIAR SESION</a></li>
-                        }
-                    </ul>
-                </nav>
+                <div class="container-fluid">
+                    <nav>
+                        <ul>
+                            @if (Request.IsAuthenticated)
+                            {
+                                <li><a href="/Home/Notas"><span class="icon-user"></span>Notas</a></li>
+                                <li><a href="/Home/Cerrar"><span class="icon-switch"></span>Cerrar</a></li>
+                            }
+                            else
+                            {
+                                <li><a href="/Home/Index"><span class="icon-home3"></span>INICIAR SESION</a></li>
+                            }
+                        </ul>
+                    </nav>
+                </div>
             </header>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav"></ul>
@@ -49,7 +70,7 @@
         @RenderBody()
     </div>
     <br /><br /><br /><br />
-    <footer class="text-white bg-esfe">
+    <footer class="text-white footer-esfe">
         <div class="container">
             <p>&copy; @DateTime.Now.Year ESCUELA SUPERIOR FRANCISCANA ESPECIALIZADA / AGAPE. ALL RIGHTS RESERVED</p>
         </div>

@@ -108,6 +108,7 @@
     <Content Include="Content\Images\Logo-ESFE.png" />
     <Content Include="Content\Images\Logo_esfe_sombra_blanca.jpg" />
     <Content Include="Content\Images\studybg.jpg" />
+    <Content Include="Content\Images\voyagape.png" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\Style.css" />
     <Content Include="Content\toastr.css" />
