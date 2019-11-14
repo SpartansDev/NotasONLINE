@@ -24,10 +24,10 @@ function mostrarMatriculas() {
             $.each(data, function (key, item) {
                 html += '<tr>';
                 html += '<td>' + item.Id + '</td>';
+                html += '<td>' + item.EstudianteId.NombreEstudiante + ' ' + item.EstudianteId.ApellidoEstudiante + '</td>';
                 html += '<td>' + item.Año+ '</td>';
                 html += '<td>' + item.Ciclo + '</td>';
                 html += '<td>' + item.CarreraId.NombreCarrera + '</td>';
-                html += '<td>' + item.EstudianteId.NombreEstudiante+ '</td>';
                 html += '<td>' + item.GrupoId.NombreGrupo + '</td>';
                 html += '<td>';
                 html += '<a href="#" onclick="detalleMatricula(' + item.Id + ')" class="badge badge-danger" data-toggle="modal" data-target="#modalModificar">Modificar</a>';
@@ -144,7 +144,7 @@ function limpiarFormulario() {
     $('#maño').val('');
     $('#mciclo').val('');
     $('#mcarrera').val(-1);
-    $('#mestudiante').val(-1);
+    $('#mestudiante').val('');
     $('#mgrupo').val('');
 }
 
