@@ -11,6 +11,10 @@ namespace BL
     public class MatriculaBL
     {
         MatriculaDAL dal = new MatriculaDAL();
+        public int verificar(Matricula pMatricual)
+        {
+            return dal.matriculaNoExist(pMatricual);
+        }
         public int Agregar(Matricula pMatricula)
         {
             return dal.Agregar(pMatricula);

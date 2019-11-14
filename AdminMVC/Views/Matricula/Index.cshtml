@@ -12,7 +12,7 @@
                 Crear Nueva Matricula
             </button>
         </div>
-        <!--modal-->
+        <!--modal agregar-->
         <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -63,6 +63,61 @@
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--modal modificar-->
+<div class="modal fade" id="modalModificar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Modificar Matricula</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <div id="" class="">
+                    <form id="frmMatriculaModificar">
+                        <input type="hidden" name="Id" id="mid" />
+                        <div class="form-group">
+                            <label>Año:</label>
+                            <input type="date" id="maño" name="Año" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label>Ciclo:</label>
+                            <input type="text" id="mciclo" name="Ciclo" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label>Carrera:</label>
+                            <select id="mcarrera" name="CarreraId" class="form-control">
+                                <option value="-1">Selecciona una Carrera</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Estudiante:</label>
+                            <select id="mestudiante" name="EstudianteId" class="form-control">
+                                <option value="-1">Selecciona un Alumno</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Grupo:</label>
+                            <select id="mgrupo" name="GrupoId" class="form-control">
+                                <option value="-1">Selecciona un Grupo</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" id="btnGuardar" value="Guardar Registro" class="btn btn-outline-primary" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
             </div>
         </div>
     </div>

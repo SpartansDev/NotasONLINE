@@ -33,6 +33,12 @@ namespace AdminMVC.Controllers
         {
             return Json(bl.Modificar(pMatricula), JsonRequestBehavior.AllowGet);
         }
+
+        [HttpPost]
+        public JsonResult verificar(Matricula pMatricula)
+        {
+            return Json(bl.verificar(pMatricula), JsonRequestBehavior.AllowGet);
+        }
         [Authorize]
         [HttpGet]
         public JsonResult ObtenerPorId(Int64 pId)
