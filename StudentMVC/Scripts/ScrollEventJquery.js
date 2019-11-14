@@ -6,7 +6,7 @@ $(window).scroll(function (event) {
         document.getElementById("nav").style.display = "none"
     } else {
         // upscroll code
-        document.getElementById("nav").style.display = "inline-block"
+        document.getElementById("nav").style.display = "flex"
     }
     lastScrollTop = st;
 });
