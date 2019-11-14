@@ -119,7 +119,7 @@ namespace DAL
                     estud.Codigo = lector.GetString(3);
                     estud.CarreraId = CarreraDAL.ObtenerPorId(lector.GetInt64(4));
                     estud.Contraseña = lector.GetString(5);
-                    estud.StatusStudent = lector.GetInt64(5);
+                    estud.StatusStudent = lector.GetInt64(6);
                 }
                 con.Close();
             }

@@ -1,15 +1,12 @@
-﻿$(function () {
-    cargarStudent();
-    cargarGrupos();
-    obtenerCarreraGuardar();
-    //obtenerCarreraMatricula();
-    //obtenerCarreraModificar();
-});
+﻿obtenerCarreras();
+cargarEstudiante();
+cargarGrupos();
+
 
 //Funcion de modal matricular estudiante
 $('#matricula').submit(function (event) {
     event.preventDefault();
-    guardarMatricula();
+    verificarMatricula();
 });
 
 //Funcion de modal guardar estudiante
@@ -39,7 +36,6 @@ function cargarEstudiante() {
                 html += '<td>' + item.ApellidoEstudiante + '</td>';
                 html += '<td>' + item.Codigo + '</td>';
                 html += '<td>' + item.CarreraId.NombreCarrera + '</td>';
-                html += '<td>' + item.StatusStudent + '</td>';
                 html += '<td>';
                 html += '<a href="#" onclick="detalle(' + item.Id + ')" class="badge badge-danger" data-toggle="modal" data-target="#modalModificar">Modificar</a> | | ';
                 html += '<a href="#" onclick="detalleMatricula(' + item.Id + ')" class="badge badge-danger" data-toggle="modal" data-target="#modalMatricula">Matricular</a>';
@@ -102,7 +98,7 @@ function buscar(pBuscar) {
 };
 
 function VerificarNoExiste() {
-    if (!($('#nombre').val() == "" || $('#apellido').val() == "" || $('#codigo').val() == "" || $('#carrera').val() == "" || $('#pass').val() == "" || $('#statusstudent').val() == "")) {
+    if (!($('#nombre').val() == "" || $('#apellido').val() == "" || $('#codigo').val() == "" || $('#carrera').val() == "" || $('#pass').val() == "" || $('#status').val() == "")) {
         var obj = {
             Id: $('#id').val(),
             NombreEstudiante: $('#nombre').val(),
@@ -110,7 +106,7 @@ function VerificarNoExiste() {
             Codigo: $('#codigo').val(),
             CarreraId: { Id: $('#carrera').val(), NombreCarrera: '' },
             Contraseña: $('#pass').val(),
-            StatusStudent: $('#statusstudent').val()
+            StatusStudent: $('#status').val()
         }
         $.ajax({
             url: "/Estudiante/CodigoNoExist",
@@ -166,8 +162,8 @@ function detalle(id) {
             $('#mapellido').val(data.ApellidoEstudiante);
             $('#mcodigo').val(data.Codigo);
             $('#mcarrera').val(data.CarreraId.Id);
-            Contraseña: $('#mpass').val(data.Contraseña);
-            $('#mstatuss').val(data.StatusStudent);
+            $('#mpass').val(data.Contraseña);
+            $('##mstatus').val(data.StatusStudent);
         },
         error: function (err) {
             toastr.error("No se pudo completar");
@@ -186,9 +182,9 @@ function detalleMatricula(id) {
             $('#lnombre').val(data.NombreEstudiante + " " + data.ApellidoEstudiante);
             $("#laño").val("");
             $("#lciclo").val("");
-            $("#lcarrera").val("");
-            $("#lgrupo").val("");
-            $("#lstatus").val("");
+            $("#lcarrera").val(-1);
+            $("#lgrupo").val(-1);
+            $("#lstatus").val(-1);
         },
         error: function (err) {
             toastr.error("No se pudo completar la solicitud");
@@ -197,7 +193,7 @@ function detalleMatricula(id) {
 }
 
 function Guardar() {
-    if (!($('#nombre').val() == "" || $('#apellido').val() == "" || $('#codigo').val() == "" || $('#carrera').val() == "" || $('#pass').val() == "" || $('#statusstudent').val() == "")) {
+    if (!($('#nombre').val() == "" || $('#apellido').val() == "" || $('#codigo').val() == "" || $('#carrera').val() == "" || $('#pass').val() == "" || $('#status').val() == "")) {
         var obj = {
             Id: $('#id').val(),
             NombreEstudiante: $('#nombre').val(),
@@ -205,7 +201,7 @@ function Guardar() {
             Codigo: $('#codigo').val(),
             CarreraId: { Id: $('#carrera').val(), NombreCarrera: '' },
             Contraseña: $('#pass').val(),
-            StatusStudent: $('#statusstudent').val()
+            StatusStudent: $('#status').val()
         }
         $.ajax({
             url: "/Estudiante/Agregar",
@@ -215,9 +211,9 @@ function Guardar() {
             data: JSON.stringify(obj),
             success: function (resp) {
                 if (resp > 0) {
-                    toastr.success("Registro guardado");
-                    cargarStudent();
                     limpiar();
+                    toastr.success("Registro guardado");
+                    cargarEstudiante();
                 }
                 else {
                     toastr.warning("No se pudo guardar");
@@ -234,7 +230,7 @@ function Guardar() {
 }
 
 function Modificar() {
-    if (!($('#mnombre').val() == "" || $('#mapellido').val() == "" || $('#mcodigo').val() == "" || $('#mcarrera').val() == "" || $('#mpass').val() == "" || $('#mstatuss').val() == "")) {
+    if (!($('#mnombre').val() == "" || $('#mapellido').val() == "" || $('#mcodigo').val() == "" || $('#mcarrera').val() == "" || $('#mpass').val() == "" || $('#mstatus').val() == "")) {
         var obj = {
             Id: $('#mid').val(),
             NombreEstudiante: $('#mnombre').val(),
@@ -242,7 +238,7 @@ function Modificar() {
             Codigo: $('#mcodigo').val(),
             CarreraId: { Id: $('#mcarrera').val(), NombreCarrera: '' },
             Contraseña: $('#mpass').val(),
-            StatusStudent: $('#mstatuss').val(),
+            StatusStudent: $('#mstatus').val(),
         };
         $.ajax({
             url: "/Estudiante/Modificar",
@@ -252,9 +248,9 @@ function Modificar() {
             data: JSON.stringify(obj),
             success: function (resp) {
                 if (resp > 0) {
-                    toastr.success("Registro guardado");
-                    cargarStudent();
                     limpiar();
+                    toastr.success("Registro guardado");
+                    cargarEstudiante();
                 }
                 else {
                     toastr.warning("No se pudo guardar");
@@ -270,7 +266,7 @@ function Modificar() {
     }
 }
 
-function obtenerCarreraGuardar() {
+function obtenerCarreras() {
     $.ajax({
         url: "/Carrera/Mostrar",
         type: "GET",
@@ -281,50 +277,12 @@ function obtenerCarreraGuardar() {
             $.each(data, function (key, item) {
                 html += '<option value="' + item.Id + '">' + item.NombreCarrera + '</option>';
             });
-            $('#carrera').append(html);
+            $('#lcarrera').append(html);
             $("#mcarrera").append(html);
-            $('#lcarrera').append(html);
+            $('#carrera').append(html);
         },
         error: function (err) {
-            toastr.error("No se pudieron leer");
-        }
-    });
-}
-
-function obtenerCarreraModificar() {
-    $.ajax({
-        url: "/Carrera/Mostrar",
-        type: "GET",
-        contentType: "application/json;charset=utf-8",
-        dataType: "json",
-        success: function (data) {
-            var html = '';
-            $.each(data, function (key, item) {
-                html += '<option value="' + item.Id + '">' + item.NombreCarrera + '</option>';
-            });
-            $('#mcarrera').append(html);
-        },
-        error: function (err) {
-            toastr.error("No se pudieron leer");
-        }
-    });
-}
-
-function obtenerCarreraMatricula() {
-    $.ajax({
-        url: "/Carrera/Mostrar",
-        type: "GET",
-        contentType: "application/json;charset=utf-8",
-        dataType: "json",
-        success: function (data) {
-            var html = '';
-            $.each(data, function (key, item) {
-                html += '<option value="' + item.Id + '">' + item.NombreCarrera + '</option>';
-            });
-            $('#lcarrera').append(html);
-        },
-        error: function (err) {
-            toastr.error("No se pudieron leer");
+            toastr.error("No se pudieron mostrar las carreras");
         }
     });
 }
@@ -372,8 +330,8 @@ function guardarMatricula() {
             dataType: "json",
             data: JSON.stringify(obj),
             success: function (resp) {
-                toastr.success("Registro guardado con éxito");
                 limpiar();
+                toastr.success("Registro guardado con éxito");
             },
             error: function (err) {
                 toastr.error("No se pudo completar la solicitud");
@@ -384,3 +342,36 @@ function guardarMatricula() {
         toastr.warning("Todos los campos son requeridos");
     }
 }
+function verificarMatricula() {
+    if (!($("#laño").val() == "" || $("#lciclo").val() == "" || $("lcarrera").val() == "" || $("lestudiante").val() == "" || $("#lgrupo").val() == "")) {
+        var obj = {
+            Id: $("#lid").val(),
+            Año: $("#laño").val(),
+            Ciclo: $("#lciclo").val(),
+            CarreraId: { Id: $("#lcarrera").val(), NombreCarrera: '' },
+            EstudianteId: { Id: $('#lestudiante').val(), NombreEstudiante: '', ApellidoEsdudiante: '', Codigo: '', CarreraId: '', Contraseña: '', StatusStudent:''},
+            GrupoId: { Id: $("#lgrupo").val(), NombreGrupo: '', Turno: '', CarreraId: '', ProfesorId: '' }
+        }
+        $.ajax({
+            url: "/Matricula/verificar",
+            type: "POST",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            data: JSON.stringify(obj),
+            success: function (resp) {
+                if (resp > 0) {
+                    toastr.warning("El alumno ya esta inscrito en este ciclo");
+                }
+                else {
+                    guardarMatricula();
+                }
+            },
+            error: function (err) {
+                toastr.error("No se pudo completar la solicitud");
+            }
+        });
+    }
+    else {
+        toastr.warning("Todos los campos son requeridos");
+    }
+};

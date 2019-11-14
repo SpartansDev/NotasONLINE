@@ -63,7 +63,7 @@ function verificarMatricula() {
             success: function (resp) {
                 if(resp>0)
                 {
-                    toastr.warning("Esta mierda ya esta en uso");
+                    toastr.warning("El alumno ya esta inscrito en este ciclo");
                 }
                 else
                 {
