@@ -84,24 +84,31 @@
                 <div id="" class="">
                     <form id="frmMatriculaModificar">
                         <input type="hidden" name="Id" id="mid" />
+                        <div class="row">
+                            <div class="col-lg-6 col-sm-12">
+                                <div class="form-group">
+                                    <label>Estudiante:</label>
+                                    <select id="mestudiante" name="EstudianteId" class="form-control" disabled>
+                                        <option value="-1" class="text-center">Selecciona un Alumno</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-sm-12">
+                                <div class="form-group">
+                                    <label>Ciclo:</label>
+                                    <input type="text" id="mciclo" name="Ciclo" class="form-control" disabled />
+                                </div>
+                            </div>
+                        </div>
+                        
                         <div class="form-group">
                             <label>Año:</label>
                             <input type="date" id="maño" name="Año" class="form-control" />
                         </div>
                         <div class="form-group">
-                            <label>Ciclo:</label>
-                            <input type="text" id="mciclo" name="Ciclo" class="form-control" />
-                        </div>
-                        <div class="form-group">
                             <label>Carrera:</label>
                             <select id="mcarrera" name="CarreraId" class="form-control">
                                 <option value="-1">Selecciona una Carrera</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Estudiante:</label>
-                            <select id="mestudiante" name="EstudianteId" class="form-control">
-                                <option value="-1">Selecciona un Alumno</option>
                             </select>
                         </div>
                         <div class="form-group">
