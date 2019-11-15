@@ -131,9 +131,6 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
-    <Content Include="fonts\icomoon.eot" />
-    <Content Include="fonts\icomoon.ttf" />
-    <Content Include="fonts\icomoon.woff" />
     <Content Include="Content\toastr.scss" />
     <Content Include="Content\toastr.less" />
     <Content Include="Scripts\EstudianteAjax.js" />
@@ -151,6 +148,7 @@
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.min.js" />
     <Content Include="Scripts\profesorAjax.js" />
+    <Content Include="Scripts\ScrollEventJquery.js" />
     <Content Include="Scripts\toastr.js" />
     <Content Include="Scripts\toastr.min.js" />
     <Content Include="Web.config" />
@@ -192,6 +190,9 @@
     <Content Include="Views\Profesor\Perfil.cshtml" />
     <Content Include="Views\Administrador\Index.cshtml" />
     <Content Include="BaseDatos\NotasOnline-backup" />
+    <Content Include="fonts\icomoon.eot" />
+    <Content Include="fonts\icomoon.ttf" />
+    <Content Include="fonts\icomoon.woff" />
     <None Include="Properties\PublishProfiles\admin.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
