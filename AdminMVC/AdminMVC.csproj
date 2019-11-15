@@ -113,6 +113,7 @@
     <Content Include="Content\Images\studybg.jpg" />
     <Content Include="Content\Images\teacher01.jpg" />
     <Content Include="Content\Images\teacher01.png" />
+    <Content Include="Content\Images\voyagape.png" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\Style.css" />
     <Content Include="Content\toastr.css" />
