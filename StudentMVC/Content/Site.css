@@ -420,3 +420,41 @@ header nav ul li a:hover{
         text-decoration: none;
 	}
 }
+
+/* Barra redes sociales */
+
+.social{
+	position: fixed;
+	left: -40px;
+	top: 210px;
+	z-index: 1;
+}
+
+.social ul{
+	list-style: none;
+}
+
+.social ul li a{
+	display: inline-block;
+	color: #fff;
+	background-color: #000;
+	padding: 10px 15px;
+	text-decoration: none;
+	-webkit-transition: 500ms ease;
+	-o-transition: 500ms ease;
+	transition: 500ms ease;
+}
+
+.social ul li .icon-facebook2{
+	background: #3b5998;
+}
+.social ul li .icon-youtube{
+	background: #ae181f;
+}
+.social ul li .icon-earth{
+	background: #000;
+}
+
+.social ul li a:hover{
+	padding: 10px 25px;
+}
