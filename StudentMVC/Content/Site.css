@@ -22,12 +22,13 @@ textarea {
 
 .baner-esfe{
     background-color: #264385;
-    height: 130px;
+    height: 130px; /* 10rem*/
 }
 
 #containerNoflex{
-    display: inline-block;
+    display: inline-flex;
 }
+
 
 .bg-esfe{
     width: 100%;
@@ -43,12 +44,12 @@ textarea {
 
 .logo-esfe {
     max-height: 75%;
-    z-index: 5;
+    z-index: 1;
 }
 
 .logo-agape {
     max-height: 75%;
-    z-index: 5;
+    z-index: 1;
 }
 
 .titulo-esfe{
@@ -187,7 +188,7 @@ textarea {
         left: 4%;
         top: 3%;
         max-height: 10%;
-        z-index: 3;
+        z-index: 1;
     }
 
     .logo-agape {
@@ -195,7 +196,7 @@ textarea {
         top: 3%;
         left: 85%;
         max-height: 9%;
-        z-index: 3;
+        z-index: 1;
     }
 
     .titulo-esfe{
@@ -239,7 +240,7 @@ textarea {
         left: 4%;
         top: 3%;
         max-height: 8%;
-        z-index: 3;
+        z-index: 1;
     }
 
     .logo-agape {
@@ -247,7 +248,7 @@ textarea {
         top: 3%;
         left: 85%;
         max-height: 7%;
-        z-index: 3;
+        z-index: 1;
     }
 
     .titulo-esfe{
@@ -256,7 +257,7 @@ textarea {
         left: 25%;
         font-size: 15px;
         line-height: 20px;
-        z-index: 3;
+        z-index: 1;
     }
 }
 

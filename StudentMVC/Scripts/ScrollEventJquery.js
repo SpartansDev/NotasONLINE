@@ -4,9 +4,9 @@ $(window).scroll(function (event) {
     if (st > lastScrollTop) {
         // downscroll code
         document.getElementById("nav").style.display = "none"
-    } else {
+    } else if (st < 65) {
         // upscroll code
-        document.getElementById("nav").style.display = "flex"
+        document.getElementById("nav").style.display = "inline-flex"
     }
     lastScrollTop = st;
 });
