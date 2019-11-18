@@ -4,7 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="~/Content/Images/isotipo-ESFE.png" />
-    <title>@ViewBag.Title - Notas Online ESFE/Agape</title>
+    <title> Administración Notas Online ESFE/Agape</title>
+
 
     <!-- References -->
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
@@ -16,8 +17,28 @@
     <link href="~/Content/toastr.css" rel="stylesheet" />
 </head>
 <body>
+
+    <div class="navbar baner-esfe">
+        <div class="container">
+            <div class="container" id="containerNoflex">
+                <div class="row" id="nav">
+                    <div class="col-sm-2 col-md-2 col-lg-2">
+                        <img src="~/Content/Images/esfe.png" alt="Logo-esfe" class="logo-esfe" />
+                    </div>
+                    <div class="col-sm-1 col-md-9 col-lg-9">
+                        <div class="titulo-esfe">
+                            Escuela Superior Franciscana Especializada/AGAPE
+                        </div>
+                    </div>
+                    <div class="col-sm-1 col-md-1 col-lg-1">
+                        <img src="~/Content/Images/voyagape.png" alt="Logo-agape" class="logo-agape" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="navbar navbar-dark bg-esfe">
-        <img src="~/Content/Images/esfe.png" alt="Logo-esfe" class="logo-esfe"/>
         <div class="frame-nav">
             <header>
                 <div class="menu_bar">
@@ -28,14 +49,14 @@
                     <ul>
                         @if (Request.IsAuthenticated)
                         {
-                            <li><a href="/Administrador/Index"><span class="icon-cog"></span>Administradores</a></li>
-                            <li><a href="/Grupo/Index"><span class="icon-tree"></span>Grupos</a></li>
-                            <li><a href="/Matricula/Index"><span class="icon-list"></span>Matrícula</a></li>
-                            <li><a href="/Profesor/Index"><span class="icon-user-tie"></span>Profesores</a></li>
-                            <li><a href="/Estudiante/Index"><span class="icon-user"></span>Estudiantes</a></li>
-                            <li><a href="~/DetalleInscripcion/Index"><span class="icon-table2"></span>Inscripciones</a></li>
                             <li><a href="/Carrera/Index"><span class="icon-briefcase"></span>Carreras</a></li>
-                            <li><a href="/Modulo/Index"><span class="icon-tree"></span>Módulos</a></li>
+                            <li><a href="/Modulo/Index"><span class="icon-books"></span>Módulos</a></li>
+                            <li><a href="/Profesor/Index"><span class="icon-user-tie"></span>Profesores</a></li>
+                            <li><a href="/Grupo/Index"><span class="icon-tree"></span>Grupos</a></li>
+                            <li><a href="/Estudiante/Index"><span class="icon-users"></span>Estudiantes</a></li>
+                            <li><a href="/Matricula/Index"><span class="icon-list"></span>Matrícula</a></li>
+                            <li><a href="~/DetalleInscripcion/Index"><span class="icon-file-text"></span>Inscripciones</a></li>
+                            <li><a href="/Administrador/Index"><span class="icon-user"></span>Administradores</a></li>
                             <li><a href="/Home/Cerrar"><span class="icon-switch"></span>Cerrar sesión</a></li>
                         }
                         else
@@ -52,15 +73,28 @@
         @RenderBody()
     </div>
 
-    <br /><br /><br /><br />
+    <br /><br />
 
-    <footer class="text-white bg-esfe">
+    <footer class="text-white footer-esfe">
         <div class="container">
-            <p>&copy; @DateTime.Now.Year ESCUELA SUPERIOR FRANCISCANA ESPECIALIZADA / AGAPE - TODOS LOS DERECHOS RESERVADOS</p>
+            <p>&copy; @DateTime.Now.Year ESCUELA SUPERIOR FRANCISCANA ESPECIALIZADA / AGAPE. ALL RIGHTS RESERVED</p>
+            <br />
+            <div class="row">
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                    <p>La Escuela Superior Franciscana Especializada/Agape (ESFE/AGAPE), es una Institución de Educación Superior dedicada a la formación de Profesionales Técnicos en las áreas de Ingeniería Eléctrica, Ingeniería de Desarrollo de Software y Gestión y Desarrollo Turístico, brindamos servicios de capacitación, cursos y diplomados, dirigidos a trabajadores de empresas y público en general, además nuestra Escuela de Idiomas ofrece servicios educativos en los niveles básico, intermedio y avanzado del idioma inglés para niños, jóvenes y adultos.</p>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                    <p><span class="icon-location"></span><strong>Ubicación:</strong> Km. 63 Carretera San Salvador - Sonsonate El Salvador, CentroAmérica.</p>
+                    <label><span class="icon-envelop"></span><strong> Escríbenos:</strong> esfe@agape.edu.sv</label>
+                    <label><span class="icon-mobile"></span><strong> Llámanos:</strong> 2429-9700/2429-9701</label>
+                </div>
+            </div>
+
         </div>
     </footer>
 
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/menu.js"></script>
+    <script src="~/Scripts/ScrollEventJquery.js"></script>
 </body>
 </html>

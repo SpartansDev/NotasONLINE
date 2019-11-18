@@ -61,8 +61,8 @@ namespace DAL
             using (SqlConnection con = ConexionBD.Conectar())
             {
                 con.Open();
-                string ssql = "update Estudiantes set NombreEstudiante='{0}', ApellidoEstudiante='{1}', Codigo='{2}',CarreraId='{3}', Contraseña='{4}', StatusStudent {6} where Id={7}";
-                string sentencia = string.Format(ssql, pEstudiante.NombreEstudiante, pEstudiante.ApellidoEstudiante, pEstudiante.Codigo, pEstudiante.CarreraId.Id, pEstudiante.Contraseña, pEstudiante.Id);
+                string ssql = "update Estudiantes set NombreEstudiante='{0}', ApellidoEstudiante='{1}', Codigo='{2}',CarreraId={3}, Contraseña='{4}', StatusStudent={5} where Id={6}";
+                string sentencia = string.Format(ssql, pEstudiante.NombreEstudiante, pEstudiante.ApellidoEstudiante, pEstudiante.Codigo, pEstudiante.CarreraId.Id, pEstudiante.Contraseña, pEstudiante.StatusStudent, pEstudiante.Id);
                 SqlCommand comando = new SqlCommand(sentencia, con);
                 comando.CommandType = CommandType.Text;
                 resultado = comando.ExecuteNonQuery();
@@ -119,7 +119,7 @@ namespace DAL
                     estud.Codigo = lector.GetString(3);
                     estud.CarreraId = CarreraDAL.ObtenerPorId(lector.GetInt64(4));
                     estud.Contraseña = lector.GetString(5);
-                    estud.StatusStudent = lector.GetInt64(5);
+                    estud.StatusStudent = lector.GetInt64(6);
                 }
                 con.Close();
             }

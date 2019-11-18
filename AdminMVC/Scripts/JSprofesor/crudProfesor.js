@@ -18,7 +18,7 @@ function misAlumnos(Id) {
                 html += "<th>" + item.EstudianteId.Codigo + "</th>";
                 html+="<th>"+item.Ciclo+"</th>";
                 html += "<th>";
-                html += "<a href='#' value="+item.Id+" class='badge badge-primary'>Agregar notas</a>";
+                html += "<a href='#' data-toggle='modal' data-target='#modal' class='badge badge-success' onclick='detalle(" + item.EstudianteId.Id + ")'>Agregar notas</a>";
                 html += "</th>";
                 html += "</tr>";
             });
@@ -28,4 +28,15 @@ function misAlumnos(Id) {
             toastr.error("no funciona");
         }
     });
+}
+function detalle(id) {
+    $.ajax({
+        url: "/Matricula/obtenerPorId?pId="+id,
+        type:"GET",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (datos) {
+
+        }
+    })
 }

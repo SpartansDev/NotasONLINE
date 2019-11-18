@@ -111,7 +111,7 @@ namespace DAL
                 IDataReader lector = comando.ExecuteReader();
                 if (lector.Read())
                 {
-                    if (lector["Email"].ToString() == pProfesor.Email)
+                    if (lector["Contraseña"].ToString() == pProfesor.Contraseña)
                     {
                         _profe.Id = lector.GetInt64(0);
                         _profe.NombreProfesor = lector.GetString(1);

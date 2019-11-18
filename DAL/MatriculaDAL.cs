@@ -18,7 +18,7 @@ namespace DAL
             using (SqlConnection con = ConexionBD.Conectar())
             {
                 con.Open();
-                string ssql = "select * from Matriculas where Ciclo='{0}' and Id={1}";
+                string ssql = "select * from Matriculas where Ciclo='{0}' and EstudianteId={1}";
                 string sentencia = string.Format(ssql, pMatricual.Ciclo, pMatricual.EstudianteId.Id);
                 SqlCommand comando = new SqlCommand(sentencia, con);
                 comando.CommandType = CommandType.Text;

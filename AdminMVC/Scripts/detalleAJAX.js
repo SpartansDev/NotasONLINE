@@ -168,8 +168,14 @@ function mostrarInscripciones() {
                 html += '<td>' + item.Nota4 + '</td>';
                 html += '<td>' + item.Nota5 + '</td>';
                 html += '<td>' + item.NotaFinal + '</td>';
+                if (item.Status == 1) {
+                    html += '<td>Notas Visibles</td>';
+                }
+                else {
+                    html += '<td>Notas Ocultas</td>';
+                }
                 html += '<td>';
-                html += '<a href="#" onclick="detalles(' + item.Id + ')" class="badge badge-danger" data-toggle="modal" data-target="#exampleModalLong">Modificar</a>||';
+                html += '<a href="#" onclick="detalles(' + item.Id + ')" class="badge badge-danger" data-toggle="modal" data-target="#exampleModalLong">Modificar</a>|';
                 html += '<a href="#" onclick="eliminar(' + item.Id + ')" class="badge badge-danger">Eliminar</a>';
                 html += '</td>';
                 html += '</tr>';

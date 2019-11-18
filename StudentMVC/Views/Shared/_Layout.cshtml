@@ -6,6 +6,8 @@
     <meta name="keywords" content="Notas esfe agape, entrega de notas esfe, notas online esfe" />
     <link rel="icon" type="image/png" href="~/Content/Images/isotipo-ESFE.png" />
     <title>@ViewBag.Title - Notas Online ESFE</title>
+
+
     <!-- References -->
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -67,12 +69,33 @@
     </div>
 
     <div class="container body-content">
+        <!-- Barra redes social-->
+        <div class="social">
+            <ul>
+                <li><a href="https://www.facebook.com/ESFE.AGAPE" target="_blank" class="icon-facebook2"></a></li>
+                <li><a href="https://www.youtube.com/user/asociacionagape" target="_blank" class="icon-youtube"></a></li>
+                <li><a href="http://esfe.agape.edu.sv" target="_blank" class="icon-earth"></a></li>
+            </ul>
+        </div>
+
         @RenderBody()
     </div>
-    <br /><br /><br /><br />
+    <br /><br />
     <footer class="text-white footer-esfe">
         <div class="container">
             <p>&copy; @DateTime.Now.Year ESCUELA SUPERIOR FRANCISCANA ESPECIALIZADA / AGAPE. ALL RIGHTS RESERVED</p>
+            <br />
+            <div class="row">
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                    <p>La Escuela Superior Franciscana Especializada/Agape (ESFE/AGAPE), es una Institución de Educación Superior dedicada a la formación de Profesionales Técnicos en las áreas de Ingeniería Eléctrica, Ingeniería de Desarrollo de Software y Gestión y Desarrollo Turístico, brindamos servicios de capacitación, cursos y diplomados, dirigidos a trabajadores de empresas y público en general, además nuestra Escuela de Idiomas ofrece servicios educativos en los niveles básico, intermedio y avanzado del idioma inglés para niños, jóvenes y adultos.</p>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                    <p><strong>Ubicación:</strong> Km. 63 Carretera San Salvador - Sonsonate El Salvador, CentroAmérica.</p>
+                    <label><strong>Escríbenos:</strong> esfe@agape.edu.sv</label>
+                    <label><strong>Llámanos:</strong> 2429-9700/2429-9701</label>
+                </div>
+            </div>
+            
         </div>
     </footer>
 

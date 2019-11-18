@@ -27,17 +27,56 @@
 .icon-home3:before {
   content: "\e902";
 }
-.icon-database:before {
-  content: "\e964";
+.icon-pencil:before {
+  content: "\e905";
+}
+.icon-books:before {
+  content: "\e920";
+}
+.icon-file-text:before {
+  content: "\e922";
+}
+.icon-profile:before {
+  content: "\e923";
+}
+.icon-files-empty:before {
+  content: "\e925";
+}
+.icon-file-text2:before {
+  content: "\e926";
+}
+.icon-paste:before {
+  content: "\e92d";
+}
+.icon-envelop:before {
+  content: "\e945";
+}
+.icon-keyboard:before {
+  content: "\e955";
+}
+.icon-mobile:before {
+  content: "\e958";
+}
+.icon-undo:before {
+  content: "\e965";
+}
+.icon-undo2:before {
+  content: "\e967";
 }
 .icon-user:before {
   content: "\e971";
+}
+.icon-users:before {
+  content: "\e972";
 }
 .icon-user-tie:before {
   content: "\e976";
 }
 .icon-cog:before {
   content: "\e994";
+}
+.icon-bug:before {
+  content: "\e999";
 }
 .icon-briefcase:before {
   content: "\e9ae";
@@ -48,15 +87,69 @@
 .icon-list:before {
   content: "\e9ba";
 }
+.icon-list2:before {
+  content: "\e9bb";
+}
 .icon-tree:before {
   content: "\e9bc";
 }
 .icon-menu:before {
   content: "\e9bd";
 }
+.icon-sphere:before {
+  content: "\e9c9";
+}
+.icon-earth:before {
+  content: "\e9ca";
+}
+.icon-bookmark:before {
+  content: "\e9d2";
+}
+.icon-plus:before {
+  content: "\ea0a";
+}
+.icon-info:before {
+  content: "\ea0c";
+}
+.icon-cancel-circle:before {
+  content: "\ea0d";
+}
+.icon-blocked:before {
+  content: "\ea0e";
+}
+.icon-cross:before {
+  content: "\ea0f";
+}
+.icon-checkmark:before {
+  content: "\ea10";
+}
+.icon-arrow-right:before {
+  content: "\ea34";
+}
+.icon-arrow-left:before {
+  content: "\ea38";
+}
+.icon-arrow-right2:before {
+  content: "\ea3c";
+}
+.icon-arrow-left2:before {
+  content: "\ea40";
+}
 .icon-table2:before {
   content: "\ea71";
 }
+.icon-embed2:before {
+  content: "\ea80";
+}
 .icon-terminal:before {
   content: "\ea81";
+}
+.icon-mail4:before {
+  content: "\ea86";
+}
+.icon-facebook2:before {
+  content: "\ea91";
+}
+.icon-youtube:before {
+  content: "\ea9d";
 }
