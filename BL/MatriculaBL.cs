@@ -31,6 +31,10 @@ namespace BL
         {
             return dal.misAlumnos(pId);
         }
+        public List<Matricula> buscarCodigo(string pBuscar)
+        {
+            return dal.buscarPorCodigo(pBuscar);
+        }
         public static Matricula ObtenerPorId(Int64 pId)
         {
             return MatriculaDAL.ObtenerPorId(pId);

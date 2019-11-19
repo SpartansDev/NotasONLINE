@@ -12,7 +12,46 @@ $("#frmMatriculaModificar").submit(function (event) {
     event.preventDefault();
     modificarMatricula();
 });
+function capturarTexto() {
+    var texto = $("#texto").val();
+    if (!(texto == "")) {
+        buscarRegistro(texto);
+    }
+    else {
+        mostrarMatriculas();
+    }
+}
+function buscarRegistro(texto) {
+    $.ajax({
+        url: "/Matricula/buscarPorCodigo?pText="+texto,
+        type: "GET",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (data) {
+            var html = '';
+            $.each(data, function (key, item) {
+                html += '<tr>';
+                html += '<td>' + item.Id + '</td>';
+                html += '<td>' + item.EstudianteId.NombreEstudiante + '' + item.EstudianteId.ApellidoEstudiante + '</td>';
+                html += '<td>' + item.Año + '</td>';
+                html += '<td>' + item.Ciclo + '</td>';
+                html += '<td>' + item.CarreraId.NombreCarrera + '</td>';
+                html += '<td>' + item.GrupoId.NombreGrupo + '</td>';
+                html += '<td>';
+                html += '<a href="#" onclick="detalleMatricula(' + item.Id + ')" class="badge badge-danger" data-toggle="modal" data-target="#modalModificar">Modificar</a>||';
+                html += '<a href="#" onclick="detalleMatricula(' + item.Id + ')" class="badge badge-danger" data-toggle="modal" data-target="#inscribir">Inscribir modulo</a>';
+                html += '</td>';
+                html += '</tr>';
+            });
 
+            $('#tbmatricula tbody').html(html);
+        },
+
+        error: function (err) {
+            toastr.error("Ocurrió un error, no se pudo completar la solicitud");
+        }
+    })
+}
 function mostrarMatriculas() {
     $.ajax({
         url: "/Matricula/Mostrar",
@@ -30,7 +69,8 @@ function mostrarMatriculas() {
                 html += '<td>' + item.CarreraId.NombreCarrera + '</td>';
                 html += '<td>' + item.GrupoId.NombreGrupo + '</td>';
                 html += '<td>';
-                html += '<a href="#" onclick="detalleMatricula(' + item.Id + ')" class="badge badge-danger" data-toggle="modal" data-target="#modalModificar">Modificar</a>';
+                html += '<a href="#" onclick="detalleMatricula(' + item.Id + ')" class="badge badge-danger" data-toggle="modal" data-target="#modalModificar">Modificar</a>||';
+                html += '<a href="#" onclick="detalleMatricula(' + item.Id + ')" class="badge badge-danger" data-toggle="modal" data-target="#inscribir">Inscribir modulo</a>';
                 html += '</td>';
                 html += '</tr>';
             });
@@ -43,6 +83,7 @@ function mostrarMatriculas() {
         }
     })
 }
+
 
 function verificarMatricula() {
     if (!($("#año").val() == "" || $("#ciclo").val() == "" || $("#carrera").val() == "" || $("#estudiante").val() == "" || $("#grupo").val() == "")) {
@@ -163,7 +204,7 @@ function cargarEstudiantes() {
             $('#mestudiante').append(html);
         },
         error: function (err) {
-            alert("No se pudieron leer");
+            toastr.error("No se pudieron leer");
         }
     });
 }
@@ -183,7 +224,7 @@ function cargarGrupos() {
             $('#mgrupo').append(html);
         },
         error: function (err) {
-            alert("No se pudieron leer");
+            toastr.error("No se pudieron leer");
         }
     });
 }
@@ -203,7 +244,7 @@ function cargarCarreras() {
             $('#mcarrera').append(html);
         },
         error: function (err) {
-            alert("No se pudieron leer");
+            toastr.error("No se pudieron leer");
         }
     });
 }

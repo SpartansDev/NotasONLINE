@@ -127,7 +127,7 @@ namespace DAL
         }
         #endregion
 
-        #region metodo para buscar un resgistro por nombre o codigo
+        #region metodo para buscar un registro por nombre o codigo
         //buscar
         public List<Estudiante> ObtenerPorEstudiante(string pBuscar)
         {

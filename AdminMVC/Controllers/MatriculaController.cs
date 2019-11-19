@@ -53,6 +53,12 @@ namespace AdminMVC.Controllers
         }
         [Authorize]
         [HttpGet]
+        public JsonResult buscarPorCodigo(string pText)
+        {
+            return Json(bl.buscarCodigo(pText), JsonRequestBehavior.AllowGet);
+        }
+        [Authorize]
+        [HttpGet]
         public JsonResult misAlumnos(Int64 pId)
         {
             return Json(bl.misAlumnos(pId), JsonRequestBehavior.AllowGet);
