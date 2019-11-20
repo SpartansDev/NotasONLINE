@@ -245,6 +245,7 @@ header nav ul li{
 
 header nav ul li a{
 	color: #fff;
+    font-size: 15px;
 	padding: 12px 10px;
 	display: block;
 	text-decoration: none;
