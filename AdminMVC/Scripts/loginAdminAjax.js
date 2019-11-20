@@ -39,37 +39,42 @@ function login() {
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function Guardar() {
-    if (!($('#mnombre').val() == "" || $('#mapellido').val() == "" || $('#memail').val() == "" || $('#mpass').val() == "")) {
-        var obj = {
-            Id: $('#mid').val(),
-            NombreAdministrador: $('#mnombre').val(),
-            ApellidoAdministrador: $('#mapellido').val(),
-            Email: $('#memail').val(),
-            Contraseña: $('#mpass').val()
-        }
-        $.ajax({
-            url: "/Administrador/registrar",
-            type: "POST",
-            contentType: "application/json;charset=utf-8",
-            dataType: "json",
-            data: JSON.stringify(obj),
-            success: function (resp) {
-                if (resp > 0) {
-                    toastr.success("Registro guardado");
-                    AdminNoExist();
-                    limpiar();
-                }
-                else {
-                    toastr.warning("No se pudo guardar");
-                }
-            },
-            error: function (err) {
-                toastr.error("No se pudo completar, error inesperado");
+    if ($("#mid").val()== "") {
+        if (!($('#mnombre').val() == "" || $('#mapellido').val() == "" || $('#memail').val() == "" || $('#mpass').val() == "")) {
+            var obj = {
+                Id: $('#mid').val(),
+                NombreAdministrador: $('#mnombre').val(),
+                ApellidoAdministrador: $('#mapellido').val(),
+                Email: $('#memail').val(),
+                Contraseña: $('#mpass').val()
             }
-        });
+            $.ajax({
+                url: "/Administrador/registrar",
+                type: "POST",
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                data: JSON.stringify(obj),
+                success: function (resp) {
+                    if (resp > 0) {
+                        toastr.success("Registro guardado");
+                        AdminNoExist();
+                        limpiar();
+                    }
+                    else {
+                        toastr.warning("No se pudo guardar");
+                    }
+                },
+                error: function (err) {
+                    toastr.error("No se pudo completar, error inesperado");
+                }
+            });
+        }
+        else {
+            toastr.warning("Los campos son requeridos");
+        }
     }
     else {
-        toastr.warning("Los campos son requeridos");
+        toastr.info("Ya esta registrado un administrador");
     }
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -93,7 +98,7 @@ function AdminNoExist() {
 };
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function limpiar() {
-    $("#mid").val('');
+    $("#mid").val('1');
     $("#mnombre").val('');
     $("#mapellido").val('');
     $("#memail").val('');
