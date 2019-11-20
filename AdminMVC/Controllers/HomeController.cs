@@ -14,21 +14,27 @@ namespace AdminMVC.Controllers
         ProfesorBL profe = new ProfesorBL();
         AdministradorBL admin = new AdministradorBL();
         // GET: Home
+        #region Index
         public ActionResult Index()
         {
             return View();
         }
+        #endregion
+        #region Login Profesor
 
         public ActionResult LoginProfe()
         {
             return View();
         }
+        #endregion
+        #region Login Administrador
 
         public ActionResult LoginAdmin()
         {
             return View();
         }
-
+        #endregion
+        #region SignOut
         public ActionResult cerrar()
         {
             FormsAuthentication.SignOut();
@@ -36,6 +42,8 @@ namespace AdminMVC.Controllers
             Session.RemoveAll();
             return RedirectToAction("Index");
         }
+        #endregion
+        #region Metodo Login Profesor
         [HttpPost]
         public JsonResult Login(Profesor pProfesor)
         {
@@ -51,7 +59,8 @@ namespace AdminMVC.Controllers
                 return Json(respuesta, JsonRequestBehavior.AllowGet);
             }
         }
-
+        #endregion
+        #region Metodo Login Administrador
         [HttpPost]
         public JsonResult Inicio(Administrador pAdmin)
         {
@@ -66,6 +75,7 @@ namespace AdminMVC.Controllers
             {
                 return Json(respuesta, JsonRequestBehavior.AllowGet);
             }
+            #endregion
         }
     }
 }
