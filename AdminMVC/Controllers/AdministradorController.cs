@@ -57,14 +57,8 @@ namespace AdminMVC.Controllers
             return Json(bl.Modificar(pAdmin), JsonRequestBehavior.AllowGet);
         }
         #endregion
-        #region Metodo Eliminar
-        [Authorize]
-        [HttpPost]
-        public JsonResult Eliminar(Int64 pId)
-        {
-            return Json(bl.Eliminar(pId), JsonRequestBehavior.AllowGet);
-        }
-        #endregion
+
+        
         #region Metodo mostrar administrador
         [Authorize]
         [HttpGet]

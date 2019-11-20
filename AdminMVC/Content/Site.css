@@ -36,7 +36,7 @@ textarea {
     clear: both;
     width: 100%;
     background-color: rgb(0,0,0);
-    height: auto;
+    height: 27rem;
 }
 
 .logo-esfe {
@@ -77,11 +77,25 @@ textarea {
   .card-body a{
         margin-left: 36%;
     }
+
+  .footer-esfe{
+        clear: both;
+        width: 100%;
+        background-color: rgb(0,0,0);
+        height: 27rem;
+    }
 }
 
 @media(min-width: 992px){
     .card-body a{
         margin-left: 34%;
+    }
+
+    .footer-esfe{
+        clear: both;
+        width: 100%;
+        background-color: rgb(0,0,0);
+        height: 27rem;
     }
 }
 
@@ -89,11 +103,25 @@ textarea {
     .card-body a{
         margin-left: 28%;
     }
+
+    .footer-esfe{
+        clear: both;
+        width: 100%;
+        background-color: rgb(0,0,0);
+        height: 27rem;
+    }
 }
 
 @media(max-width: 768px){
     .card-body a{
         margin-left: 34%;
+    }
+
+    .footer-esfe{
+        clear: both;
+        width: 100%;
+        background-color: rgb(0,0,0);
+        height: 27rem;
     }
 
     .logo-esfe {
@@ -127,10 +155,11 @@ textarea {
         margin-left: 24%;
     }
 
-    footer{
+    .footer-esfe{
         clear:both;
         padding-top: 3%;
         font-size: 14px;
+        height: auto;
     }
 
     .logo-esfe {
@@ -164,10 +193,11 @@ textarea {
         margin-left: 12%;
     }
 
-    footer{
+    .footer-esfe{
         clear:both;
         padding-top: 3%;
         font-size: 13px;
+        height: auto;
     }
 
     .logo-esfe {
@@ -193,6 +223,15 @@ textarea {
         font-size: 15px;
         line-height: 20px;
         z-index: 1;
+    }
+}
+
+@media(max-height: 576px){
+    .footer-esfe{
+        clear:both;
+        padding-top: 3%;
+        font-size: 14px;
+        height: auto;
     }
 }
 

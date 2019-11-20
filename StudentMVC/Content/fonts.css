@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('/fonts/icomoon.eot?q7sen8');
-  src:  url('/fonts/icomoon.eot?q7sen8#iefix') format('embedded-opentype'),
-    url('/fonts/icomoon.ttf?q7sen8') format('truetype'),
-    url('/fonts/icomoon.woff?q7sen8') format('woff'),
-    url('/fonts/icomoon.svg?q7sen8#icomoon') format('svg');
+  src:  url('/fonts/icomoon.eot?n9svye');
+  src:  url('/fonts/icomoon.eot?n9svye#iefix') format('embedded-opentype'),
+    url('/fonts/icomoon.ttf?n9svye') format('truetype'),
+    url('/fonts/icomoon.woff?n9svye') format('woff'),
+    url('/fonts/icomoon.svg?n9svye#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -27,8 +27,8 @@
 .icon-home3:before {
   content: "\e902";
 }
-.icon-pencil:before {
-  content: "\e905";
+.icon-book:before {
+  content: "\e91f";
 }
 .icon-books:before {
   content: "\e920";
@@ -39,29 +39,20 @@
 .icon-profile:before {
   content: "\e923";
 }
-.icon-files-empty:before {
-  content: "\e925";
-}
 .icon-file-text2:before {
   content: "\e926";
-}
-.icon-paste:before {
-  content: "\e92d";
 }
 .icon-envelop:before {
   content: "\e945";
 }
-.icon-keyboard:before {
-  content: "\e955";
+.icon-location:before {
+  content: "\e947";
 }
 .icon-mobile:before {
   content: "\e958";
 }
-.icon-undo:before {
-  content: "\e965";
-}
-.icon-undo2:before {
-  content: "\e967";
+.icon-mobile2:before {
+  content: "\e959";
 }
 .icon-user:before {
   content: "\e971";
@@ -74,9 +65,6 @@
 }
 .icon-cog:before {
   content: "\e994";
-}
-.icon-bug:before {
-  content: "\e999";
 }
 .icon-briefcase:before {
   content: "\e9ae";
@@ -102,53 +90,20 @@
 .icon-earth:before {
   content: "\e9ca";
 }
-.icon-bookmark:before {
-  content: "\e9d2";
-}
-.icon-plus:before {
-  content: "\ea0a";
-}
-.icon-info:before {
-  content: "\ea0c";
-}
-.icon-cancel-circle:before {
-  content: "\ea0d";
-}
-.icon-blocked:before {
-  content: "\ea0e";
-}
-.icon-cross:before {
-  content: "\ea0f";
-}
-.icon-checkmark:before {
-  content: "\ea10";
-}
-.icon-arrow-right:before {
-  content: "\ea34";
-}
-.icon-arrow-left:before {
-  content: "\ea38";
-}
-.icon-arrow-right2:before {
-  content: "\ea3c";
-}
-.icon-arrow-left2:before {
-  content: "\ea40";
-}
 .icon-table2:before {
   content: "\ea71";
 }
 .icon-embed2:before {
   content: "\ea80";
 }
-.icon-terminal:before {
-  content: "\ea81";
-}
 .icon-mail4:before {
   content: "\ea86";
 }
 .icon-facebook2:before {
   content: "\ea91";
+}
+.icon-instagram:before {
+  content: "\ea92";
 }
 .icon-youtube:before {
   content: "\ea9d";
