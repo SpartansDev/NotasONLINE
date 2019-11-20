@@ -43,12 +43,12 @@ textarea {
 }
 
 .logo-esfe {
-    max-height: 75%;
+    max-width: 70%;
     z-index: 1;
 }
 
 .logo-agape {
-    max-height: 75%;
+    max-width: 75%;
     z-index: 1;
 }
 
@@ -328,9 +328,13 @@ footer{
 
 /*Menu responsive con icons*/
 
-.frame-nav{
+/*.frame-nav{
     padding-right: 0;
     padding-left: 5%;
+}*/
+
+#firstLi{
+
 }
 
 header{
