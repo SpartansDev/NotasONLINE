@@ -44,7 +44,7 @@ namespace DAL
         }
         #endregion
 
-        #region metodo para mostrar resgitros existentes
+        #region metodo para mostrar registros existentes
         public List<Modulo> ListarModulo()
         {
             List<Modulo> lista = new List<Modulo>();

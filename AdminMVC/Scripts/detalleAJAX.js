@@ -3,7 +3,13 @@ $(function () {
     mostrarInscripciones();
     cargarMatricula();
     cargarModulo();
+    verificarModulo();//// codigo leydi
 })
+
+$("#frmMatricula").submit(function (event) {
+    event.preventDefault();
+    verificarModulo();
+});
 
 $('#frmNotas').submit(function (event) {
     event.preventDefault();
@@ -89,6 +95,46 @@ function agregar() {
         toastr.warning("Todos los campos son requeridos");
     }
 }
+
+
+///////////////////////////////////////////Codigo leydi//////////////////////////////////////
+
+
+function verificarMatricula() {
+    if (!($("#año").val() == "" || $("#ciclo").val() == "" || $("#carrera").val() == "" || $("#estudiante").val() == "" || $("#grupo").val() == "")) {
+        var obj = {
+            Id: $("#id").val(),
+            Año: $("#año").val(),
+            Ciclo: $("#ciclo").val(),
+            CarreraId: { Id: $("#carrera").val(), NombreCarrera: '' },
+            EstudianteId: { Id: $('#estudiante').val(), NombreEstudiante: '', ApellidoEsdudiante: '', Codigo: '', CarreraId: '', Contraseña: '' },
+            GrupoId: { Id: $("#grupo").val(), NombreGrupo: '', Turno: '', CarreraId: '', ProfesorId: '' }
+        }
+        $.ajax({
+            url: "/Matricula/verificar",
+            type: "POST",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            data: JSON.stringify(obj),
+            success: function (resp) {
+                if (resp > 0) {
+                    toastr.warning("El alumno ya esta inscrito en este ciclo");
+                }
+                else {
+                    guardarMatricula();
+                }
+            },
+            error: function (err) {
+                toastr.error("No se pudo completar la solicitud");
+            }
+        });
+    }
+    else {
+        toastr.warning("Todos los campos son requeridos");
+    }
+};
+
+/////////////////////////////////////////////////////////////////////////////////
 
 function detalles(id) {
     $.ajax({

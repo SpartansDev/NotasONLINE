@@ -27,6 +27,33 @@ namespace DAL
         }
         #endregion
 
+        ///////////////////////////////////////////////////////////////
+        #region metodo que verifica que la inscripcion de modulo no se repita
+        public int moduloNoExist(DetalleInscripcion pDetalle)
+        {
+            int result = 0;
+            using (SqlConnection con = ConexionBD.Conectar())
+            {
+                con.Open();
+                string ssql = "select * from DetallesInscripcion where MatriculaId={0} and ModuloId={1} ";
+                string sentencia = string.Format(ssql, pDetalle.MatriculaId, pDetalle.ModuloId.Id);
+                SqlCommand comando = new SqlCommand(sentencia, con);
+                comando.CommandType = CommandType.Text;
+                IDataReader lector = comando.ExecuteReader();
+                if (lector.Read())
+                {
+                    result = 1;
+                }
+                else
+                {
+                    result = 0;
+                }
+                con.Close();
+            }
+            return result;
+        }
+        #endregion
+
         #region metodo para modificar
         public int Modificar(DetalleInscripcion pDetalle)
         {

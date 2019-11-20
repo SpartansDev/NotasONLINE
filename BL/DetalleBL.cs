@@ -11,6 +11,13 @@ namespace BL
         DetalleDAL dal = new DetalleDAL();
         #endregion
 
+        #region retornamos el metodo para verificar que no se repita la matricula
+        public int verificarModulo(DetalleInscripcion pDetalle)
+        {
+            return dal.moduloNoExist(pDetalle);
+        }
+        #endregion
+
         #region retornamos el metodo para agregar
         public int Agregar(DetalleInscripcion pDet)
         {

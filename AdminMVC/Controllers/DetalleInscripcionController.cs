@@ -36,6 +36,16 @@ namespace AdminMVC.Controllers
         {
             return Json(bl.Agregar(pDetalle), JsonRequestBehavior.AllowGet);
         }
+
+        ////////////////////////verificar modulo no se repita////////////////////////////////
+
+        [HttpPost]
+        public JsonResult verificarModulo(DetalleInscripcion pDetalle)
+        {
+            return Json(bl.verificarModulo(pDetalle), JsonRequestBehavior.AllowGet);
+        }
+
+        ///////////////////////////////////////FIN////////////////////////////////////////////
         [Authorize]
         [HttpPost]
         public JsonResult Modificar(DetalleInscripcion pDetalle)
