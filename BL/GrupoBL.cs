@@ -24,22 +24,33 @@ namespace BL
             return dal.Eliminar(pId);
         }
         #endregion
+
+        #region retornamos el metodo para modificar
         public int Modificar(Grupo pGrupo)
         {
             return dal.Modificar(pGrupo);
         }
+        #endregion
+
+        #region retornamos el metodo para mostrar
         public List<Grupo>Mostrar()
         {
             return dal.ListarGrupos();
         }
-        
+        #endregion
+
+        #region retornamos el metodo para buscar por nombre
         public List<Grupo> ObtenerGrupo(string pBuscar)
         {
             return dal.ObtenerGrupos(pBuscar);
         }
+        #endregion
+
+        #region retornamos el metodo para obtener propiedades por id
         public static Grupo ObtenerPoId(Int64 pId)
         {
             return GrupoDAL.ObtenerPorId(pId);
         }
+        #endregion
     }
 }
