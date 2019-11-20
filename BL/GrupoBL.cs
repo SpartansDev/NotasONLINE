@@ -17,13 +17,7 @@ namespace BL
             return dal.Agregar(pGrupo);
         }
         #endregion
-
-        #region retornamos el metodo para eliminar
-        public int Eliminar(Int64 pId)
-        {
-            return dal.Eliminar(pId);
-        }
-        #endregion
+        
 
         #region retornamos el metodo para modificar
         public int Modificar(Grupo pGrupo)

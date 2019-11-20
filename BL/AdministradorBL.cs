@@ -45,13 +45,7 @@ namespace BL
             return dal.Modificar(pAdmin);
         }
         #endregion
-
-        #region retornamos el metodo para eliminar
-        public int Eliminar(Int64 pId)
-        {
-            return dal.Eliminar(pId);
-        }
-        #endregion
+        
 
         #region retornamos el metodo para mostrar los administradores
         public List<Administrador> Mostrar()

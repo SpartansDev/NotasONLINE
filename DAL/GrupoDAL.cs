@@ -73,25 +73,7 @@ namespace DAL
             return lista;
         }
         #endregion
-
-        #region metodo para eliminar 
-        public int Eliminar(Int64 pId)
-        {
-            int result = 0;
-            using (SqlConnection con = ConexionBD.Conectar())
-            {
-                con.Open();
-                string ssql = @"delete from Grupos where Id={0}";
-                string sentencia = string.Format(ssql,pId);
-                SqlCommand comando = new SqlCommand(sentencia, con);
-                comando.CommandType = CommandType.Text;
-                result = comando.ExecuteNonQuery();
-                con.Close();
-            }
-            return result;
-        }
-
-        #endregion
+        
 
         #region metodo para mostrar a detalle un registro
         public static Grupo ObtenerPorId(Int64 pId)

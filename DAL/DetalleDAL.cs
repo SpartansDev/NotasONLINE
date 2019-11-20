@@ -148,22 +148,6 @@ namespace DAL
         }
         #endregion
 
-        #region metodo para eliminar un registro
-        public int eliminar(Int64 pId)//admin
-        {
-            int resultado = 0;
-            using (SqlConnection con = ConexionBD.Conectar())
-            {
-                con.Open();
-                string ssql = "delete from DetallesInscripcion where Id={0}";
-                string sentencia = string.Format(ssql, pId);
-                SqlCommand comando = new SqlCommand(sentencia, con);
-                comando.CommandType = CommandType.Text;
-                resultado = comando.ExecuteNonQuery();
-                con.Close();
-            }
-            return resultado;
-        }
-        #endregion
+        
     }
 }

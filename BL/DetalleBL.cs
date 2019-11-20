@@ -18,13 +18,6 @@ namespace BL
         }
         #endregion
 
-        #region retornamos el metodo para eliminar
-        public int eliminar(Int64 pId)
-        {
-            return dal.eliminar(pId);
-        }
-        #endregion
-
         #region retornamos el metodo para modificar
         public int Modificar(DetalleInscripcion pDet)
         {

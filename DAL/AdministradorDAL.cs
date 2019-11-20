@@ -73,23 +73,7 @@ namespace DAL
         }
         #endregion
 
-        #region metodo para eliminar a un admin
-        public int Eliminar(Int64 pId)
-        {
-            int result = 0;
-            using (SqlConnection con = ConexionBD.Conectar())
-            {
-                con.Open();
-                string ssql = "delete from Administradores where Id={0}";
-                string sentencia = string.Format(ssql, pId);
-                SqlCommand comando = new SqlCommand(sentencia, con);
-                comando.CommandType = CommandType.Text;
-                result = comando.ExecuteNonQuery();
-                con.Close();
-            }
-            return result;
-        }
-        #endregion
+        
 
         #region metodo para obtener a detalle un registro
         public static Administrador obetenerPorId(Int64 pId)
