@@ -55,18 +55,18 @@ function agregar() {
             dataType: "json",
             data: JSON.stringify(obj),
             success: function (datos) {
-                alert("Registro guardado");
+                alert("El registro se ha guardado exitósamente.");
                 limpiar();
                 mostrar();
             },
             error: function (err) {
-                alert("Algo salió mal");
+                alert("Se produjo un error.");
             }
         })
     }
     else
     {
-        alert("todos los campos son requeridos");
+        alert("todos los campos son requeridos.");
     }
 }
 
@@ -102,7 +102,7 @@ function mostrar() {
         },
 
         error: function (err) {
-            alert("Algo salió mal");
+            alert("Se produjo un error.");
         }
     })
 }
@@ -120,7 +120,7 @@ function obtenerModulo() {
             $('#modulo').append(html);
         },
         error: function (err) {
-            toastr.error("No se pudieron leer los modulos");
+            toastr.error("Se ha producido un error al mostrar Módulo.");
         }
     });
 }
@@ -139,7 +139,7 @@ function obtenerEstudiante() {
             $('#matricula').append(html);
         },
         error: function (err) {
-            toastr.error("No se pudieron leer los estudiantes");
+            toastr.error("Se ha producido un error al mostrar Estudiante.");
         }
     });
 }

@@ -48,7 +48,7 @@ function buscarRegistro(texto) {
         },
 
         error: function (err) {
-            toastr.error("Ocurrió un error, no se pudo completar la solicitud");
+            toastr.error("No se pudo completar la acción.");
         }
     })
 }
@@ -79,7 +79,7 @@ function mostrarMatriculas() {
         },
 
         error: function (err) {
-            toastr.error("Ocurrió un error, no se pudo completar la solicitud");
+            toastr.error("No se pudo completar la acción.");
         }
     })
 }
@@ -104,7 +104,7 @@ function verificarMatricula() {
             success: function (resp) {
                 if(resp>0)
                 {
-                    toastr.warning("El alumno ya esta inscrito en este ciclo");
+                    toastr.warning("Lo sentimos, Alumno existente en este Ciclo.");
                 }
                 else
                 {
@@ -112,12 +112,12 @@ function verificarMatricula() {
                 }
             },
             error: function (err) {
-                toastr.error("No se pudo completar la solicitud");
+                toastr.error("No se pudo completar la acción.");
             }
         });
     }
     else {
-        toastr.warning("Todos los campos son requeridos");
+        toastr.warning("Todos los campos son requeridos.");
     }
 };
 
@@ -139,17 +139,17 @@ function guardarMatricula() {
             dataType: "json",
             data: JSON.stringify(obj),
             success: function (resp) {
-                toastr.success("Registro guardado con éxito");
+                toastr.success("El registro se ha guardado exitósamente.");
                 limpiarFormulario();
                 mostrarMatriculas();
             },
             error: function (err) {
-                toastr.error("No se pudo completar la solicitud");
+                toastr.error("No se pudo completar la acción.");
             }
         });
     }
     else {
-        toastr.warning("Todos los campos son requeridos");
+        toastr.warning("Todos los campos son requeridos.");
     }
 }
 
@@ -172,7 +172,7 @@ function detalleMatricula(id) {
             $('#Idmatricula').val(data.Id);
         },
         error: function (err) {
-            toastr.error("No se pudo completar la solicitud");
+            toastr.error("No se pudo completar la acción.");
         }
     });
 }
@@ -209,7 +209,7 @@ function cargarEstudiantes() {
             $('#mestudiante').append(html);
         },
         error: function (err) {
-            toastr.error("No se pudieron leer");
+            toastr.error("Se ha produciso un error al mostrar Estudiante.");
         }
     });
 }
@@ -229,7 +229,7 @@ function cargarGrupos() {
             $('#mgrupo').append(html);
         },
         error: function (err) {
-            toastr.error("No se pudieron leer");
+            toastr.error("Se ha producido un error al mostrar Grupo.");
         }
     });
 }
@@ -249,7 +249,7 @@ function cargarCarreras() {
             $('#mcarrera').append(html);
         },
         error: function (err) {
-            toastr.error("No se pudieron leer");
+            toastr.error("Se ha producido un error al mostrar Carrera.");
         }
     });
 }
@@ -271,16 +271,16 @@ function modificarMatricula() {
             dataType: "json",
             data: JSON.stringify(obj),
             success: function (resp) {
-                toastr.success("Registro guardado con éxito");
+                toastr.success("El registro se ha guardado exitósamente.");
                 limpiarFormulario();
                 mostrarMatriculas();
             },
             error: function (err) {
-                toastr.error("No se pudo completar la solicitud");
+                toastr.error("No se pudo completar la acción.");
             }
         });
     }
     else {
-        toastr.warning("Todos los campos son requeridos");
+        toastr.warning("Todos los campos son requeridos.");
     }
 }

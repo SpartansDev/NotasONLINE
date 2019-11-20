@@ -12,10 +12,13 @@ namespace AdminMVC.Controllers
     {
         DetalleBL bl = new DetalleBL();
         // GET: DetalleInscripcion
+        #region Index
         public ActionResult Index()
         {
             return View();
         }
+        #endregion
+        #region Metodo Notas
         public ActionResult Notas()
         {
             try
@@ -30,41 +33,36 @@ namespace AdminMVC.Controllers
                 return Redirect("/Home/Index");
             }
         }
+        #endregion
+        #region Metodo Agregar Notas
         [Authorize]
         [HttpPost]
         public JsonResult Agregar(DetalleInscripcion pDetalle)
         {
             return Json(bl.Agregar(pDetalle), JsonRequestBehavior.AllowGet);
         }
-
-        ////////////////////////verificar modulo no se repita////////////////////////////////
-
-        [HttpPost]
-        public JsonResult verificarModulo(DetalleInscripcion pDetalle)
-        {
-            return Json(bl.verificarModulo(pDetalle), JsonRequestBehavior.AllowGet);
-        }
-
-        ///////////////////////////////////////FIN////////////////////////////////////////////
         [Authorize]
         [HttpPost]
         public JsonResult Modificar(DetalleInscripcion pDetalle)
         {
             return Json(bl.Modificar(pDetalle), JsonRequestBehavior.AllowGet);
         }
+        #endregion
+        #region Metodo Obtener Por Id
         [Authorize]
         [HttpGet]
         public JsonResult ObtenerPorId(Int64 pId)
         {
             return Json(DetalleBL.ObtenerPorId(pId), JsonRequestBehavior.AllowGet);
         }
-        
-
+        #endregion
+        #region Metodo Mostrar Notas
         [Authorize]
         [HttpGet]
         public JsonResult Mostrar()
         {
             return Json(bl.Mostrar(), JsonRequestBehavior.AllowGet);
         }
+        #endregion
     }
 }

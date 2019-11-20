@@ -30,11 +30,11 @@ function login() {
                 }
             },
             error: function (err) {
-                toastr.error('Correo o contraseña incorrectos');
+                toastr.error('Correo o contraseña incorrectos.');
             }
         });
     } else {
-        toastr.warning('Todos los campos son requeridos');
+        toastr.warning('Todos los campos son requeridos.');
     }
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -56,25 +56,25 @@ function Guardar() {
                 data: JSON.stringify(obj),
                 success: function (resp) {
                     if (resp > 0) {
-                        toastr.success("Registro guardado");
+                        toastr.success("El registro se ha guardado exitósamente.");
                         AdminNoExist();
                         limpiar();
                     }
                     else {
-                        toastr.warning("No se pudo guardar");
+                        toastr.warning("Hubo un error al guardar.");
                     }
                 },
                 error: function (err) {
-                    toastr.error("No se pudo completar, error inesperado");
+                    toastr.error("No se pudo completar la acción.");
                 }
             });
         }
         else {
-            toastr.warning("Los campos son requeridos");
+            toastr.warning("Todos los campos son requeridos.");
         }
     }
     else {
-        toastr.info("Ya esta registrado un administrador");
+        toastr.info("Ya se ha registrado un Administrador");
     }
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -92,7 +92,7 @@ function AdminNoExist() {
             }
         },
         error: function (err) {
-            toastr.error("No se pudo verificar la existencia de usuarios", "Error");
+            toastr.error("No se pudo verificar la existencia de usuarios.", "Error");
         },
     });
 };

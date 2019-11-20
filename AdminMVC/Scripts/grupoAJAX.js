@@ -32,7 +32,7 @@ function cargarProfesor() {
             $('#profesor').append(html);
         },
         error: function (err) {
-            toastr.error("No se pudieron leer");
+            toastr.error("Se ha producido un error al mostrar Profesor.");
         }
     });
 }
@@ -50,7 +50,7 @@ function cargarCarrera() {
             $('#carrera').append(html);
         },
         error: function (err) {
-            toastr.error("No se pudieron leer");
+            toastr.error("Se ha producido un error al mostrar Carrera.");
         }
     });
 }
@@ -79,7 +79,7 @@ function cargarGrupos() {
         },
 
         error: function (err) {
-            toastr.error("Ocurrió un error, no se pudo completar la solicitud");
+            toastr.error("No se pudo completar la acción.");
         }
     })
 }
@@ -109,7 +109,7 @@ function buscar(pBuscar) {
             $('#tbgrupos tbody').html(html);
         },
         error: function (err) {
-            toastr.error("Ocurrió un error, no se pudo completar la solicitud");
+            toastr.error("No se pudo completar la acción.");
         }
     })
 }
@@ -141,17 +141,17 @@ function guardar() {
             dataType: "json",
             data: JSON.stringify(obj),
             success: function (resp) {
-                toastr.success("Registro guardado");
+                toastr.success("El registro se ha guardado exitósamente.");
                 cargarGrupos();
                 limpiar();
             },
             error: function (err) {
-                toastr.error("No se pudo completar la solicitud");
+                toastr.error("No se pudo completar la acción.");
             }
         });
     }
     else {
-        toastr.warning("Todos los campos son requeridos");
+        toastr.warning("Todos los campos son requeridos.");
     }
 }
 
@@ -169,7 +169,7 @@ function detalle(id) {
             $("#profesor").val(datos.ProfesorId.Id);
         },
         error: function (err) {
-            toastr.error("No se pudo completar la solicitud");
+            toastr.error("No se pudo completar la acción.");
         }
     });
 }
