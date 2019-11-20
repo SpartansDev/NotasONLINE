@@ -22,12 +22,12 @@ function login() {
                 }
             },
             error: function (err) {
-                toastr.error('Correo o contraseña incorrectos');
+                toastr.error('Correo o contraseña incorrectos.');
             }
         });
     }
     else {
-        toastr.warning("Todos los campos son requeridos");
+        toastr.warning("Todos los campos son requeridos.");
     }
 }
 

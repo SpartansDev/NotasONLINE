@@ -76,17 +76,17 @@ function agregar() {
                 data: JSON.stringify(obj),
                 success: function (respuesta) {
                     limpiar();
-                    toastr.success("Registro guardado");
+                    toastr.success("El registro se ha guardado exitósamente.");
                     mostrarInscripciones();
                 },
                 error: function (err) {
-                    toastr.error('Error inesperado');
+                    toastr.error('Se produjo un error.');
                 }
             });
         }
     }
     else {
-        toastr.warning("Todos los campos son requeridos");
+        toastr.warning("Todos los campos son requeridos.");
     }
 }
 
@@ -109,7 +109,7 @@ function detalles(id) {
             $('#status').val(datos.Status);
         },
         error: function (err) {
-            toastr.error('No se pudo completar solicitud');
+            toastr.error('No se pudo completar la acción.');
         }
     });
 }
@@ -127,7 +127,7 @@ function cargarMatricula() {
             $('#matricula').append(html);
         },
         error: function (err) {
-            toastr.error("No se pudieron cargar las matriculas");
+            toastr.error("Se ha producido un error al mostrar Matrícula.");
         }
     });
 }
@@ -145,7 +145,7 @@ function cargarModulo() {
             $("#modulo").append(html);
         },
         error: function (err) {
-            toastr.error("No se pudieron cargar los modulos");
+            toastr.error("Se ha producido un error al mostrar Módulo.");
         }
     });
 }
@@ -184,7 +184,7 @@ function mostrarInscripciones() {
             $('#tbNotas tbody').html(html);
         },
         error: function (err) {
-            toastr.error("Ocurrió un error, no se pudo completar la solicitud");
+            toastr.error("No se pudo completar la acción.");
         }
     })
 }
@@ -196,15 +196,15 @@ function eliminar(id) {
          dataType: "json",
          success: function (resp) {
              if (resp > 0) {
-                 toastr.success("Registro borrado", "Exito");
+                 toastr.success("El registro se ha eliminado exitósamente.", "Exito");
                  mostrarInscripciones();
              }
              else {
-                 toastr.error("Vaya! ocurrio un error, intentalo mas tarde", "Error");
+                 toastr.error("Ocurrio un error, inténtelo nuevamente.", "Error");
              }
          },
          error: function (err) {
-             toastr.error("Vaya! ocurrio un error en el sistema, intentalo mas tarde", "Error");
+             toastr.error("Ocurrio un error en el sistema, inténtelo nuevamente.", "Error");
          }
      })
  }

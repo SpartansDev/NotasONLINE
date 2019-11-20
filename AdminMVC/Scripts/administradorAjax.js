@@ -34,7 +34,7 @@ function cargarAdmin() {
             $('#tbAdmin tbody').html(html);
         },
         error: function (err) {
-            $('.alert').alert("No se pudieron cargar los admins");
+            $('.alert').alert("Se ha producido un error en mostrar los Administadores");
         }
     })
 }
@@ -56,21 +56,21 @@ function Guardar() {
             data: JSON.stringify(obj),
             success: function (resp) {
                 if (resp > 0) {
-                    toastr.success("Registro guardado");
+                    toastr.success("El registro se ha guardado exitósamente.");
                     cargarAdmin();
                     limpiar();
                 }
                 else {
-                    toastr.warning("No se pudo guardar");
+                    toastr.warning("Hubo un error al guardar.");
                 }
             },
             error: function (err) {
-                toastr.error("No se pudo completar, error inesperado");
+                toastr.error("No se pudo completar la acción.");
             }
         });
     }
     else {
-        toastr.warning("Los campos son requeridos");
+        toastr.warning("Todos los campos son requeridos.");
     }
 }
 function Modificar() {
@@ -90,21 +90,21 @@ function Modificar() {
             data: JSON.stringify(obj),
             success: function (resp) {
                 if (resp > 0) {
-                    toastr.success("Registro guardado");
+                    toastr.success("El registro se ha guardado exitósamente.");
                     cargarAdmin();
                     limpiar();
                 }
                 else {
-                    toastr.warning("No se pudo guardar");
+                    toastr.warning("Hubo un error al guardar.");
                 }
             },
             error: function (err) {
-                toastr.error("No se pudo completar, error inesperado");
+                toastr.error("No se pudo completar la acción.");
             }
         });
     }
     else {
-        toastr.warning("Los campos son requeridos");
+        toastr.warning("Todos los campos son requeridos");
     }
 }
 function detalle(id) {
@@ -121,7 +121,7 @@ function detalle(id) {
             $('#mpass').val(data.Contraseña);
         },
         error: function (err) {
-            toastr.error("No se pudo completar");
+            toastr.error("No se pudo completar esta acción");
         }
     });
 }
@@ -156,19 +156,19 @@ function EmailNoExist() {
             data: JSON.stringify(obj),
             success: function (resp) {
                 if (resp >0) {
-                    toastr.warning("Este correo ya esta en uso"); 
+                    toastr.warning("Lo sentimos, correo existente"); 
                 }
                 else {
                     Guardar();
                 }
             },
             error: function (err) {
-                toastr.error("No se pudo completar, error inesperado");
+                toastr.error("No se pudo completar la acción");
             }
         });
     }
     else {
-        toastr.warning("Los campos son requeridos");
+        toastr.warning("Todos los campos son requeridos");
     }
 }
 

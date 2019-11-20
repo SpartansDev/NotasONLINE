@@ -53,7 +53,7 @@ function cargarEstudiante() {
         },
 
         error: function (err) {
-            toastr.error("Ocurrió un error, no se pudo completar la solicitud");
+            toastr.error("Se ha producido un error al mostrar Estudiante.");
         }
     })
 }
@@ -98,7 +98,7 @@ function buscar(pBuscar) {
         },
 
         error: function (err) {
-            toastr.error("Ocurrió un error, no se pudo completar la solicitud");
+            toastr.error("No se pudo completar la acción");
         }
     })
 };
@@ -122,18 +122,18 @@ function VerificarNoExiste() {
             data: JSON.stringify(obj),
             success: function (resp) {
                 if (resp > 0) {
-                    toastr.warning("Este codigo ya esta en uso");
+                    toastr.warning("Lo sentimos, código en uso.");
                 }
                 else {
                     Guardar();
                 }
             },
             error: function (err) {
-                toastr.warning('Algo salio mal');
+                toastr.warning('Se produjo un error.');
             }
         });
     } else {
-        toastr.warning('Todos los campos son requeridos');
+        toastr.warning('Todos los campos son requeridos.');
     }
 }
 
@@ -151,7 +151,7 @@ function cargarGrupos() {
             $('#lgrupo').append(html);
         },
         error: function (err) {
-            toastr.error("No se pudieron leer");
+            toastr.error("Se ha producido un error al mostrar Grupo.");
         }
     });
 }
@@ -172,7 +172,7 @@ function detalle(id) {
             $('##mstatus').val(data.StatusStudent);
         },
         error: function (err) {
-            toastr.error("No se pudo completar");
+            toastr.error("No se pudo completar la acción.");
         }
     });
 };
@@ -193,7 +193,7 @@ function detalleMatricula(id) {
             $("#lstatus").val(-1);
         },
         error: function (err) {
-            toastr.error("No se pudo completar la solicitud");
+            toastr.error("No se pudo completar la acción.");
         }
     });
 }
@@ -218,20 +218,20 @@ function Guardar() {
             success: function (resp) {
                 if (resp > 0) {
                     limpiar();
-                    toastr.success("Registro guardado");
+                    toastr.success("El registro se ha guardado exitósamente.");
                     cargarEstudiante();
                 }
                 else {
-                    toastr.warning("No se pudo guardar");
+                    toastr.warning("Hubo un error al guardar.");
                 }
             },
             error: function (err) {
-                toastr.error("No se pudo completar, error inesperado");
+                toastr.error("No se pudo completar la acción.");
             }
         });
     }
     else {
-        toastr.warning("Los campos son requeridos");
+        toastr.warning("Todos los campos son requeridos.");
     }
 }
 
@@ -255,20 +255,20 @@ function Modificar() {
             success: function (resp) {
                 if (resp > 0) {
                     limpiar();
-                    toastr.success("Registro guardado");
+                    toastr.success("El registro se ha guardado exitósamente.");
                     cargarEstudiante();
                 }
                 else {
-                    toastr.warning("No se pudo guardar");
+                    toastr.warning("Hubo un error al guardar.");
                 }
             },
             error: function (err) {
-                toastr.error("No se pudo completar, error inesperado");
+                toastr.error("No se pudo completar la acción.");
             }
         });
     }
     else {
-        toastr.warning("Los campos son requeridos");
+        toastr.warning("Todos los campos son requeridos.");
     }
 }
 
@@ -288,7 +288,7 @@ function obtenerCarreras() {
             $('#carrera').append(html);
         },
         error: function (err) {
-            toastr.error("No se pudieron mostrar las carreras");
+            toastr.error("Se produjo un error al mostrar Carreras.");
         }
     });
 }
@@ -337,15 +337,15 @@ function guardarMatricula() {
             data: JSON.stringify(obj),
             success: function (resp) {
                 limpiar();
-                toastr.success("Registro guardado con éxito");
+                toastr.success("Registro se ha guardado exitósamente.");
             },
             error: function (err) {
-                toastr.error("No se pudo completar la solicitud");
+                toastr.error("No se pudo completar la acción.");
             }
         });
     }
     else {
-        toastr.warning("Todos los campos son requeridos");
+        toastr.warning("Todos los campos son requeridos.");
     }
 }
 function verificarMatricula() {
@@ -366,18 +366,18 @@ function verificarMatricula() {
             data: JSON.stringify(obj),
             success: function (resp) {
                 if (resp > 0) {
-                    toastr.warning("El alumno ya esta inscrito en este ciclo");
+                    toastr.warning("Lo sentimos, Alumno existente en el Ciclo.");
                 }
                 else {
                     guardarMatricula();
                 }
             },
             error: function (err) {
-                toastr.error("No se pudo completar la solicitud");
+                toastr.error("No se pudo completar la acción.");
             }
         });
     }
     else {
-        toastr.warning("Todos los campos son requeridos");
+        toastr.warning("Todos los campos son requeridos.");
     }
 };

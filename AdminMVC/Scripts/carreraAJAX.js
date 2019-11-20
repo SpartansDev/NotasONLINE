@@ -27,7 +27,7 @@ function mostrarCarreras()
         },
 
         error: function (err) {
-            toastr.error("Ocurrió un error, no se pudo completar la solicitud");
+            toastr.error("Se ha producido un error en mostrar las Carreras.");
         }
     })
 }
@@ -55,19 +55,19 @@ function agregarCarrera() {
             dataType: "json",
             data: JSON.stringify(obj),
             success: function (data) {
-                toastr.success("Registro guardado");
+                toastr.success("El registro se ha guardado exitósamente.");
                 mostrarCarreras();
                 limpiar();
                 mostrarCarreras();
             },
             error: function (err) {
-                toastr.error("Error inesperdado");
+                toastr.error("Se produjo un error.");
             }
         });
     }
     else
     {
-        alert.warning("Todos los campos son requeridos");
+        alert.warning("Todos los campos son requeridos.");
     }
 }
 
@@ -83,7 +83,7 @@ function detalle(id) {
             $('#btnGuardar').val('Guardar cambios');
         },
         error: function (err) {
-            toastr.error("No se pudo completar la solicitud");
+            toastr.error("No se pudo completar la acción.");
         }
     });
 }

@@ -30,7 +30,7 @@ function mostrarModulos() {
         },
 
         error: function (err) {
-            toastr.error("Ocurrió un error, no se pudo completar la solicitud");
+            toastr.error("No se pudo completar la acción.");
         }
     })
 }
@@ -70,7 +70,7 @@ function buscar(pBuscar) {
             $('#tbmodulo tbody').html(html);
         },
         error: function (err) {
-            toastr.error("Ocurrió un error, no se pudo completar la solicitud");
+            toastr.error("No se pudo completar la acción.");
         }
     })
 }
@@ -99,18 +99,18 @@ function agregarModulo() {
             dataType: "json",
             data: JSON.stringify(obj),
             success: function (resp) {
-                toastr.success("Registro guardado con éxito");
+                toastr.success("El registro se ha guardado exitósamente.");
                 mostrarModulos();
                 limpiar();
             },
             error: function (err) {
-                toastr.error("No se pudo completar la solicitud");
+                toastr.error("No se pudo completar la acción.");
             }
         });
     }
     else
     {
-        toastr.warning("todos los campos son requeridos");
+        toastr.warning("todos los campos son requeridos.");
     }
 }
 function limpiar() {
@@ -133,7 +133,7 @@ function obtenerCarreras() {
             $('#carrera').append(html);
         },
         error: function (err) {
-            toastr.error("No se pudieron mostrar las carreras");
+            toastr.error("Se produjo un error al mostrar Carrera");
         }
     });
 }
@@ -152,7 +152,7 @@ function detalle(id)
             $("#uv").val(datos.UV);
         },
         error: function (err) {
-            toastr.error("error inesperado");
+            toastr.error("Se produjo un error.");
         }
     });
 }

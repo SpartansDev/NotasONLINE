@@ -29,7 +29,7 @@ $('#frmModificar').submit(function (event) {
                 $('#tbprofe tbody').html(html);
             },
             error: function (err) {
-                toastr.error("no se pudieron cargar");
+                toastr.error("Se ha producido un error al mostrar Profesor.");
             }
         })
     }
@@ -50,7 +50,7 @@ $('#frmModificar').submit(function (event) {
                 data: JSON.stringify(obj),
                 success: function (resp) {
                     if (resp>0) {
-                        toastr.warning("Este correo ya esta en uso");
+                        toastr.warning("Lo sentimos, correo existente.");
                     }
                     else
                     {
@@ -58,16 +58,16 @@ $('#frmModificar').submit(function (event) {
                     }
                 },
                 error: function (err) {
-                    toastr.warning('Algo salio mal');
+                    toastr.warning('Se produjo un error.');
                 }
             });
         } else {
-            toastr.warning('Todos los campos son requeridos');
+            toastr.warning('Todos los campos son requeridos.');
         }
     }
 
     function eliminar(id) {
-        var resp = confirm("Estas seguro de eliminar este dato?");
+        var resp = confirm("Estás seguro de eliminar este dato?");
         if (resp) {
             $.ajax({
                 url: "/Profesor/Eliminar?pId=" + id,
@@ -76,15 +76,15 @@ $('#frmModificar').submit(function (event) {
                 dataType: "json",
                 success: function (res) {
                     if (res > 0) {
-                        alert("Registro Eliminado");
+                        alert("El registro se ha eliminado exitósamente");
                         cargarProfesores();
                     }
                     else {
-                        toastr.warning("no se pudo eliminar");
+                        toastr.warning("Se produjo un error al eliminar");
                     }
                 },
                 error: function (err) {
-                    toastr.error("algo salio mal (profesor-ajax)");
+                    toastr.error("Hub un error (profesor-ajax)");
                 }
             });
         }
@@ -103,7 +103,7 @@ $('#frmModificar').submit(function (event) {
                 $('#mpass').val(data.Contraseña);
             },
             error: function (err) {
-                toastr.error("Nose pudo completar");
+                toastr.error("No se pudo completar la acción.");
             }
         });
     }
@@ -125,21 +125,21 @@ $('#frmModificar').submit(function (event) {
                 data: JSON.stringify(obj),
                 success: function (resp) {
                     if (resp > 0) {
-                        toastr.success("Registro guardado");
+                        toastr.success("El registro se ha guardado exitósamente.");
                         cargarProfesor();
                         limpiar();
                     }
                     else {
-                        toastr.warning("No se pudo guardar");
+                        toastr.warning("Hubo un error al guardar.");
                     }
                 },
                 error: function (err) {
-                    toastr.error("No se pudo completar, error inesperado", { positionClass: toast - top - center });
+                    toastr.error("No se pudo completar la acción.", { positionClass: toast - top - center });
                 }
             });
         }
         else {
-            toastr.warning("Los campos son requeridos");
+            toastr.warning("Todos los campos son requeridos.");
         }
     }
 
@@ -161,21 +161,21 @@ $('#frmModificar').submit(function (event) {
                 data: JSON.stringify(obj),
                 success: function (resp) {
                     if (resp > 0) {
-                        toastr.success("Registro guardado");
+                        toastr.success("El registro se ha guardado exitósamente.");
                         cargarProfesor();
                         mlimpiar();
                     }
                     else {
-                        toastr.warning("No se pudo guardar");
+                        toastr.warning("Hubo un error al guardar.");
                     }
                 },
                 error: function (err) {
-                    toastr.error("No se pudo completar, error inesperado",{positionClass:toast-top-center});
+                    toastr.error("No se pudo completar la acción.",{positionClass:toast-top-center});
                 }
             });
         }
         else {
-            toastr.warning("Los campos son requeridos");
+            toastr.warning("Todos los campos son requeridos.");
         }
     }
 
