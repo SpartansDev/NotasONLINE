@@ -154,6 +154,7 @@ function guardarMatricula() {
 }
 
 function detalleMatricula(id) {
+    limpiarFormulario();
     $.ajax({
         url: "/Matricula/ObtenerPorId?pId=" + id,
         type: "GET",
@@ -167,6 +168,8 @@ function detalleMatricula(id) {
             $('#mestudiante').val(data.EstudianteId.Id);
             $('#mgrupo').val(data.GrupoId.Id);
             $('#btnGuardar').val('Guardar cambios');
+            $('#nombreAlumno').val(data.EstudianteId.NombreEstudiante + ' ' + data.EstudianteId.ApellidoEstudiante);
+            $('#Idmatricula').val(data.Id);
         },
         error: function (err) {
             toastr.error("No se pudo completar la solicitud");
@@ -175,6 +178,8 @@ function detalleMatricula(id) {
 }
 
 function limpiarFormulario() {
+    $('#nombreAlumno').val('');
+    $('#Idmatricula').val('');
     $('#id').val('');
     $('#año').val('');
     $('#ciclo').val('');
