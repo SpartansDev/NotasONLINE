@@ -107,6 +107,7 @@
     <Content Include="Content\fonts.css" />
     <Content Include="Content\Images\admin01.jpg" />
     <Content Include="Content\Images\esfe.png" />
+    <Content Include="Content\Images\Gray ESFE.png" />
     <Content Include="Content\Images\isotipo-ESFE.png" />
     <Content Include="Content\Images\Logo-ESFE.png" />
     <Content Include="Content\Images\Logo_esfe_sombra_blanca.jpg" />
@@ -114,6 +115,7 @@
     <Content Include="Content\Images\teacher01.jpg" />
     <Content Include="Content\Images\teacher01.png" />
     <Content Include="Content\Images\voyagape.png" />
+    <Content Include="Content\Images\White ESFE.png" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\Style.css" />
     <Content Include="Content\toastr.css" />

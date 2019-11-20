@@ -1,4 +1,6 @@
-﻿body {
+﻿/* This is the css style of Student*/
+
+body {
     background: url(../Content/Images/studybg.jpg)repeat 0px 0px; 
     background-size: cover;
     -webkit-background-size: cover;
@@ -25,9 +27,6 @@ textarea {
     height: 130px; /* 10rem*/
 }
 
-#containerNoflex{
-    display: inline-flex;
-}
 
 
 .bg-esfe{
@@ -43,7 +42,7 @@ textarea {
 }
 
 .logo-esfe {
-    max-width: 70%;
+    max-width: 76%;
     z-index: 1;
 }
 

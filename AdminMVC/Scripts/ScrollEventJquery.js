@@ -1,4 +1,6 @@
-﻿var lastScrollTop = 0;
+﻿//This is the js script of Admin/Prof
+
+var lastScrollTop = 0;
 $(window).scroll(function (event) {
     var st = $(this).scrollTop();
     if (st > lastScrollTop) {
@@ -10,15 +12,3 @@ $(window).scroll(function (event) {
     }
     lastScrollTop = st;
 });
-
-
-//var prevScrollpos = window.pageYOffset;
-//window.onscroll = function () {
-//    var currentScrollPos = window.pageYOffset;
-//    if (prevScrollpos > currentScrollPos) {
-//        document.getElementById("nav").style.display = "flex";
-//    } else {
-//        document.getElementById("nav").style.display = "none";
-//    }
-//    prevScrollpos = currentScrollPos;
-//}
