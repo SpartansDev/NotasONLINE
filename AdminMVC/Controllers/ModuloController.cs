@@ -12,35 +12,45 @@ namespace AdminMVC.Controllers
     {
         ModuloBL bl = new ModuloBL();
         // GET: Modulo
+        #region Index
         public ActionResult Index()
         {
             return View();
         }
+        #endregion
+        #region Obtener
         [Authorize]
         [HttpGet]
         public JsonResult Obtener()
         {
             return Json(bl.Mostrar(), JsonRequestBehavior.AllowGet);
         }
+        #endregion
+        #region Obtener Por Id
         [Authorize]
         [HttpGet]
         public JsonResult ObtenerPorId(Int64 pId)
         {
             return Json(ModuloBL.ObtenerPorId(pId), JsonRequestBehavior.AllowGet);
         }
+        #endregion
+        #region Agregar
         [Authorize]
         [HttpPost]
         public JsonResult Agregar(Modulo pMod)
         {
             return Json(bl.Agregar(pMod), JsonRequestBehavior.AllowGet);
         }
+        #endregion
+        #region Modificar
         [Authorize]
         [HttpPost]
         public JsonResult Modificar(Modulo pMod)
         {
             return Json(bl.Modificar(pMod), JsonRequestBehavior.AllowGet);
         }
-
+        #endregion
+        #region Buscar
         //buscar  
         [Authorize]
         [HttpGet]
@@ -48,5 +58,6 @@ namespace AdminMVC.Controllers
         {
             return Json(bl.ObtenerModulo(pBuscar), JsonRequestBehavior.AllowGet);
         }
+        #endregion
     }
 }
