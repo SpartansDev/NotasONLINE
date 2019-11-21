@@ -27,7 +27,6 @@ namespace DAL
         }
         #endregion
 
-        ///////////////////////////////////////////////////////////////
         #region metodo que verifica que la inscripcion de modulo no se repita
         public int moduloNoExist(DetalleInscripcion pDetalle)
         {
@@ -174,7 +173,5 @@ namespace DAL
             return lista;
         }
         #endregion
-
-        
     }
 }

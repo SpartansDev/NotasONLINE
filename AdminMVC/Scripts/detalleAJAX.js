@@ -111,7 +111,7 @@ function verificarMatricula() {
             GrupoId: { Id: $("#grupo").val(), NombreGrupo: '', Turno: '', CarreraId: '', ProfesorId: '' }
         }
         $.ajax({
-            url: "/Matricula/verificar",
+            url: "/DetalleInscripcion/verificarModulos",
             type: "POST",
             contentType: "application/json;charset=utf-8",
             dataType: "json",

@@ -41,13 +41,6 @@ namespace AdminMVC.Controllers
             return Json(bl.Modificar(pMatricula), JsonRequestBehavior.AllowGet);
         }
         #endregion
-        #region Verificar Matricula
-        [HttpPost]
-        public JsonResult verificar(Matricula pMatricula)
-        {
-            return Json(bl.verificar(pMatricula), JsonRequestBehavior.AllowGet);
-        }
-        #endregion
         #region Obtener Por Id
         [Authorize]
         [HttpGet]

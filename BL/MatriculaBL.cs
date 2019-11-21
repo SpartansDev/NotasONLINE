@@ -11,13 +11,6 @@ namespace BL
         MatriculaDAL dal = new MatriculaDAL();
         #endregion
 
-        #region retornamos el metodo para verificar que no se repita la matricula
-        public int verificar(Matricula pMatricual)
-        {
-            return dal.matriculaNoExist(pMatricual);
-        }
-        #endregion
-
         #region retornamos el metodo para agregar
         public int Agregar(Matricula pMatricula)
         {
