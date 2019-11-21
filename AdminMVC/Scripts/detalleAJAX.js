@@ -222,7 +222,6 @@ function mostrarInscripciones() {
                 }
                 html += '<td>';
                 html += '<a href="#" onclick="detalles(' + item.Id + ')" class="badge badge-danger" data-toggle="modal" data-target="#exampleModalLong">Modificar</a>|';
-                html += '<a href="#" onclick="eliminar(' + item.Id + ')" class="badge badge-danger">Eliminar</a>';
                 html += '</td>';
                 html += '</tr>';
             });
@@ -234,26 +233,7 @@ function mostrarInscripciones() {
         }
     })
 }
-function eliminar(id) {
-     $.ajax({
-         url: "/DetalleInscripcion/eliminar?pId=" + id,
-         type: "GET",
-         contentType: "application/json;charset=utf-8",
-         dataType: "json",
-         success: function (resp) {
-             if (resp > 0) {
-                 toastr.success("El registro se ha eliminado exitósamente.", "Exito");
-                 mostrarInscripciones();
-             }
-             else {
-                 toastr.error("Ocurrio un error, inténtelo nuevamente.", "Error");
-             }
-         },
-         error: function (err) {
-             toastr.error("Ocurrio un error en el sistema, inténtelo nuevamente.", "Error");
-         }
-     })
- }
+
 
 function limpiar() {
     $('#id').val('');
