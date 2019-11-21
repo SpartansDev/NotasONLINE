@@ -11,7 +11,13 @@ function obtenerModulosPorEstudianteId(id) {
         url: "/DetalleInscripcion/notasAlumnoPorId?pId=" + id,
         type: "GET",
         contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (datos) {
+            var html = "";
+            $.each(datos, function (key, item) {
 
+            })
+        }
     })
 }
     function cargarModulo() {

@@ -8,6 +8,10 @@ $("#frmMatricula").submit(function (event) {
     event.preventDefault();
     verificarMatricula();
 });
+$("#frmNotasMtricual").submit(function (event) {
+    event.preventDefault();
+    verificarModulo();
+})
 $("#frmMatriculaModificar").submit(function (event) {
     event.preventDefault();
     modificarMatricula();
@@ -154,7 +158,7 @@ function guardarMatricula() {
 }
 
 function detalleMatricula(id) {
-    limpiarFormulario();
+    limpiar();
     $.ajax({
         url: "/Matricula/ObtenerPorId?pId=" + id,
         type: "GET",
@@ -283,3 +287,81 @@ function modificarMatricula() {
         toastr.warning("Todos los campos son requeridos.");
     }
 }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+function inscribirModulo() {
+    if (!($('#Idmatricula').val() == '' || $('#modulo').val() == '' ||  $('#status').val() == '')) {
+        var obj = {
+            Id: $('#id').val(),
+            MatriculaId: { Id: $('#Idmatricula').val(), Año: '', Ciclo: '', CarreraId: '', EstudianteId: '', GrupoId: '' },
+            ModuloId: { Id: $('#modulo').val(), NombreModulo: '', CarreraId: '', UV: '' },
+            Nota1: $('#nota1').val(),
+            Nota2: $('#nota2').val(),
+            Nota3: $('#nota3').val(),
+            Nota4: $('#nota4').val(),
+            Nota5: $('#nota4').val(),
+            NotaFinal: $('#notafinal').val(),
+            Status: $('#status').val()
+        }
+        $.ajax({
+            url: "/DetalleInscripcion/Agregar",
+            type: 'POST',
+            contentType: 'application/json;charset=utf-8',
+            dataType: "json",
+            data: JSON.stringify(obj),
+            success: function (respuesta) {
+                limpiar();
+                toastr.success("El registro se ha guardado exitósamente.");
+                mostrarInscripciones();
+            },
+            error: function (err) {
+                toastr.error('Se produjo un error.');
+            }
+        });
+    }
+    else {
+        toastr.warning("Todos los campos son requeridos.");
+    }
+}
+
+
+///////////////////////////////////////////Codigo leydi//////////////////////////////////////
+
+
+function verificarModulo() {
+    if (!($('#Idmatricula').val() == '' || $('#modulo').val() == '' || $('#status').val() == '')) {
+        var obj = {
+            Id: $("#id").val(),
+            Año: $("#año").val(),
+            Ciclo: $("#ciclo").val(),
+            CarreraId: { Id: $("#carrera").val(), NombreCarrera: '' },
+            EstudianteId: { Id: $('#estudiante').val(), NombreEstudiante: '', ApellidoEsdudiante: '', Codigo: '', CarreraId: '', Contraseña: '' },
+            GrupoId: { Id: $("#grupo").val(), NombreGrupo: '', Turno: '', CarreraId: '', ProfesorId: '' }
+        }
+        $.ajax({
+            url: "/DetalleInscripcion/verificarModulos",
+            type: "POST",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            data: JSON.stringify(obj),
+            success: function (resp) {
+                if (resp > 0) {
+                    toastr.warning("El alumno ya esta inscrito en este modulo");
+                }
+                else {
+                    inscribirModulo();
+                }
+            },
+            error: function (err) {
+                toastr.error("No se pudo completar la solicitud");
+            }
+        });
+    }
+    else {
+        toastr.warning("Todos los campos son requeridos");
+    }
+};
+
+function limpiar() {
+    $('#modulo').val(-1);
+    $('#status').val('')
+};
