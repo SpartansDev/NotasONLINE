@@ -192,7 +192,6 @@
     <Content Include="Views\DetalleInscripcion\Notas.cshtml" />
     <Content Include="Views\Profesor\Perfil.cshtml" />
     <Content Include="Views\Administrador\Index.cshtml" />
-    <Content Include="BaseDatos\NotasOnline-backup" />
     <Content Include="fonts\icomoon.eot" />
     <Content Include="fonts\icomoon.ttf" />
     <Content Include="fonts\icomoon.woff" />
