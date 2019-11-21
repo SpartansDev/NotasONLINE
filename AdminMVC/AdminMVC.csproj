@@ -195,6 +195,7 @@
     <Content Include="fonts\icomoon.eot" />
     <Content Include="fonts\icomoon.ttf" />
     <Content Include="fonts\icomoon.woff" />
+    <Content Include="BaseDatos\NotasOnline_Backup.bak" />
     <None Include="Properties\PublishProfiles\admin.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
