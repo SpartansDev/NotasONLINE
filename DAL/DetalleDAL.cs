@@ -35,7 +35,7 @@ namespace DAL
             {
                 con.Open();
                 string ssql = "select * from DetallesInscripcion where MatriculaId={0} and ModuloId={1} ";
-                string sentencia = string.Format(ssql, pDetalle.MatriculaId, pDetalle.ModuloId.Id);
+                string sentencia = string.Format(ssql, pDetalle.MatriculaId.Id, pDetalle.ModuloId.Id);
                 SqlCommand comando = new SqlCommand(sentencia, con);
                 comando.CommandType = CommandType.Text;
                 IDataReader lector = comando.ExecuteReader();

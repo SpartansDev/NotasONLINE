@@ -43,6 +43,9 @@ namespace AdminMVC.Controllers
         {
             return Json(bl.Agregar(pDetalle), JsonRequestBehavior.AllowGet);
         }
+        #endregion
+
+        #region modificar
         [Authorize]
         [HttpPost]
         public JsonResult Modificar(DetalleInscripcion pDetalle)

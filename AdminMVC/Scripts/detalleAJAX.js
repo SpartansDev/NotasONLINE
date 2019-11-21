@@ -221,7 +221,7 @@ function mostrarInscripciones() {
                     html += '<td>Notas Ocultas</td>';
                 }
                 html += '<td>';
-                html += '<a href="#" onclick="detalles(' + item.Id + ')" class="badge badge-danger" data-toggle="modal" data-target="#exampleModalLong">Modificar</a>|';
+                html += '<a href="#" onclick="detalles(' + item.Id + ')" class="badge badge-danger" data-toggle="modal" data-target="#exampleModalLong">Modificar</a>';
                 html += '</td>';
                 html += '</tr>';
             });
