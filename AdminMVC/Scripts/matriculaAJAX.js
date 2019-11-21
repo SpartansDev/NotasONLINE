@@ -180,7 +180,6 @@ function detalleMatricula(id) {
 function limpiarFormulario() {
     $('#nombreAlumno').val('');
     $('#Idmatricula').val('');
-    $('#id').val('');
     $('#año').val('');
     $('#ciclo').val('');
     $('#carrera').val(-1);
