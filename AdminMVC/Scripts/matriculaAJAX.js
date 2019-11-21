@@ -129,7 +129,7 @@ function guardarMatricula() {
             Año: $("#año").val(),
             Ciclo: $("#ciclo").val(),
             CarreraId: { Id: $("#carrera").val(), NombreCarrera: '' },
-            EstudianteId: { Id: $('#estudiante').val(), NombreEstudiante: '', ApellidoEsdudiante: '', Codigo: '', CarreraId: '', Contraseña: '' },
+            EstudianteId: { Id: $('#estudiante').val(), NombreEstudiante: '', ApellidoEstudiante: '', Codigo: '', CarreraId: '', Contraseña: '' },
             GrupoId: {Id:$("#grupo").val(),NombreGrupo:'',Turno:'',CarreraId:'',ProfesorId:''}
         }
         $.ajax({
