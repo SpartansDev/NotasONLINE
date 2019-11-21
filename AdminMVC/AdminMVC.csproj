@@ -138,7 +138,6 @@
     <Content Include="Scripts\DetalleMatricula\detalle.js" />
     <Content Include="Scripts\EstudianteAjax.js" />
     <Content Include="Scripts\grupoAJAX.js" />
-    <Content Include="Scripts\inscripcionAJAX.js" />
     <Content Include="Scripts\jquery-3.0.0.min.js" />
     <Content Include="Scripts\JSprofesor\crudProfesor.js" />
     <Content Include="Scripts\JSprofesor\funcionesProfesor.js" />
@@ -195,6 +194,7 @@
     <Content Include="fonts\icomoon.eot" />
     <Content Include="fonts\icomoon.ttf" />
     <Content Include="fonts\icomoon.woff" />
+    <Content Include="BaseDatos\NotasOnline_Backup.bak" />
     <None Include="Properties\PublishProfiles\admin.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
