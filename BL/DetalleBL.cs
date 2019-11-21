@@ -52,5 +52,12 @@ namespace BL
             return dal.notasPorEstudianteId(pId);
         }
         #endregion
+
+        #region mostrar notas por la llave foranea EstudianteId
+        public List<DetalleInscripcion> notasAlumnosPorId(Int64 pId)
+        {
+            return dal.notasPorEstudianteId(pId);
+        }
+        #endregion
     }
 }

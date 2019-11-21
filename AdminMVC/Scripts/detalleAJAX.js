@@ -3,7 +3,7 @@ $(function () {
     mostrarInscripciones();
     cargarMatricula();
     cargarModulo();
-    verificarModulo();//// codigo leydi
+    
 })
 
 $("#frmMatricula").submit(function (event) {
@@ -100,7 +100,7 @@ function agregar() {
 ///////////////////////////////////////////Codigo leydi//////////////////////////////////////
 
 
-function verificarMatricula() {
+function verificarModulo() {
     if (!($("#año").val() == "" || $("#ciclo").val() == "" || $("#carrera").val() == "" || $("#estudiante").val() == "" || $("#grupo").val() == "")) {
         var obj = {
             Id: $("#id").val(),
@@ -118,10 +118,10 @@ function verificarMatricula() {
             data: JSON.stringify(obj),
             success: function (resp) {
                 if (resp > 0) {
-                    toastr.warning("El alumno ya esta inscrito en este ciclo");
+                    toastr.warning("El alumno ya esta inscrito en este modulo");
                 }
                 else {
-                    guardarMatricula();
+                    guardarModulo();
                 }
             },
             error: function (err) {
