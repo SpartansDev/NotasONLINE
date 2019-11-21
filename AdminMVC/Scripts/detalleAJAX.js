@@ -3,7 +3,7 @@ $(function () {
     mostrarInscripciones();
     cargarMatricula();
     cargarModulo();
-    verificarModulo();//// codigo leydi
+    
 })
 
 $("#frmMatricula").submit(function (event) {

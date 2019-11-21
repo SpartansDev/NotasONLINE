@@ -75,5 +75,12 @@ namespace AdminMVC.Controllers
             return Json(bl.verificarModulo(pDetalle), JsonRequestBehavior.AllowGet);
         }
         #endregion
+
+        #region mostrar notas por la foranea EstudianteId
+        public JsonResult notasAlumnoPorId(Int64 pId)
+        {
+            return Json(bl.NotasPorEstudianteId(pId), JsonRequestBehavior.AllowGet);
+        }
+        #endregion
     }
 }

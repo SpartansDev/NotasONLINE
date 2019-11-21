@@ -5,6 +5,15 @@ $("#frmNotasMtricual").submit(function (event) {
     event.preventDefault();
     agregar();
 })
+
+function obtenerModulosPorEstudianteId(id) {
+    $.ajax({
+        url: "/DetalleInscripcion/notasAlumnoPorId?pId=" + id,
+        type: "GET",
+        contentType: "application/json;charset=utf-8",
+
+    })
+}
     function cargarModulo() {
         $.ajax({
             url: "/Modulo/Obtener",

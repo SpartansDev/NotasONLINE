@@ -173,5 +173,36 @@ namespace DAL
             return lista;
         }
         #endregion
+
+        #region Notas del alumno por la foranea EstudianteId
+        public List<DetalleInscripcion>notasAlumnosPorId(Int64 pId)
+        {
+            List<DetalleInscripcion> lista = new List<DetalleInscripcion>();
+            using (SqlConnection con = ConexionBD.Conectar())
+            {
+                con.Open();
+                string ssql = "select a.*, b.* from DetallesInscripcion as a inner join Matriculas as b on a.MatriculaId = b.Id where b.EstudianteId={0}";
+                string sentencia = string.Format(ssql, pId);
+                SqlCommand comando = new SqlCommand(sentencia, con);
+                comando.CommandType = CommandType.Text;
+                IDataReader lector = comando.ExecuteReader();
+                while (lector.Read())
+                {
+                    lista.Add(new DetalleInscripcion(lector.GetInt64(0),
+                                                     MatriculaDAL.ObtenerPorId(lector.GetInt64(1)),
+                                                     ModuloDAL.ObtenerPorId(lector.GetInt64(2)),
+                                                     lector.GetDecimal(3),
+                                                     lector.GetDecimal(4),
+                                                     lector.GetDecimal(5),
+                                                     lector.GetDecimal(6),
+                                                     lector.GetDecimal(7),
+                                                     lector.GetDecimal(8),
+                                                     lector.GetInt64(9)));
+                }
+                con.Close();
+            }
+            return lista;
+        }
+        #endregion
     }
 }
