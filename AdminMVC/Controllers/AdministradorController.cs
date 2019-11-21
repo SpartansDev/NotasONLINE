@@ -18,6 +18,7 @@ namespace AdminMVC.Controllers
             return View();
         }
         #endregion
+
         #region Metodo cuando el email no existe
         [Authorize]
         [HttpPost]
@@ -26,6 +27,7 @@ namespace AdminMVC.Controllers
             return Json(bl.EmailNoExist(pAdmin), JsonRequestBehavior.AllowGet);
         }
         #endregion
+
         #region Metodo obtener por ID
         [Authorize]
         [HttpGet]
@@ -57,8 +59,6 @@ namespace AdminMVC.Controllers
             return Json(bl.Modificar(pAdmin), JsonRequestBehavior.AllowGet);
         }
         #endregion
-
-        
         #region Metodo mostrar administrador
         [Authorize]
         [HttpGet]

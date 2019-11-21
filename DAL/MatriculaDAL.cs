@@ -9,14 +9,14 @@ namespace DAL
     public class MatriculaDAL
     {
         #region metodo que verifica que la matricula no se repita
-        public int matriculaNoExist(Matricula pMatricual)
+        public int matriculaNoExist(Matricula pMatricula)
         {
             int result = 0;
             using (SqlConnection con = ConexionBD.Conectar())
             {
                 con.Open();
                 string ssql = "select * from Matriculas where Ciclo='{0}' and EstudianteId={1}";
-                string sentencia = string.Format(ssql, pMatricual.Ciclo, pMatricual.EstudianteId.Id);
+                string sentencia = string.Format(ssql, pMatricula.Ciclo, pMatricula.EstudianteId.Id);
                 SqlCommand comando = new SqlCommand(sentencia, con);
                 comando.CommandType = CommandType.Text;
                 IDataReader lector = comando.ExecuteReader();

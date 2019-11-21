@@ -52,5 +52,12 @@ namespace BL
             return MatriculaDAL.ObtenerPorId(pId);
         }
         #endregion
+
+        #region verificar que matricula no se repita
+        public int verificar(Matricula pMatricula)
+        {
+            return dal.matriculaNoExist(pMatricula);
+        }
+        #endregion
     }
 }
