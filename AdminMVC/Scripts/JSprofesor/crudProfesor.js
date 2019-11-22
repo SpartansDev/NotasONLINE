@@ -1,8 +1,16 @@
 ﻿capturarID();
+
 function capturarID() {
     var Id = $("#MiId").val();
     misAlumnos(Id);
 };
+
+$('#frmNotas').submit(function (event) {
+    event.preventDefault();
+    agregar();
+});
+
+//funcion para mostrar los alumnos 
 function misAlumnos(Id) {
     $.ajax({
         url: "/Matricula/misAlumnos?pId=" + Id,
@@ -18,7 +26,7 @@ function misAlumnos(Id) {
                 html += "<th>" + item.EstudianteId.Codigo + "</th>";
                 html+="<th>"+item.Ciclo+"</th>";
                 html += "<th>";
-                html += "<a href='#' data-toggle='modal' data-target='#modal' class='badge badge-success' onclick='detalle(" + item.EstudianteId.Id + ")'>Agregar notas</a>";
+                html += "<a href='#' data-toggle='modal' data-target='#modal' class='badge badge-success' onclick='obtenerModulosPorEstudianteId(" + item.EstudianteId.Id + ")'>ver modulos</a>";
                 html += "</th>";
                 html += "</tr>";
             });
@@ -29,14 +37,159 @@ function misAlumnos(Id) {
         }
     });
 }
-function detalle(id) {
+//funcion que muestra los modulos del alumno
+function obtenerModulosPorEstudianteId(id) {
     $.ajax({
-        url: "/Matricula/obtenerPorId?pId="+id,
-        type:"GET",
+        url: "/DetalleInscripcion/modulosDeMiGrupo?pId=" + id,
+        type: "GET",
         contentType: "application/json;charset=utf-8",
         dataType: "json",
         success: function (datos) {
-
+            var html = "";
+            $.each(datos, function (key, item) {
+                var html = "";
+                $.each(datos, function (key, item) {
+                    html += "<hr />";
+                    html += "<div class='row'>";
+                    html += "<div class='col-4'>" + item.ModuloId.NombreModulo + "</div>";
+                    html += "<div class='col-1'>" + item.Nota1 + "</div>";
+                    html += "<div class='col-1'>" + item.Nota2 + "</div>";
+                    html += "<div class='col-1'>" + item.Nota3 + "</div>";
+                    html += "<div class='col-1'>" + item.Nota4 + "</div>";
+                    html += "<div class='col-1'>" + item.Nota5 + "</div>";
+                    html += "<div class='col-1'>" + item.NotaFinal + "</div>";
+                    html += '<a href="#" onclick="detalleNotas(' + item.Id + ')" class="badge badge-danger" data-toggle="modal" data-target="#exampleModalLong">calificar</a>';
+                    html += "</div>";
+                });
+                $("#mostrarModulos div").html(html);
+            });
+        },
+        error: function (err) {
+            toastr.error("No se puedieron cargar los detalles de modulo");
         }
+    });
+}
+//para abrir la modal de agregar notas
+function detalleNotas(id) {
+    $.ajax({
+        url: "/DetalleInscripcion/ObtenerPorId?pId=" + id,
+        type: "GET",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (datos) {
+            $('#pid').val(datos.Id);
+            $('#matricula').val(datos.MatriculaId.Id);
+            $('#refrescar').val(datos.MatriculaId.EstudianteId.Id);
+            $('#modulo').val(datos.ModuloId.Id);
+            $('#nombreMod').val(datos.ModuloId.NombreModulo);
+            $('#nota1').val(datos.Nota1);
+            $('#nota2').val(datos.Nota2);
+            $('#nota3').val(datos.Nota3);
+            $('#nota4').val(datos.Nota4);
+            $('#nota5').val(datos.Nota5);
+            $('#notafinal').val(datos.NotaFinal);
+            $('#status').val(datos.Status);
+        },
+        error: function (err) {
+            toastr.error('No se pudo completar la acción.');
+        }
+    });
+}
+
+///funciones para agregar Notas
+function agregar() {
+    if (!($('#matricula').val() == '' || $('#modulo').val() == '' || $('#nota1').val() == '' || $('#nota2').val() == '' || $('#nota3').val() == '' ||
+        $('#nota4').val() == '' || $('#nota5').val() == '' || $('#notafinal').val() == '' || $('#status').val() == '')) {
+        //verificar que nota no sea mayor a 10 o menor a 0
+        if ($('#nota1').val() > 10 || $('#nota2').val() > 10 || $('#nota3').val() > 10 || $('#nota4').val() > 10 || $('#nota5').val() > 10 ||
+            $('#nota1').val() < 0 || $('#nota2').val() < 0 || $('#nota3').val() < 0 || $('#nota4').val() < 0 || $('#nota5').val() < 0) {
+            toastr.warning("Verifica si no haz escrito numeros negativos o mayor a 10", "Advertencia");
+        } else {
+            var obj = {
+                Id: $('#pid').val(),
+                MatriculaId: { Id: $('#matricula').val(), Año: '', Ciclo: '', CarreraId: '', EstudianteId: '', GrupoId: '' },
+                ModuloId: { Id: $('#modulo').val(), NombreModulo: '', CarreraId: '', UV: '' },
+                Nota1: $('#nota1').val(),
+                Nota2: $('#nota2').val(),
+                Nota3: $('#nota3').val(),
+                Nota4: $('#nota4').val(),
+                Nota5: $('#nota4').val(),
+                NotaFinal: $('#notafinal').val(),
+                Status: $('#status').val()
+            }
+            var id = $('#pid').val();
+            var ruta = '';
+            if (id) {
+                ruta = "/DetalleInscripcion/Modificar";
+            }
+            else {
+                ruta = "/DetalleInscripcion/Agregar";
+            }
+            $.ajax({
+                url: ruta,
+                type: 'POST',
+                contentType: 'application/json;charset=utf-8',
+                dataType: "json",
+                data: JSON.stringify(obj),
+                success: function (respuesta) {
+                    var ir = $("#refrescar").val();
+                    obtenerModulosPorEstudianteId(ir);
+                    toastr.success("El registro se ha guardado exitósamente.");
+                    limpiar();
+                },
+                error: function (err) {
+                    toastr.error('Se produjo un error.');
+                }
+            });
+        }
+    }
+    else {
+        toastr.warning("Todos los campos son requeridos.");
+    }
+}
+
+//promedio automatico
+$(document).ready(function () {
+    $('#frmNotas').on('keyup', function () {
+        var n1 = parseFloat($('#nota1').val());
+        var n2 = parseFloat($('#nota2').val());
+        var n3 = parseFloat($('#nota3').val());
+        var n4 = parseFloat($('#nota4').val());
+        var n5 = parseFloat($('#nota5').val());
+
+
+        if (isNaN(n1)) {
+            n1 = 0;
+        }
+        if (isNaN(n2)) {
+            n2 = 0;
+        }
+        if (isNaN(n3)) {
+            n3 = 0;
+        }
+        if (isNaN(n4)) {
+            n4 = 0;
+        }
+        if (isNaN(n5)) {
+            n5 = 0;
+        }
+        var neto = (n1 + n2 + n3 + n4 + n5) * 0.2;
+
+        $('#notafinal').val(neto);
     })
+});
+
+//limpiar despues de agregar notas
+function limpiar() {
+    $('#id').val('');
+    $('#matricula').val('');
+    $('#modulo').val('');
+    $('#nombreMod').val('');
+    $('#nota1').val('');
+    $('#nota2').val('');
+    $('#nota3').val('');
+    $('#nota4').val('');
+    $('#nota5').val('');
+    $('#notafinal').val('');
+    $('#status').val('');
 }

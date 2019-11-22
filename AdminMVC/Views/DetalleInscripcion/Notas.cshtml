@@ -25,7 +25,7 @@
         </div>
     </div>
 </div>
-<!-- Modal -->
+<!-- Modal para ver modulos del alumno-->
 <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable" role="document">
         <div class="modal-content">
@@ -36,21 +36,19 @@
                 </button>
             </div>
             <div class="modal-body">
-                <!--C mamut aqui -->
                 <form id="mostrarModulos">
-                    <div></div>
+                    <div class="container"><!--diseño en ajax--></div>
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
             </div>
         </div>
     </div>
 </div>
 
 <!-- Modal Agregar Notas-->
-<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -60,13 +58,54 @@
                 </button>
             </div>
             <div class="modal-body">
+                <!--formulario para agregar notas-->
+                <form id="frmNotas">
+
+                    <input type="hidden" id="pid" name="Id" class="form-control" />
+                    <input type="hidden" id="matricula" name="matriculaId" />
+                    <input type="hidden" id="status" name="Status" />
+                    <input type="hidden" id="modulo" name="ModuloId" />
+                    <input type="hidden" id="refrescar" />
+                    <div class="form-group">
+                        <input type="text" id="nombreMod" class="form-control text-center" disabled />
+                    </div>
+                    <!--Obtener notas-->
+                    <div id="final">
+                        <div class="form-group">
+                            <label>Primer Nota</label>
+                            <input type="text" id="nota1" name="Nota1" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label>Segunda Nota</label>
+                            <input type="text" id="nota2" name="Nota2" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label>Tercera Nota</label>
+                            <input type="text" id="nota3" name="Nota3" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label>Cuarta Nota</label>
+                            <input type="text" id="nota4" name="Nota4" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label>Quinta Nota</label>
+                            <input type="text" id="nota5" name="Nota5" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label>Nota Final</label>
+                            <input type="text" id="notafinal" name="NotaFinal" class="form-control" disabled />
+                        </div>
+                    </div>
+                    <!--fin Obtener-->
+                    <div class="form-group">
+                        <input type="submit" id="btnGuardar" value="Guardar Registro" class="btn btn-outline-primary" />
+                    </div>
+                </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
             </div>
         </div>
     </div>
 </div>
 <script src="~/Scripts/JSprofesor/crudProfesor.js"></script>
-<script src="~/Scripts/DetalleMatricula/detalle.js"></script>

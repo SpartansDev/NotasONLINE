@@ -85,5 +85,12 @@ namespace AdminMVC.Controllers
             return Json(bl.NotasPorEstudianteId(pId), JsonRequestBehavior.AllowGet);
         }
         #endregion
+
+        #region mostrale los modulos inscritos al profesor
+        public JsonResult modulosDeMiGrupo(Int64 pId)
+        {
+            return Json(bl.modulosDeMiGrupo(pId), JsonRequestBehavior.AllowGet);
+        }
+        #endregion
     }
 }

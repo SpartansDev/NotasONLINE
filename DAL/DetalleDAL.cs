@@ -174,14 +174,14 @@ namespace DAL
         }
         #endregion
 
-        #region Notas del alumno por la foranea EstudianteId
+        #region modulos del alumno por la foranea EstudianteId
         public List<DetalleInscripcion>notasAlumnosPorId(Int64 pId)
         {
             List<DetalleInscripcion> lista = new List<DetalleInscripcion>();
             using (SqlConnection con = ConexionBD.Conectar())
             {
                 con.Open();
-                string ssql = "select a.*, b.* from DetallesInscripcion as a inner join Matriculas as b on a.MatriculaId = b.Id where b.EstudianteId={0}";
+                string ssql = "select a.*, b.* from DetallesInscripcion as a inner join Matriculas as b on a.MatriculaId = b.Id where a.Status=0 and b.EstudianteId={0}";
                 string sentencia = string.Format(ssql, pId);
                 SqlCommand comando = new SqlCommand(sentencia, con);
                 comando.CommandType = CommandType.Text;
