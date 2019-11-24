@@ -46,9 +46,11 @@ function obtenerModulosPorEstudianteId(id) {
         dataType: "json",
         success: function (datos) {
             var html = "";
-            $.each(datos, function (key, item) {
+            $.each(datos, function (key, item)
+            {
                 var html = "";
-                $.each(datos, function (key, item) {
+                $.each(datos, function (key, item)
+                {
                     html += "<hr />";
                     html += "<div class='row'>";
                     html += "<div class='col-4'>" + item.ModuloId.NombreModulo + "</div>";
@@ -76,10 +78,11 @@ function detalleNotas(id) {
         type: "GET",
         contentType: "application/json;charset=utf-8",
         dataType: "json",
-        success: function (datos) {
+        success: function (datos)
+        {
             $('#pid').val(datos.Id);
             $('#matricula').val(datos.MatriculaId.Id);
-            $('#refrescar').val(datos.MatriculaId.EstudianteId.Id);
+            $('#refrescar').val(datos.MatriculaId.EstudianteId.Id);//id del alumno
             $('#modulo').val(datos.ModuloId.Id);
             $('#nombreMod').val(datos.ModuloId.NombreModulo);
             $('#nota1').val(datos.Nota1);
@@ -90,7 +93,8 @@ function detalleNotas(id) {
             $('#notafinal').val(datos.NotaFinal);
             $('#status').val(datos.Status);
         },
-        error: function (err) {
+        error: function (err)
+        {
             toastr.error('No se pudo completar la acción.');
         }
     });
@@ -99,12 +103,16 @@ function detalleNotas(id) {
 ///funciones para agregar Notas
 function agregar() {
     if (!($('#matricula').val() == '' || $('#modulo').val() == '' || $('#nota1').val() == '' || $('#nota2').val() == '' || $('#nota3').val() == '' ||
-        $('#nota4').val() == '' || $('#nota5').val() == '' || $('#notafinal').val() == '' || $('#status').val() == '')) {
+        $('#nota4').val() == '' || $('#nota5').val() == '' || $('#notafinal').val() == '' || $('#status').val() == ''))
+    {
         //verificar que nota no sea mayor a 10 o menor a 0
         if ($('#nota1').val() > 10 || $('#nota2').val() > 10 || $('#nota3').val() > 10 || $('#nota4').val() > 10 || $('#nota5').val() > 10 ||
-            $('#nota1').val() < 0 || $('#nota2').val() < 0 || $('#nota3').val() < 0 || $('#nota4').val() < 0 || $('#nota5').val() < 0) {
+            $('#nota1').val() < 0 || $('#nota2').val() < 0 || $('#nota3').val() < 0 || $('#nota4').val() < 0 || $('#nota5').val() < 0)
+        {
             toastr.warning("Verifica si no haz escrito numeros negativos o mayor a 10", "Advertencia");
-        } else {
+        }
+        else
+        {
             var obj = {
                 Id: $('#pid').val(),
                 MatriculaId: { Id: $('#matricula').val(), Año: '', Ciclo: '', CarreraId: '', EstudianteId: '', GrupoId: '' },
@@ -119,10 +127,12 @@ function agregar() {
             }
             var id = $('#pid').val();
             var ruta = '';
-            if (id) {
+            if (id)
+            {
                 ruta = "/DetalleInscripcion/Modificar";
             }
-            else {
+            else
+            {
                 ruta = "/DetalleInscripcion/Agregar";
             }
             $.ajax({
@@ -131,9 +141,11 @@ function agregar() {
                 contentType: 'application/json;charset=utf-8',
                 dataType: "json",
                 data: JSON.stringify(obj),
-                success: function (respuesta) {
+                success: function (respuesta)
+                {
+                    //capturamos el id del alumno para refrescar la modal de modulos.
                     var ir = $("#refrescar").val();
-                    obtenerModulosPorEstudianteId(ir);
+                    obtenerModulosPorEstudianteId(ir);//si  no llevara un id la funcion daria un error y valio verga
                     toastr.success("El registro se ha guardado exitósamente.");
                     limpiar();
                 },

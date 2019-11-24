@@ -234,14 +234,15 @@ function Guardar() {
         toastr.warning("Todos los campos son requeridos.");
     }
 }
-
+function notificar() {
+    toastr.warning("No se guardaran los cambios que hagas en el codigo", "Advertencia!");
+}
 function Modificar() {
-    if (!($('#mnombre').val() == "" || $('#mapellido').val() == "" || $('#mcodigo').val() == "" || $('#mcarrera').val() == "" || $('#mpass').val() == "" || $('#mstatus').val() == "")) {
+    if (!($('#mnombre').val() == "" || $('#mapellido').val() == "" || $('#mcarrera').val() == "" || $('#mpass').val() == "" || $('#mstatus').val() == "")) {
         var obj = {
             Id: $('#mid').val(),
             NombreEstudiante: $('#mnombre').val(),
             ApellidoEstudiante: $('#mapellido').val(),
-            Codigo: $('#mcodigo').val(),
             CarreraId: { Id: $('#mcarrera').val(), NombreCarrera: '' },
             Contraseña: $('#mpass').val(),
             StatusStudent: $('#mstatus').val(),

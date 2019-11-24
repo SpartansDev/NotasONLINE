@@ -73,13 +73,15 @@ function Guardar() {
         toastr.warning("Todos los campos son requeridos.");
     }
 }
+function notificar() {
+    toastr.warning("No se guardaran los cambios que realizes en el campo de correo","Recordatorio")
+}
 function Modificar() {
-    if (!($('#mnombre').val() == "" || $('#mapellido').val() == "" || $('#memail').val() == "" || $('#mpass').val() == "")) {
+    if (!($('#mnombre').val() == "" || $('#mapellido').val() == "" || $('#mpass').val() == "")) {
         var obj = {
             Id: $('#mid').val(),
             NombreAdministrador: $('#mnombre').val(),
             ApellidoAdministrador: $('#mapellido').val(),
-            Email: $('#memail').val(),
             Contraseña: $('#mpass').val()
         }
         $.ajax({

@@ -61,8 +61,8 @@ namespace DAL
             using (SqlConnection con = ConexionBD.Conectar())
             {
                 con.Open();
-                string ssql = "update Estudiantes set NombreEstudiante='{0}', ApellidoEstudiante='{1}', Codigo='{2}',CarreraId={3}, Contraseña='{4}', StatusStudent={5} where Id={6}";
-                string sentencia = string.Format(ssql, pEstudiante.NombreEstudiante, pEstudiante.ApellidoEstudiante, pEstudiante.Codigo, pEstudiante.CarreraId.Id, pEstudiante.Contraseña, pEstudiante.StatusStudent, pEstudiante.Id);
+                string ssql = "update Estudiantes set NombreEstudiante='{0}', ApellidoEstudiante='{1}',CarreraId={2}, Contraseña='{3}', StatusStudent={4} where Id={5}";
+                string sentencia = string.Format(ssql, pEstudiante.NombreEstudiante, pEstudiante.ApellidoEstudiante, pEstudiante.CarreraId.Id, pEstudiante.Contraseña, pEstudiante.StatusStudent, pEstudiante.Id);
                 SqlCommand comando = new SqlCommand(sentencia, con);
                 comando.CommandType = CommandType.Text;
                 resultado = comando.ExecuteNonQuery();

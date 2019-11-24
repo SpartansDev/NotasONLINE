@@ -35,10 +35,9 @@ namespace DAL
                 con.Open();
                 string ssql = @"update Administradores set NombreAdministrador='{0}',
                                                            ApellidoAdministrador='{1}',
-                                                           Email='{2}',
-                                                           Contraseña='{3}'
-                                                           where Id={4}";
-                string sentencia = string.Format(ssql, pAdmin.NombreAdministrador, pAdmin.ApellidoAdministrador, pAdmin.Email, pAdmin.Contraseña, pAdmin.Id);
+                                                           Contraseña='{2}'
+                                                           where Id={3}";
+                string sentencia = string.Format(ssql, pAdmin.NombreAdministrador, pAdmin.ApellidoAdministrador, pAdmin.Contraseña, pAdmin.Id);
                 SqlCommand comando = new SqlCommand(sentencia, con);
                 comando.CommandType = CommandType.Text;
                 result = comando.ExecuteNonQuery();
@@ -72,8 +71,6 @@ namespace DAL
             return lista;
         }
         #endregion
-
-        
 
         #region metodo para obtener a detalle un registro
         public static Administrador obetenerPorId(Int64 pId)

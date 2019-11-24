@@ -143,13 +143,15 @@ $('#frmModificar').submit(function (event) {
         }
     }
 
+    function notificar() {
+        toastr.warning("No se guardaran los cambios que hagas en el correo","Advertencia!");
+    }
     function modificar() {
-        if (!($('#mnombre').val() == "" || $('#mapellido').val() == "" || $('#memail').val() == "" || $('#mpass').val() == "")) {
+        if (!($('#mnombre').val() == "" || $('#mapellido').val() == "" || $('#mpass').val() == "")) {
             var obj = {
                 Id: $('#mid').val(),
                 NombreProfesor: $('#mnombre').val(),
                 ApellidoProfesor: $('#mapellido').val(),
-                Email: $('#memail').val(),
                 Contraseña: $('#mpass').val()
             }
 
