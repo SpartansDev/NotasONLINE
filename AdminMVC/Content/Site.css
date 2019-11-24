@@ -74,9 +74,10 @@ textarea {
 
 /* start Responsive design*/
 @media (min-width: 1200px) {
-  .card-body a{
-        margin-left: 36%;
-    }
+    /*.btn-center{
+        display: block;
+        margin: auto;
+    }*/
 
   .footer-esfe{
         clear: both;
@@ -87,9 +88,10 @@ textarea {
 }
 
 @media(min-width: 992px){
-    .card-body a{
-        margin-left: 34%;
-    }
+    /*.btn-center{
+        display: block;
+        margin: auto;
+    }*/
 
     .footer-esfe{
         clear: both;
@@ -100,9 +102,10 @@ textarea {
 }
 
 @media(max-width: 992px){
-    .card-body a{
-        margin-left: 28%;
-    }
+    /*.btn-center{
+        display: block;
+        margin: auto;
+    }*/
 
     .footer-esfe{
         clear: both;
@@ -113,9 +116,9 @@ textarea {
 }
 
 @media(max-width: 768px){
-    .card-body a{
+    /*.card-body a{
         margin-left: 34%;
-    }
+    }*/
 
     .footer-esfe{
         clear: both;
@@ -151,9 +154,9 @@ textarea {
 }
 
 @media(max-width: 576px){
-    .card-body a{
+    /*.card-body a{
         margin-left: 24%;
-    }
+    }*/
 
     .footer-esfe{
         clear:both;
@@ -189,9 +192,9 @@ textarea {
 }
 
 @media(max-width: 360px){
-    .card-body a{
+    /*.card-body a{
         margin-left: 12%;
-    }
+    }*/
 
     .footer-esfe{
         clear:both;
