@@ -25,7 +25,7 @@ namespace DAL
             return result;
         }
         #endregion
-
+        //
         #region metodo para modificar
         public int Modificar(Administrador pAdmin)
         {
