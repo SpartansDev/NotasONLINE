@@ -10,7 +10,8 @@ namespace AdminMVC.Controllers
 {
     public class AdministradorController : Controller
     {
-        
+        AdministradorBL bl = new AdministradorBL();
+        // GET: Administrador
         #region Index
         public ActionResult Index()
         {
