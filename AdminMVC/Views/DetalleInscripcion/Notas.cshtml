@@ -26,8 +26,8 @@
     </div>
 </div>
 <!-- Modal para ver modulos del alumno-->
-<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable" role="document">
+<div class="modal fade bd-example-modal-lg" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalScrollableTitle">Modulos del Alumno</h5>
@@ -37,7 +37,29 @@
             </div>
             <div class="modal-body">
                 <form id="mostrarModulos">
-                    <div class="container"><!--diseño en ajax--></div>
+                    <div class="container">
+                    <!--diseño en ajax-->
+                        <!--Tabla-->
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                <table class="table table-dark table-hover table-responsive-md" id="tbMalumno">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th>Módulo</th>
+                                            <th>N1</th>
+                                            <th>N2</th>
+                                            <th>N3</th>
+                                            <th>N4</th>
+                                            <th>N5</th>
+                                            <th>NF</th>
+                                            <th>Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="text-white"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </form>
             </div>
             <div class="modal-footer">

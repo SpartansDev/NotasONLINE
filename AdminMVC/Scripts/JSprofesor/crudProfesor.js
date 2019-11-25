@@ -51,19 +51,33 @@ function obtenerModulosPorEstudianteId(id) {
                 var html = "";
                 $.each(datos, function (key, item)
                 {
-                    html += "<hr />";
-                    html += "<div class='row'>";
-                    html += "<div class='col-4'>" + item.ModuloId.NombreModulo + "</div>";
-                    html += "<div class='col-1'>" + item.Nota1 + "</div>";
-                    html += "<div class='col-1'>" + item.Nota2 + "</div>";
-                    html += "<div class='col-1'>" + item.Nota3 + "</div>";
-                    html += "<div class='col-1'>" + item.Nota4 + "</div>";
-                    html += "<div class='col-1'>" + item.Nota5 + "</div>";
-                    html += "<div class='col-1'>" + item.NotaFinal + "</div>";
-                    html += '<a href="#" onclick="detalleNotas(' + item.Id + ')" class="badge badge-danger" data-toggle="modal" data-target="#exampleModalLong">calificar</a>';
-                    html += "</div>";
+                    html += "<tr>";
+                    html += "<td>" + item.ModuloId.NombreModulo + "</td>";
+                    html += "<td>" + item.Nota1 + "</td>";
+                    html += "<td>" + item.Nota2 + "</td>";
+                    html += "<td>" + item.Nota3 + "</td>";
+                    html += "<td>" + item.Nota4 + "</td>";
+                    html += "<td>" + item.Nota5 + "</td>";
+                    html += "<td>" + item.NotaFinal + "</td>";
+                    html += "<td>";
+                    html += '<a href="#" onclick="detalleNotas(' + item.Id + ')" class="badge badge-danger" data-toggle="modal" data-target="#exampleModalLong">Calificar</a>';
+                    html += "</td>";
+                    html += "</tr>";
+
+
+                    //html += "<hr />";
+                    //html += "<div class='row'>";
+                    //html += "<div class='col-4'>" + item.ModuloId.NombreModulo + "</div>";
+                    //html += "<div class='col-1'>" + item.Nota1 + "</div>";
+                    //html += "<div class='col-1'>" + item.Nota2 + "</div>";
+                    //html += "<div class='col-1'>" + item.Nota3 + "</div>";
+                    //html += "<div class='col-1'>" + item.Nota4 + "</div>";
+                    //html += "<div class='col-1'>" + item.Nota5 + "</div>";
+                    //html += "<div class='col-1'>" + item.NotaFinal + "</div>";
+                    //html += '<a href="#" onclick="detalleNotas(' + item.Id + ')" class="badge badge-danger" data-toggle="modal" data-target="#exampleModalLong">calificar</a>';
+                    //html += "</div>";
                 });
-                $("#mostrarModulos div").html(html);
+                $("#tbMalumno tbody").html(html);
             });
         },
         error: function (err) {
@@ -168,6 +182,7 @@ $(document).ready(function () {
         var n3 = parseFloat($('#nota3').val());
         var n4 = parseFloat($('#nota4').val());
         var n5 = parseFloat($('#nota5').val());
+        var nf = parseFloat($('#notafinal').val());
 
 
         if (isNaN(n1)) {
@@ -185,9 +200,10 @@ $(document).ready(function () {
         if (isNaN(n5)) {
             n5 = 0;
         }
-        var neto = (n1 + n2 + n3 + n4 + n5) * 0.2;
 
-        $('#notafinal').val(neto);
+        nf = (n1 + n2 + n3 + n4 + n5) * 0.2;
+
+        $('#notafinal').val(nf);
     })
 });
 
