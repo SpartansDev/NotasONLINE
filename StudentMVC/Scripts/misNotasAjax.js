@@ -34,17 +34,30 @@
             dataType: "json",
             success: function (data) {
                 var html = '';
-                $.each(data, function (key, item) {
+                if (!(data == ""))
+                {
+                    $.each(data, function (key, item) {
+                        html += '<tr>';
+                        html += '<td>' + item.ModuloId.NombreModulo + '</td>';
+                        html += '<td>' + item.Nota1 + '</td>';
+                        html += '<td>' + item.Nota2 + '</td>';
+                        html += '<td>' + item.Nota3 + '</td>';
+                        html += '<td>' + item.Nota4 + '</td>';
+                        html += '<td>' + item.Nota5 + '</td>';
+                        html += '<td>' + item.NotaFinal + '</td>';
+                        html += '</tr>';
+                    });
+                }
+                else {
                     html += '<tr>';
-                    html += '<td>' + item.ModuloId.NombreModulo + '</td>';
-                    html += '<td>' + item.Nota1 + '</td>';
-                    html += '<td>' + item.Nota2 + '</td>';
-                    html += '<td>' + item.Nota3 + '</td>';
-                    html += '<td>' + item.Nota4 + '</td>';
-                    html += '<td>' + item.Nota5 + '</td>';
-                    html += '<td>' + item.NotaFinal + '</td>';
+                    html += '<td></td>';
+                    html += '<td></td>';
+                    html += '<td></td>';
+                    html += '<td>';
+                    html += '<h3 class="text-center">No hay notas</h3>';
+                    html += '</td>';
                     html += '</tr>';
-                });
+                }
                 $('#nota tbody').html(html);
             },
             error: function (err) {
