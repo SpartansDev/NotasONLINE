@@ -20,6 +20,7 @@ namespace StudentMVC.Controllers
         {
             return View();
         }
+        #region Notas
         public ActionResult Notas()
         {
             try
@@ -33,8 +34,11 @@ namespace StudentMVC.Controllers
             {
                 return RedirectToAction("Index");
             }
+            
 
         }
+        #endregion
+        #region Login
         [HttpPost]
         public JsonResult Login(Estudiante pEstudiantes)
         {
@@ -50,6 +54,8 @@ namespace StudentMVC.Controllers
                 return Json(resp, JsonRequestBehavior.AllowGet);
             }
         }
+        #endregion
+        #region Cerrar
         public ActionResult Cerrar()
         {
             FormsAuthentication.SignOut();
@@ -57,5 +63,6 @@ namespace StudentMVC.Controllers
             Session.Clear();
             return RedirectToAction("Index");
         }
+        #endregion
     }
 }
