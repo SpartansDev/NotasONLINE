@@ -21,13 +21,13 @@ function misAlumnos(Id) {
             var html = "";
             $.each(datos, function (key, item) {
                 html += "<tr>";
-                html += "<th>" + item.EstudianteId.NombreEstudiante + "</th>";
-                html += "<th>" + item.EstudianteId.ApellidoEstudiante + "</th>";
-                html += "<th>" + item.EstudianteId.Codigo + "</th>";
-                html+="<th>"+item.Ciclo+"</th>";
-                html += "<th>";
+                html += "<td>" + item.EstudianteId.NombreEstudiante + "</td>";
+                html += "<td>" + item.EstudianteId.ApellidoEstudiante + "</td>";
+                html += "<td>" + item.EstudianteId.Codigo + "</td>";
+                html += "<td>"+item.Ciclo+"</td>";
+                html += "<td>";
                 html += "<a href='#' data-toggle='modal' data-target='#modal' class='badge badge-success' onclick='obtenerModulosPorEstudianteId(" + item.EstudianteId.Id + ")'>ver modulos</a>";
-                html += "</th>";
+                html += "</td>";
                 html += "</tr>";
             });
             $("#alumnos tbody").html(html);
@@ -99,8 +99,9 @@ function detalle(id) {
             {
                 $('#pid').val(datos.Id);
                 $('#matricula').val(datos.MatriculaId.Id);
-                $('#refrescar').val(datos.MatriculaId.EstudianteId.Id);//id del alumno
+                $('#status').val(datos.Status);
                 $('#modulo').val(datos.ModuloId.Id);
+                $('#refrescar').val(datos.MatriculaId.EstudianteId.Id);//id del alumno
                 $('#nombreMod').val(datos.ModuloId.NombreModulo);
                 $('#nota1').val(datos.Nota1);
                 $('#nota2').val(datos.Nota2);
@@ -108,7 +109,7 @@ function detalle(id) {
                 $('#nota4').val(datos.Nota4);
                 $('#nota5').val(datos.Nota5);
                 $('#notafinal').val(datos.NotaFinal);
-                $('#status').val(datos.Status);
+                
             },
             error: function (err)
             {
@@ -138,7 +139,7 @@ function detalle(id) {
                     Nota2: $('#nota2').val(),
                     Nota3: $('#nota3').val(),
                     Nota4: $('#nota4').val(),
-                    Nota5: $('#nota4').val(),
+                    Nota5: $('#nota5').val(),
                     NotaFinal: $('#notafinal').val(),
                     Status: $('#status').val()
                 }

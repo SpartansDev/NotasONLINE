@@ -62,7 +62,7 @@ function agregar() {
                 Nota2: $('#nota2').val(),
                 Nota3: $('#nota3').val(),
                 Nota4: $('#nota4').val(),
-                Nota5: $('#nota4').val(),
+                Nota5: $('#nota5').val(),
                 NotaFinal: $('#notafinal').val(),
                 Status: $('#status').val()
             }

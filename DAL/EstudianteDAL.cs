@@ -135,7 +135,7 @@ namespace DAL
             using (SqlConnection con = ConexionBD.Conectar())
             {
                 con.Open();
-                string ssql = "SELECT * FROM Estudiantes WHERE NombreEstudiante  like '%{0}%' or Codigo like '%{1}%'";
+                string ssql = "SELECT * FROM Estudiantes WHERE  Codigo like '%{0}%'";//NombreEstudiante  like '%{0}%' or
                 string sentencia = string.Format(ssql, pBuscar);
                 SqlCommand comando = new SqlCommand(sentencia, con);
                 comando.CommandType = CommandType.Text;
