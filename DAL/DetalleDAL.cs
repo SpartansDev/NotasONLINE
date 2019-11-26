@@ -130,10 +130,10 @@ namespace DAL
                     detalle.ModuloId = ModuloDAL.ObtenerPorId(lector.GetInt64(2));
                     detalle.Nota1 = lector.GetDecimal(3);
                     detalle.Nota2 = lector.GetDecimal(4);
-                    detalle.Nota2 = lector.GetDecimal(5);
-                    detalle.Nota3 = lector.GetDecimal(6);
-                    detalle.Nota4 = lector.GetDecimal(7);
-                    detalle.Nota5 = lector.GetDecimal(8);
+                    detalle.Nota3 = lector.GetDecimal(5);
+                    detalle.Nota4 = lector.GetDecimal(6);
+                    detalle.Nota5 = lector.GetDecimal(7);
+                    detalle.NotaFinal = lector.GetDecimal(8);
                     detalle.Status = lector.GetInt64(9);
                 }
                 con.Close();

@@ -106,12 +106,12 @@ function detalle(id) {
                 $('#modulo').val(datos.ModuloId.Id);
                 $('#refrescar').val(datos.MatriculaId.EstudianteId.Id);//id del alumno
                 $('#nombreMod').val(datos.ModuloId.NombreModulo);
-                $('#nota1').val(datos.Nota1);
-                $('#nota2').val(datos.Nota2);
-                $('#nota3').val(datos.Nota3);
-                $('#nota4').val(datos.Nota4);
-                $('#nota5').val(datos.Nota5);
-                $('#notafinal').val(datos.NotaFinal);
+                $('#MODnota1').val(datos.Nota1);
+                $('#MODnota2').val(datos.Nota2);
+                $('#MODnota3').val(datos.Nota3);
+                $('#MODnota4').val(datos.Nota4);
+                $('#MODnota5').val(datos.Nota5);
+                $('#MODnotafinal').val(datos.NotaFinal);
                 
             },
             error: function (err)
@@ -123,12 +123,12 @@ function detalle(id) {
 
     ///funciones para agregar Notas
     function agregar() {
-        if (!($('#matricula').val() == '' || $('#modulo').val() == '' || $('#nota1').val() == '' || $('#nota2').val() == '' || $('#nota3').val() == '' ||
-            $('#nota4').val() == '' || $('#nota5').val() == '' || $('#notafinal').val() == '' || $('#status').val() == ''))
+        if (!($('#matricula').val() == '' || $('#modulo').val() == '' || $('#MODnota1').val() == '' || $('#MODnota2').val() == '' || $('#MODnota3').val() == '' ||
+            $('#MODnota4').val() == '' || $('#MODnota5').val() == '' || $('#MODnotafinal').val() == '' || $('#status').val() == ''))
         {
             //verificar que nota no sea mayor a 10 o menor a 0
-            if ($('#nota1').val() > 10 || $('#nota2').val() > 10 || $('#nota3').val() > 10 || $('#nota4').val() > 10 || $('#nota5').val() > 10 ||
-                $('#nota1').val() < 0 || $('#nota2').val() < 0 || $('#nota3').val() < 0 || $('#nota4').val() < 0 || $('#nota5').val() < 0)
+            if ($('#MODnota1').val() > 10 || $('#MODnota2').val() > 10 || $('#MODnota3').val() > 10 || $('#MODnota4').val() > 10 || $('#MODnota5').val() > 10 ||
+                $('#MODnota1').val() < 0 || $('#MODnota2').val() < 0 || $('#MODnota3').val() < 0 || $('#MODnota4').val() < 0 || $('#MODnota5').val() < 0)
             {
                 toastr.warning("Verifica si no haz escrito numeros negativos o mayor a 10", "Advertencia");
             }
@@ -138,12 +138,12 @@ function detalle(id) {
                     Id: $('#pid').val(),
                     MatriculaId: { Id: $('#matricula').val(), Año: '', Ciclo: '', CarreraId: '', EstudianteId: '', GrupoId: '' },
                     ModuloId: { Id: $('#modulo').val(), NombreModulo: '', CarreraId: '', UV: '' },
-                    Nota1: $('#nota1').val(),
-                    Nota2: $('#nota2').val(),
-                    Nota3: $('#nota3').val(),
-                    Nota4: $('#nota4').val(),
-                    Nota5: $('#nota5').val(),
-                    NotaFinal: $('#notafinal').val(),
+                    Nota1: $('#MODnota1').val(),
+                    Nota2: $('#MODnota2').val(),
+                    Nota3: $('#MODnota3').val(),
+                    Nota4: $('#MODnota4').val(),
+                    Nota5: $('#MODnota5').val(),
+                    NotaFinal: $('#MODnotafinal').val(),
                     Status: $('#status').val()
                 }
                 var id = $('#pid').val();
@@ -184,12 +184,12 @@ function detalle(id) {
     //promedio automatico
     $(document).ready(function () {
         $('#frmNotas').on('keyup', function () {
-            var n1 = parseFloat($('#nota1').val());
-            var n2 = parseFloat($('#nota2').val());
-            var n3 = parseFloat($('#nota3').val());
-            var n4 = parseFloat($('#nota4').val());
-            var n5 = parseFloat($('#nota5').val());
-            var nf = parseFloat($('#notafinal').val());
+            var n1 = parseFloat($('#MODnota1').val());
+            var n2 = parseFloat($('#MODnota2').val());
+            var n3 = parseFloat($('#MODnota3').val());
+            var n4 = parseFloat($('#MODnota4').val());
+            var n5 = parseFloat($('#MODnota5').val());
+            var nf = parseFloat($('#MODnotafinal').val());
 
 
             if (isNaN(n1)) {
@@ -210,7 +210,7 @@ function detalle(id) {
 
             nf = (n1 + n2 + n3 + n4 + n5) * 0.2;
 
-            $('#notafinal').val(nf);
+            $('#MODnotafinal').val(nf);
         })
     });
 
@@ -220,11 +220,11 @@ function detalle(id) {
         $('#matricula').val('');
         $('#modulo').val('');
         $('#nombreMod').val('');
-        $('#nota1').val('');
-        $('#nota2').val('');
-        $('#nota3').val('');
-        $('#nota4').val('');
-        $('#nota5').val('');
-        $('#notafinal').val('');
+        $('#MODnota1').val('');
+        $('#MODnota2').val('');
+        $('#MODnota3').val('');
+        $('#MODnota4').val('');
+        $('#MODnota5').val('');
+        $('#MODnotafinal').val('');
         $('#status').val('');
     }
