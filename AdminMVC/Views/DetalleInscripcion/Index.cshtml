@@ -13,8 +13,9 @@
                 Nueva Inscripcion
             </button>
         </div>
-
-
+        <div class="col-12">
+            <input type="search" id="txtBuscar" placeholder="Escribe el codigo del estudiante" class="form-control" onkeyup="CapturarTexto()"/>
+        </div>
         <!-- Modal -->
         <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-scrollable" role="document">
@@ -99,6 +100,7 @@
 
 
         <!--tabla-->
+
         <div class="col-sm-12 col-md-12 col-lg-12">
             <div class="">
                 <table id="tbNotas" class="table table-dark table-hover table-responsive-sm">
@@ -106,6 +108,7 @@
                         <tr>
                             <th>Ciclo</th>
                             <th>Nombre</th>
+                            <th>Codigo</th>
                             <th>Módulo</th>
                             <th>Nota1</th>
                             <th>Nota2</th>

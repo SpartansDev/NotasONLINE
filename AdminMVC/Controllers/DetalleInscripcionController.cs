@@ -92,5 +92,13 @@ namespace AdminMVC.Controllers
             return Json(bl.modulosDeMiGrupo(pId), JsonRequestBehavior.AllowGet);
         }
         #endregion
+
+        #region buscar por codigo de estudiante
+        [HttpGet]
+        public JsonResult buscarCodigo(string pTexto)
+        {
+            return Json(bl.buscarPorCodigo(pTexto), JsonRequestBehavior.AllowGet);
+        }
+        #endregion
     }
 }

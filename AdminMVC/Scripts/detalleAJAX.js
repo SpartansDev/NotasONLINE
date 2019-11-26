@@ -207,6 +207,7 @@ function mostrarInscripciones() {
                 html += '<tr>';
                 html += '<td>' + item.MatriculaId.Ciclo + '</td>';
                 html += '<td>' + item.MatriculaId.EstudianteId.NombreEstudiante + ' ' + item.MatriculaId.EstudianteId.ApellidoEstudiante + '</td>';
+                html += '<td>' + item.MatriculaId.EstudianteId.Codigo +'</td>';
                 html += '<td>' + item.ModuloId.NombreModulo + '</td>';
                 html += '<td>' + item.Nota1 + '</td>';
                 html += '<td>' + item.Nota2 + '</td>';
@@ -246,4 +247,58 @@ function limpiar() {
     $('#nota5').val('');
     $('#notafinal').val('');
     $('#status').val('');
+}
+
+/*metodo para buscar por codgio*/
+function CapturarTexto()
+{
+    //capturamos lo que se escriba en el input
+    var texto = $("#txtBuscar").val();
+    if (!(texto == ""))//verificamos que no vaya vacio
+    {
+        buscar(texto);//si no va vacio se le pasa a la funcion el texto
+    }
+    else
+    {
+        mostrarInscripciones();//si esta vacio se ejecuta la funcion de mostrar
+    }
+}
+function buscar(texto) {
+    $.ajax({
+        url: "/DetalleInscripcion/buscarCodigo?pTexto="+texto,
+        type: "GET",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (data) {
+            var html = "";
+            $.each(data, function (key, item) {
+                html += '<tr>';
+                html += '<td>' + item.MatriculaId.Ciclo + '</td>';
+                html += '<td>' + item.MatriculaId.EstudianteId.NombreEstudiante + ' ' + item.MatriculaId.EstudianteId.ApellidoEstudiante + '</td>';
+                html += '<td>' + item.MatriculaId.EstudianteId.Codigo + '</td>';
+                html += '<td>' + item.ModuloId.NombreModulo + '</td>';
+                html += '<td>' + item.Nota1 + '</td>';
+                html += '<td>' + item.Nota2 + '</td>';
+                html += '<td>' + item.Nota3 + '</td>';
+                html += '<td>' + item.Nota4 + '</td>';
+                html += '<td>' + item.Nota5 + '</td>';
+                html += '<td>' + item.NotaFinal + '</td>';
+                if (item.Status == 1) {
+                    html += '<td>Notas Visibles</td>';
+                }
+                else {
+                    html += '<td>Notas Ocultas</td>';
+                }
+                html += '<td>';
+                html += '<a href="#" onclick="detalles(' + item.Id + ')" class="badge badge-danger" data-toggle="modal" data-target="#exampleModalLong">Modificar</a>';
+                html += '</td>';
+                html += '</tr>';
+            });
+
+            $('#tbNotas tbody').html(html);
+        },
+        error: function (err) {
+            toastr.error("No se pudo completar la acción.");
+        }
+    })
 }

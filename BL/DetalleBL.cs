@@ -53,10 +53,17 @@ namespace BL
         }
         #endregion
 
-        #region mostrar notas por la llave foranea EstudianteId
+        #region retornamos mostrar notas por la llave foranea EstudianteId
         public List<DetalleInscripcion> modulosDeMiGrupo(Int64 pId)
         {
             return dal.notasAlumnosPorId(pId);
+        }
+        #endregion
+
+        #region retornamos metodo para buscar por codigo de estudiante
+        public List<DetalleInscripcion> buscarPorCodigo(string pTexto)
+        {
+            return dal.buscarPorCodigo(pTexto);
         }
         #endregion
     }

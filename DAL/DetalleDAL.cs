@@ -204,5 +204,36 @@ namespace DAL
             return lista;
         }
         #endregion
+
+        #region metodo para buscar por codigo de estudiante
+        public List<DetalleInscripcion>buscarPorCodigo(string pTexto)
+        {
+            List<DetalleInscripcion> lista = new List<DetalleInscripcion>();
+            using (SqlConnection con = ConexionBD.Conectar())
+            {
+                con.Open();
+                string script = @"select a.*,b.*,c.* from DetallesInscripcion as a inner join Matriculas as b on a.MatriculaId=b.Id inner join 
+                                Estudiantes as c on b.EstudianteId=c.Id where c.Codigo like '%{0}%'";
+                string ssql = string.Format(script, pTexto);
+                SqlCommand comando = new SqlCommand(ssql, con);
+                comando.CommandType = CommandType.Text;
+                IDataReader lector = comando.ExecuteReader();
+                while (lector.Read())
+                {
+                    lista.Add(new DetalleInscripcion(lector.GetInt64(0),
+                                                     MatriculaDAL.ObtenerPorId(lector.GetInt64(1)),
+                                                     ModuloDAL.ObtenerPorId(lector.GetInt64(2)),
+                                                     lector.GetDecimal(3),
+                                                     lector.GetDecimal(4),
+                                                     lector.GetDecimal(5),
+                                                     lector.GetDecimal(6),
+                                                     lector.GetDecimal(7),
+                                                     lector.GetDecimal(8),
+                                                     lector.GetInt64(9)));
+                }
+            }
+            return lista;
+        }
+        #endregion
     }
 }
