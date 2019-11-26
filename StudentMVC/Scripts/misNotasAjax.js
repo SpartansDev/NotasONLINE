@@ -56,6 +56,9 @@
                     html += '<td>';
                     html += '<h3 class="text-center">No hay notas</h3>';
                     html += '</td>';
+                    html += '<td></td>';
+                    html += '<td></td>';
+                    html += '<td></td>';
                     html += '</tr>';
                 }
                 $('#nota tbody').html(html);
