@@ -1,4 +1,7 @@
-﻿capturarID();
+﻿/*
+equipo dinamita :v
+*/
+capturarID();
 
 function capturarID() {
     var Id = $("#MiId").val();
