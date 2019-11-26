@@ -20,9 +20,6 @@
                 html += "<strong>" + data.NombreEstudiante + " " + data.ApellidoEstudiante + "</strong>";
                 html += "<br>";
                 $("#DatosPersonales div").append(html);
-            },
-            error: function (err) {
-                toastr.error("No se pudo completar");
             }
         });
     };
@@ -64,7 +61,8 @@
                 $('#nota tbody').html(html);
             },
             error: function (err) {
-                toastr.error("Algo salio mal.");
+                toastr.error("No haz iniciado sesion.");
+                location.href="/Home/Index";
             }
         });
     }

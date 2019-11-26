@@ -43,15 +43,22 @@ namespace StudentMVC.Controllers
         public JsonResult Login(Estudiante pEstudiantes)
         {
             Estudiante resp = bl.LogIn(pEstudiantes);
-            if (resp != null)
+            if (!(Request.IsAuthenticated))
             {
-                FormsAuthentication.SetAuthCookie(resp.Codigo, false);
-                Session["user"] = resp;
-                return Json(resp, JsonRequestBehavior.AllowGet);
+                if (resp != null)
+                {
+                    FormsAuthentication.SetAuthCookie(resp.Codigo, false);
+                    Session["user"] = resp;
+                    return Json(resp, JsonRequestBehavior.AllowGet);
+                }
+                else
+                {
+                    return Json(resp, JsonRequestBehavior.AllowGet);
+                }
             }
             else
             {
-                return Json(resp, JsonRequestBehavior.AllowGet);
+                return Json(Session["user"] as Estudiante, JsonRequestBehavior.AllowGet);
             }
         }
         #endregion
@@ -60,6 +67,7 @@ namespace StudentMVC.Controllers
         {
             FormsAuthentication.SignOut();
             Session.Abandon();
+            Session.RemoveAll();
             Session.Clear();
             return RedirectToAction("Index");
         }

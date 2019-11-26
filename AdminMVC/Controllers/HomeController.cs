@@ -40,6 +40,7 @@ namespace AdminMVC.Controllers
             FormsAuthentication.SignOut();
             Session.Abandon();
             Session.RemoveAll();
+            Session.Clear();
             return RedirectToAction("Index");
         }
         #endregion
