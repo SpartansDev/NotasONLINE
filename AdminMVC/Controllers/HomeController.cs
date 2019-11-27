@@ -20,7 +20,7 @@ namespace AdminMVC.Controllers
             try
             {
                 //pasar el id de admin mediante el ViewBag
-                Administrador entidad = Session["user"] as Administrador;
+                Administrador entidad = Session["userAdmin"] as Administrador;
                 Int64 admin = entidad.Id;
                 ViewBag.IdAdmin = admin;
                 //pasar el id del profesor mediante el ViewBag
@@ -35,6 +35,7 @@ namespace AdminMVC.Controllers
             }
         }
         #endregion
+
         #region Login Profesor
 
         public ActionResult LoginProfe()
@@ -42,6 +43,7 @@ namespace AdminMVC.Controllers
             return View();
         }
         #endregion
+
         #region Login Administrador
 
         public ActionResult LoginAdmin()
@@ -49,6 +51,7 @@ namespace AdminMVC.Controllers
             return View();
         }
         #endregion
+
         #region SignOut
         public ActionResult cerrar()
         {
@@ -59,6 +62,7 @@ namespace AdminMVC.Controllers
             return RedirectToAction("Index");
         }
         #endregion
+
         #region Metodo Login Profesor
         [HttpPost]
         public JsonResult Login(Profesor pProfesor)
@@ -76,6 +80,7 @@ namespace AdminMVC.Controllers
             }
         }
         #endregion
+
         #region Metodo Login Administrador
         [HttpPost]
         public JsonResult Inicio(Administrador pAdmin)
@@ -84,7 +89,7 @@ namespace AdminMVC.Controllers
             if (respuesta != null)
             {
                 FormsAuthentication.SetAuthCookie(respuesta.Email, false);
-                Session["user"] = respuesta;
+                Session["userAdmin"] = respuesta;
                 return Json(respuesta, JsonRequestBehavior.AllowGet);
             }
             else
