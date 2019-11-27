@@ -152,6 +152,7 @@
     <Content Include="Scripts\ScrollEventJquery.js" />
     <Content Include="Scripts\toastr.js" />
     <Content Include="Scripts\toastr.min.js" />
+    <Content Include="Scripts\VerificarSession.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

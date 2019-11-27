@@ -17,7 +17,22 @@ namespace AdminMVC.Controllers
         #region Index
         public ActionResult Index()
         {
-            return View();
+            try
+            {
+                //pasar el id de admin mediante el ViewBag
+                Administrador entidad = Session["user"] as Administrador;
+                Int64 admin = entidad.Id;
+                ViewBag.IdAdmin = admin;
+                //pasar el id del profesor mediante el ViewBag
+                Profesor entidadProfe = Session["usuario"] as Profesor;
+                Int64 profesor = entidadProfe.Id;
+                ViewBag.IdProf = profesor;
+                return View();
+            }
+            catch (Exception)
+            {
+                return View();
+            }
         }
         #endregion
         #region Login Profesor
@@ -69,7 +84,7 @@ namespace AdminMVC.Controllers
             if (respuesta != null)
             {
                 FormsAuthentication.SetAuthCookie(respuesta.Email, false);
-                Session["usuario"] = respuesta;
+                Session["user"] = respuesta;
                 return Json(respuesta, JsonRequestBehavior.AllowGet);
             }
             else
