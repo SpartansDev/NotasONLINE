@@ -31,7 +31,6 @@ function cargarEstudiante() {
             var html = '';
             $.each(data, function (key, item) {
                 html += '<tr>';
-                html += '<td>' + item.Id + '</td>';
                 html += '<td>' + item.NombreEstudiante + '</td>';
                 html += '<td>' + item.ApellidoEstudiante + '</td>';
                 html += '<td>' + item.Codigo + '</td>';
@@ -81,12 +80,16 @@ function buscar(pBuscar) {
             var html = '';
             $.each(data, function (key, item) {
                 html += '<tr>';
-                html += '<td>' + item.Id + '</td>';
                 html += '<td>' + item.NombreEstudiante + '</td>';
                 html += '<td>' + item.ApellidoEstudiante + '</td>';
                 html += '<td>' + item.Codigo + '</td>';
                 html += '<td>' + item.CarreraId.NombreCarrera + '</td>';
-                html += '<td>' + item.StatusStudent + '</td>';
+                if (item.StatusStudent == 1) {
+                    html += '<td>Activo</td>';
+                }
+                else {
+                    html += '<td>Inactivo</td>';
+                }
                 html += '<td>';
                 html += '<a href="#" onclick="detalle(' + item.Id + ')" class="badge badge-danger" data-toggle="modal" data-target="#modalModificar">Modificar</a> | | ';
                 html += '<a href="#" onclick="detalleMatricula(' + item.Id + ')" class="badge badge-danger" data-toggle="modal" data-target="#modalMatricula">Matricular</a>';

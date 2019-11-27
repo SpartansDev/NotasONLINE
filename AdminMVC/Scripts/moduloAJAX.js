@@ -16,7 +16,6 @@ function mostrarModulos() {
             var html = '';
             $.each(data, function (key, item) {
                 html += '<tr>';
-                html += '<td>' + item.Id + '</td>';
                 html += '<td>' + item.NombreModulo + '</td>';
                 html += '<td>' + item.CarreraId.NombreCarrera + '</td>';
                 html += '<td>' + item.UV + '</td>';

@@ -15,7 +15,6 @@ function mostrarCarreras()
             var html = '';
             $.each(data, function (key, item) {
                 html += '<tr>';
-                html += '<td>' + item.Id + '</td>';
                 html += '<td>' + item.NombreCarrera + '</td>';
                 html += '<td>';
                 html += '<a href="#" onclick="detalle(' + item.Id + ')" class="badge badge-danger" data-toggle="modal" data-target="#exampleModalLong">Modificar</a>';
