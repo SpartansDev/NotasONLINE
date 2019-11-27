@@ -395,7 +395,6 @@ function pasarIdCarrera()
 {
     limpiarAlcambiar();
     var pId = $("#idCarrera").val();
-    toastr.info(pId);
     ModuloDependiente(pId);
 }
 function ModuloDependiente(id) {
@@ -415,7 +414,7 @@ function ModuloDependiente(id) {
                     html += '<option>No hay modulos para esta carrera</option>';
                 }
             });
-            $("#moduloPorId").append(html);
+            $("#moduloPorId").html(html);
         },
         error: function (err) {
             toastr.error("Se ha producido un error al mostrar Módulo.");
