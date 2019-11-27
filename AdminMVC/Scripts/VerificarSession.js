@@ -1,4 +1,4 @@
-﻿window.onpaint = verificar();
+﻿verificar();
 function verificar()
 {
     var idProfe = $("#SessionProfe").val();
