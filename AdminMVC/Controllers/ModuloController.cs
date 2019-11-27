@@ -60,7 +60,7 @@ namespace AdminMVC.Controllers
         }
         #endregion
         #region mostrar Modulo Segun Carrera
-        [HttpHead]
+        [HttpGet]
         public JsonResult moduloPorCarrera(Int64 pId)
         {
             return Json(bl.ModulosSegunCarrera(pId), JsonRequestBehavior.AllowGet);

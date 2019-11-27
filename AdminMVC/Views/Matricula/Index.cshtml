@@ -150,10 +150,15 @@
                         <div class="form-group">
                             <input type="text" disabled id="nombreAlumno" class="form-control text-center" />
                         </div>
-
+                        <div class="form-group">
+                            <label>Carrera</label>
+                            <select id="idCarrera" class="form-control" onchange="pasarIdCarrera()">
+                                <option value="-1">Selecciona carrera</option>
+                            </select>
+                        </div>
                         <div class="form-group">
                             <label>Módulo</label>
-                            <select id="modulo" name="ModuloId" class="form-control">
+                            <select id="moduloPorId" class="form-control">
                                 <option value="-1">Selecciona módulo</option>
                             </select>
                         </div>

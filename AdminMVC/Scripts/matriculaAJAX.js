@@ -3,6 +3,8 @@ mostrarMatriculas();
 cargarCarreras();
 cargarEstudiantes();
 cargarGrupos();
+cargarModulo();
+//select dependiente
 
 
 $("#frmMatricula").submit(function (event) {
@@ -175,6 +177,7 @@ function detalleMatricula(id) {
             $('#btnGuardar').val('Guardar cambios');
             $('#nombreAlumno').val(data.EstudianteId.NombreEstudiante + ' ' + data.EstudianteId.ApellidoEstudiante);
             $('#Idmatricula').val(data.Id);
+            $('#idCarrera').val(-1)
         },
         error: function (err) {
             toastr.error("No se pudo completar la acción.");
@@ -251,6 +254,7 @@ function cargarCarreras() {
             });
             $('#carrera').append(html);
             $('#mcarrera').append(html);
+            $('#idCarrera').append(html);
         },
         error: function (err) {
             toastr.error("Se ha producido un error al mostrar Carrera.");
@@ -297,7 +301,7 @@ function verificarModulo() {
         var obj = {
             Id: $('#id').val(),
             MatriculaId: { Id: $('#Idmatricula').val(), Año: '', Ciclo: '', CarreraId: '', EstudianteId: '', GrupoId: '' },
-            ModuloId: { Id: $('#modulo').val(), NombreModulo: '', CarreraId: '', UV: '' },
+            ModuloId: { Id: $('#moduloPorId').val(), NombreModulo: '', CarreraId: '', UV: '' },
             Nota1: $('#nota1').val(),
             Nota2: $('#nota2').val(),
             Nota3: $('#nota3').val(),
@@ -334,7 +338,7 @@ function inscribirModulo() {
         var obj = {
             Id: $('#id').val(),
             MatriculaId: { Id: $('#Idmatricula').val(), Año: '', Ciclo: '', CarreraId: '', EstudianteId: '', GrupoId: '' },
-            ModuloId: { Id: $('#modulo').val(), NombreModulo: '', CarreraId: '', UV: '' },
+            ModuloId: { Id: $('#moduloPorId').val(), NombreModulo: '', CarreraId: '', UV: '' },
             Nota1: $('#nota1').val(),
             Nota2: $('#nota2').val(),
             Nota3: $('#nota3').val(),
@@ -363,15 +367,6 @@ function inscribirModulo() {
         toastr.warning("Todos los campos son requeridos.");
     }
 }
-function limpiar() {
-    $('#modulo').val(-1);
-    $('#status').val('')
-};
-
-function pasarIdCarrera()
-{
-    var id = $();
-}
 function cargarModulo() {
     $.ajax({
         url: "/Modulo/Obtener",
@@ -389,4 +384,45 @@ function cargarModulo() {
             toastr.error("Se ha producido un error al mostrar Módulo.");
         }
     });
+}
+function limpiar() {
+    $('#modulo').val(-1);
+    $('#status').val('')
+};
+
+//codigo extra para el selext dependiente
+function pasarIdCarrera()
+{
+    limpiarAlcambiar();
+    var pId = $("#idCarrera").val();
+    toastr.info(pId);
+    ModuloDependiente(pId);
+}
+function ModuloDependiente(id) {
+    $.ajax({
+        url: "/Modulo/moduloPorCarrera?pId=" + id,
+        type: "GET",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (data) {
+            var html = '';
+            $.each(data, function (key, item) {
+                if (!(item == "")) {
+                    html += '<option value="' + item.Id + '">' + item.NombreModulo + '</option>';
+                }
+                else
+                {
+                    html += '<option>No hay modulos para esta carrera</option>';
+                }
+            });
+            $("#moduloPorId").append(html);
+        },
+        error: function (err) {
+            toastr.error("Se ha producido un error al mostrar Módulo.");
+        }
+    });
+}
+function limpiarAlcambiar()
+{
+    $("#moduloPorId").val(-1);
 }
