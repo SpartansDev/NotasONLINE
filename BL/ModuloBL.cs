@@ -45,5 +45,12 @@ namespace BL
             return ModuloDAL.ObtenerPorId(pId);
         }
         #endregion
+
+        #region mostrar segun carrera
+        public List<Modulo> ModulosSegunCarrera(Int64 pId)
+        {
+            return dal.ModulosSegunCarrera(pId);
+        }
+        #endregion
     }
 }

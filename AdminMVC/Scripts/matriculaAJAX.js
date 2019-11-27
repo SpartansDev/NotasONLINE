@@ -3,7 +3,7 @@ mostrarMatriculas();
 cargarCarreras();
 cargarEstudiantes();
 cargarGrupos();
-cargarModulo();
+
 
 $("#frmMatricula").submit(function (event) {
     event.preventDefault();
@@ -367,6 +367,11 @@ function limpiar() {
     $('#modulo').val(-1);
     $('#status').val('')
 };
+
+function pasarIdCarrera()
+{
+    var id = $();
+}
 function cargarModulo() {
     $.ajax({
         url: "/Modulo/Obtener",

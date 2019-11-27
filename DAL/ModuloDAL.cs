@@ -118,5 +118,30 @@ namespace DAL
             return mod;
         }
         #endregion
+
+        #region metodo para mostrar Modulos
+        public List<Modulo>ModulosSegunCarrera(Int64 pId)
+        {
+            List<Modulo> lista = new List<Modulo>();
+            using (SqlConnection con = ConexionBD.Conectar())
+            {
+                con.Open();
+                string ssql = "select * from Modulos where CarreraId={0}";
+                string sentencia = string.Format(ssql, pId);
+                SqlCommand comando = new SqlCommand(sentencia, con);
+                comando.CommandType = CommandType.Text;
+                IDataReader lector = comando.ExecuteReader();
+                while (lector.Read())
+                {
+                    lista.Add(new Modulo(lector.GetInt64(0),
+                                           lector.GetString(1),
+                                           CarreraDAL.ObtenerPorId(lector.GetInt64(2)),
+                                           lector.GetInt32(3)));
+                }
+                con.Close();
+            }
+            return lista;
+        }
+        #endregion
     }
 }

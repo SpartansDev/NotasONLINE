@@ -59,5 +59,12 @@ namespace AdminMVC.Controllers
             return Json(bl.ObtenerModulo(pBuscar), JsonRequestBehavior.AllowGet);
         }
         #endregion
+        #region mostrar Modulo Segun Carrera
+        [HttpHead]
+        public JsonResult moduloPorCarrera(Int64 pId)
+        {
+            return Json(bl.ModulosSegunCarrera(pId), JsonRequestBehavior.AllowGet);
+        }
+        #endregion
     }
 }
