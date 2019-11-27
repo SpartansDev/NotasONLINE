@@ -195,6 +195,7 @@
     <Content Include="fonts\icomoon.woff" />
     <Content Include="BaseDatos\NotasOnline.bak" />
     <None Include="Properties\PublishProfiles\admin.pubxml" />
+    <None Include="Properties\PublishProfiles\postAdmin.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
