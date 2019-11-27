@@ -390,7 +390,7 @@ function limpiar() {
     $('#status').val('')
 };
 
-//codigo extra para el selext dependiente
+//codigo extra para el select dependiente
 function pasarIdCarrera()
 {
     limpiarAlcambiar();
