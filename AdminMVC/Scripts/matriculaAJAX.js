@@ -390,7 +390,7 @@ function limpiar() {
     $('#status').val('')
 };
 
-//codigo extra para el selext dependiente
+//codigo extra para el select dependiente
 function pasarIdCarrera()
 {
     limpiarAlcambiar();
@@ -405,15 +405,16 @@ function ModuloDependiente(id) {
         dataType: "json",
         success: function (data) {
             var html = '';
-            $.each(data, function (key, item) {
-                if (!(item == "")) {
+            if (!(data == ""))
+            {
+                $.each(data, function (key, item) {
                     html += '<option value="' + item.Id + '">' + item.NombreModulo + '</option>';
-                }
-                else
-                {
-                    html += '<option>No hay modulos para esta carrera</option>';
-                }
-            });
+                });
+            }
+            else
+            {
+                html += '<option>No hay modulo para esta carrera</option>';
+            }
             $("#moduloPorId").html(html);
         },
         error: function (err) {
