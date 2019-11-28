@@ -98,6 +98,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="BaseDatos\BaseDatos.sql" />
+    <Content Include="BaseDatos\Módulos.sql" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />

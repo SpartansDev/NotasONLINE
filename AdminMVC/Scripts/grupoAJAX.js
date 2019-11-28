@@ -99,7 +99,7 @@ function buscar(pBuscar) {
                 html += '<td>' + item.NombreGrupo + '</td>';
                 html += '<td>' + item.Turno + '</td>';
                 html += '<td>' + item.CarreraId.NombreCarrera + '</td>';
-                html += '<td>' + item.ProfesorId.NombreProfesor + '</td>';
+                html += '<td>' + item.ProfesorId.NombreProfesor + ' ' + item.ProfesorId.ApellidoProfesor + '</td>';
                 html += '<td>';
                 html += '<a href="#" onclick="detalle(' + item.Id + ')" class="badge badge-danger" data-toggle="modal" data-target="#exampleModalLong">Modificar</a>';
                 html += '</td>';

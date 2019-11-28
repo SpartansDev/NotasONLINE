@@ -182,5 +182,35 @@ namespace DAL
 
         }
         #endregion
+
+        #region barra mis alumos
+        public List<Matricula> CodigoAlumnos(string pBuscar)
+        {
+
+            List<Matricula> lista = new List<Matricula>();
+            using (SqlConnection con = ConexionBD.Conectar())
+            {
+                con.Open();
+                string ssql = " select a.*, b.* from Matriculas as a inner join Estudiantes as b on a.EstudianteId=b.Id where b.Codigo like '%{0}%'";
+                string sentencia = string.Format(ssql, pBuscar);
+                SqlCommand comando = new SqlCommand(sentencia, con);
+                comando.CommandType = CommandType.Text;
+                IDataReader lector = comando.ExecuteReader();
+                while (lector.Read())
+                {
+                    lista.Add(new Matricula(lector.GetInt64(0),
+                                            lector.GetString(1),
+                                            lector.GetString(2),
+                                            CarreraDAL.ObtenerPorId(lector.GetInt64(3)),
+                                            EstudianteDAL.ObtenerPorId(lector.GetInt64(4)),
+                                            GrupoDAL.ObtenerPorId(lector.GetInt64(5))));
+                }
+                con.Close();
+            }
+            return lista;
+        }
+        #endregion
+
+
     }
 }
