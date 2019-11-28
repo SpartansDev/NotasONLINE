@@ -139,6 +139,30 @@ textarea {
         font-weight: 600;
         margin-right: 12px;
     }
+
+    .logo-esfe {
+        position: fixed;
+        left: 4%;
+        top: 1%;
+        max-width: 18%;
+        z-index: 1;
+    }
+
+    .logo-agape {
+        position: fixed;
+        top: 1%;
+        left: 85%;
+        max-width: 15%;
+        z-index: 1;
+    }
+
+    .titulo-esfe{
+        position: fixed;
+        top: 1%;
+        left: 25%;
+        font-size: 28px;
+        line-height: 30px;
+    }
 }
 
 @media(max-width: 992px){
@@ -159,6 +183,30 @@ textarea {
         font-size: 18px;
         font-weight: 600;
         margin-right: 12px;
+    }
+
+    .logo-esfe {
+        position: fixed;
+        left: 4%;
+        top: 1%;
+        max-width: 16%;
+        z-index: 1;
+    }
+
+    .logo-agape {
+        position: fixed;
+        top: 1%;
+        left: 85%;
+        max-height: 9%;
+        z-index: 1;
+    }
+
+    .titulo-esfe{
+        position: fixed;
+        top: 1%;
+        left: 25%;
+        font-size: 28px;
+        line-height: 30px;
     }
 }
 
@@ -186,7 +234,7 @@ textarea {
         position: fixed;
         left: 4%;
         top: 3%;
-        max-height: 15%;
+        max-width: 15%;
         z-index: 1;
     }
 
@@ -194,7 +242,7 @@ textarea {
         position: fixed;
         top: 3%;
         left: 85%;
-        max-height: 14%;
+        max-width: 12%;
         z-index: 1;
     }
 
@@ -238,7 +286,7 @@ textarea {
         position: fixed;
         left: 4%;
         top: 3%;
-        max-height: 21%;
+        max-width: 21%;
         z-index: 1;
     }
 
@@ -254,7 +302,7 @@ textarea {
         position: fixed;
         top: 5%;
         left: 25%;
-        font-size: 15px;
+        font-size: 17px;
         line-height: 20px;
         z-index: 1;
     }
@@ -290,7 +338,7 @@ textarea {
         position: fixed;
         top: 3%;
         left: 4%;
-        max-height: 8%;
+        max-width: 21%;
         z-index: 3;
     }
 
@@ -298,7 +346,7 @@ textarea {
         position: fixed;
         top: 3%;
         left: 86%;
-        max-height: 8%;
+        max-width: 14%;
         z-index: 3;
     }
 
@@ -306,7 +354,7 @@ textarea {
         position: fixed;
         top: 5%;
         left: 25%;
-        font-size: 15px;
+        font-size: 14px;
         line-height: 20px;
         z-index: 3;
     }

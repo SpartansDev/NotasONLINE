@@ -36,7 +36,7 @@ textarea {
     clear: both;
     width: 100%;
     background-color: rgb(0,0,0);
-    height: 27rem;
+    height: auto;
 }
 
 .logo-esfe {
@@ -83,7 +83,7 @@ textarea {
         clear: both;
         width: 100%;
         background-color: rgb(0,0,0);
-        height: 27rem;
+        height: auto;
     }
 }
 
@@ -97,7 +97,7 @@ textarea {
         clear: both;
         width: 100%;
         background-color: rgb(0,0,0);
-        height: 27rem;
+        height: auto;
     }
 }
 
@@ -111,7 +111,7 @@ textarea {
         clear: both;
         width: 100%;
         background-color: rgb(0,0,0);
-        height: 27rem;
+        height: auto;
     }
 }
 

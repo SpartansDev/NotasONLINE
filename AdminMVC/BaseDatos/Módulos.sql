@@ -1,5 +1,16 @@
 Use NotasOnline
 
+--Carreras
+Insert Into Carreras(NombreCarrera) Values('Técnico en Ingeniería de Desarrollo de Software')
+Go
+Insert Into Carreras(NombreCarrera) Values('Técnico en Ingeniería Eléctrica')
+Go
+Insert Into Carreras(NombreCarrera) Values('Técnico en Mercadeo')
+Go
+Insert Into Carreras(NombreCarrera) Values('Técnico en Gestión y Desarrollo Turístico')
+Go
+
+--Módulos de Software
 Insert Into Modulos(NombreModulo, CarreraId, UV) Values('Diseño de Sistemas Informáticos', 1, 8)
 Go
 Insert Into Modulos(NombreModulo, CarreraId, UV) Values('Construcción de Bases de Datos', 1, 6)
