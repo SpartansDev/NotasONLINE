@@ -65,6 +65,16 @@ namespace AdminMVC.Controllers
             return Json(bl.buscarCodigo(pText), JsonRequestBehavior.AllowGet);
         }
         #endregion
+
+        //listo 16:07
+        #region Buscar Por Codigo
+        [Authorize]
+        [HttpGet]
+        public JsonResult CodigoAlumnos(string pText)
+        {
+            return Json(bl.CodigoAlumnos(pText), JsonRequestBehavior.AllowGet);
+        }
+        #endregion
         #region verificar
         public JsonResult verificar(Matricula pMatricula)
         {

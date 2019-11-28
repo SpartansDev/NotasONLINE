@@ -46,6 +46,13 @@ namespace BL
         }
         #endregion
 
+        #region retornamos el metodo para buscar por codigo de estudiante
+        public List<Matricula> CodigoAlumnos(string pBuscar)
+        {
+            return dal.CodigoAlumnos(pBuscar);
+        }
+        #endregion
+
         #region retornamos el metodo para obtener propiedades por id
         public static Matricula ObtenerPorId(Int64 pId)
         {

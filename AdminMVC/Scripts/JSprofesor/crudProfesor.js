@@ -1,5 +1,5 @@
 ﻿/*
-equipo dinamita :v
+equipo dinamita escuadron suicida :v
 */
 capturarID();
 
@@ -41,6 +41,51 @@ function misAlumnos(Id) {
     });
 }
 
+
+
+function buscarMisAlumnos(texto) {
+    $.ajax({
+        url: "/Matricula/CodigoAlumnos?pText=" + texto,
+        type: "GET",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (datos) {
+            var html = "";
+            $.each(datos, function (key, item) {
+                html += "<tr>";
+                html += "<td>" + item.EstudianteId.NombreEstudiante + "</td>";
+                html += "<td>" + item.EstudianteId.ApellidoEstudiante + "</td>";
+                html += "<td>" + item.EstudianteId.Codigo + "</td>";
+                html += "<td>" + item.Ciclo + "</td>";
+                html += "<td>";
+                html += "<a href='#' data-toggle='modal' data-target='#modal' class='badge badge-success' onclick='obtenerModulosPorEstudianteId(" + item.EstudianteId.Id + ")'>ver modulos</a>";
+                html += "</td>";
+                html += "</tr>";
+            });
+            $("#alumnos tbody").html(html);
+        },
+        error: function (err) {
+            toastr.error("no funciona");
+        }
+    });
+}
+
+/*metodo para buscar por Leydiiiii 17:24*/
+function CapturarTexto()
+{
+    //capturamos lo que se escriba en el input
+    var texto = $("#buscar").val();
+    if (!(texto == ""))//verificamos que no vaya vacio
+    {
+        buscarMisAlumnos(texto);//si no va vacio se le pasa a la funcion el texto
+    }
+    else
+    {
+            capturarID();//si esta vacio se ejecuta la funcion de mostrar
+    }
+}
+//////////////////////////////
+
 function detalle(id) {
     $.ajax({
         url: "/Estudiante/ObtenerPorId?pId=" + id,
@@ -57,7 +102,7 @@ function detalle(id) {
     });
 };
 
-    //funcion que muestra los modulos del alumno
+    //funcion que muestra los modulos del alumno en la modal
     function obtenerModulosPorEstudianteId(id) {
         $.ajax({
             url: "/DetalleInscripcion/modulosDeMiGrupo?pId=" + id,

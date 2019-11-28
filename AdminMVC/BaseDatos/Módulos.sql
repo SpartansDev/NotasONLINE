@@ -1,16 +1,5 @@
 Use NotasOnline
 
---Carreras
-Insert Into Carreras(NombreCarrera) Values('Técnico en Ingeniería de Desarrollo de Software')
-Go
-Insert Into Carreras(NombreCarrera) Values('Técnico en Ingeniería Eléctrica')
-Go
-Insert Into Carreras(NombreCarrera) Values('Técnico en Mercadeo')
-Go
-Insert Into Carreras(NombreCarrera) Values('Técnico en Gestión y Desarrollo Turístico')
-Go
-
---Módulos de Software
 Insert Into Modulos(NombreModulo, CarreraId, UV) Values('Diseño de Sistemas Informáticos', 1, 8)
 Go
 Insert Into Modulos(NombreModulo, CarreraId, UV) Values('Construcción de Bases de Datos', 1, 6)
@@ -49,6 +38,8 @@ Insert Into Modulos(NombreModulo, CarreraId, UV) Values('Conversación en Inglés 
 Go
 Insert Into Modulos(NombreModulo, CarreraId, UV) Values('Ejecución de Proyectos de Innovación del Área de Desarrollo de Software', 1, 5)
 Go
+
+--Módulos de Eléctrica
 Insert Into Modulos(NombreModulo, CarreraId, UV) Values('Construcción de Instalaciones Eléctricas Residenciales y Comerciales', 2, 7)
 Go
 Insert Into Modulos(NombreModulo, CarreraId, UV) Values('Mantenimiento de Máquinas Rotativas', 2, 5)
@@ -89,6 +80,8 @@ Insert Into Modulos(NombreModulo, CarreraId, UV) Values('Ejecución de Proyectos 
 Go
 Insert Into Modulos(NombreModulo, CarreraId, UV) Values('Conversación en Inglés Aplicada al Ärea Eléctrica II', 2, 8)
 Go
+
+--Módulos de Mercadeo
 Insert Into Modulos(NombreModulo, CarreraId, UV) Values('Servicio y Atención al Cliente', 3, 3)
 Go
 Insert Into Modulos(NombreModulo, CarreraId, UV) Values('Elaboración de Mezcla de Marketing', 3, 4)
@@ -129,6 +122,8 @@ Insert Into Modulos(NombreModulo, CarreraId, UV) Values('Proyecto de Ingestigaci
 Go
 Insert Into Modulos(NombreModulo, CarreraId, UV) Values('Conversación de Inglés Aplicado a la Comercialización de Productos', 3, 4)
 Go
+
+--Módulos de Turismo
 Insert Into Modulos(NombreModulo, CarreraId, UV) Values('Elaboración de Inventarios Turísticos', 4, 5)
 Go
 Insert Into Modulos(NombreModulo, CarreraId, UV) Values('Gestión de Establecimientos de Alojamiento', 4, 5)
