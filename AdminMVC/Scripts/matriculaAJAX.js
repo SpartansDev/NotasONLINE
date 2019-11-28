@@ -199,6 +199,7 @@ function limpiarFormulario() {
     $('#mcarrera').val(-1);
     $('#mestudiante').val('');
     $('#mgrupo').val('');
+    $("#moduloPorId").val(-1);
 }
 
 function cargarEstudiantes() {

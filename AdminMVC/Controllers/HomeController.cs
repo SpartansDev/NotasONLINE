@@ -19,14 +19,14 @@ namespace AdminMVC.Controllers
         {
             try
             {
-                //pasar el id de admin mediante el ViewBag
-                Administrador entidad = Session["userAdmin"] as Administrador;
-                Int64 admin = entidad.Id;
-                ViewBag.IdAdmin = admin;
                 //pasar el id del profesor mediante el ViewBag
                 Profesor entidadProfe = Session["usuario"] as Profesor;
                 Int64 profesor = entidadProfe.Id;
                 ViewBag.IdProf = profesor;
+               /* //pasar el id de admin mediante el ViewBag
+                Administrador entidad = Session["userAdmin"] as Administrador;
+                Int64 admin = entidad.Id;
+                ViewBag.IdAdmin = admin;*/
                 return View();
             }
             catch (Exception)
