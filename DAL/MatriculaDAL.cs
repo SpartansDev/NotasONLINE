@@ -162,7 +162,7 @@ namespace DAL
             using (SqlConnection con = ConexionBD.Conectar())
             {
                 con.Open();
-                string ssql = " select a.*, b.Id, b.Codigo from Matriculas as a inner join Estudiantes as b on a.EstudianteId=b.Id where b.Codigo like '%{0}%' ";
+                string ssql = " select a.*, b.Id, b.Codigo from Matriculas as a inner join Estudiantes as b on a.EstudianteId=b.Id where b.Codigo like '%{0}%'";
                 string sentencia = string.Format(ssql, pBuscar);
                 SqlCommand comando = new SqlCommand(sentencia, con);
                 comando.CommandType = CommandType.Text;

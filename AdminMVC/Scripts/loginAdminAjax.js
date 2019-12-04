@@ -86,10 +86,16 @@ function AdminNoExist() {
         dataType: "json",
         success: function (resp) {
             if (resp > 0) {
-                document.getElementById('btnRegistrar').style.display = 'none';
-            } else {
-                document.getElementById('btnRegistrar').style.display = 'block';
+               // document.getElementById('btnRegistrar').style.display = 'none';
+                $("#btnRegistrar").remove();
             }
+            //else
+            //{
+            //    document.getElementById('btnRegistrar').style.display = 'block';
+            //    var html = "";
+            //    html += '<a href="#" id="btnRegistrar" class="btn" data-toggle="modal" data-target="#exampleModalLong">Registrate</a>';
+            //    $("botonRegistrar").append(html);
+            //}
         },
         error: function (err) {
             toastr.error("No se pudo verificar la existencia de usuarios.", "Error");

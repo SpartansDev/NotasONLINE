@@ -15,6 +15,10 @@ $('#frmNotas').submit(function (event) {
     event.preventDefault();
     agregar();
 });
+$('#statusMod').submit(function (event) {
+    event.preventDefault();
+    modificarStatus();
+});
 
 $(document).ready(function () {
     $('#frmNotas').on('keyup', function () {
@@ -153,6 +157,9 @@ function detalles(id) {
             $('#nota5').val(datos.Nota5);
             $('#notafinal').val(datos.NotaFinal);
             $('#status').val(datos.Status);
+            $("#StatusStatus").val(datos.Status);
+            $("#StatusMatriculaID").val(datos.MatriculaId.Id)
+            $("#StatusStudent").val(datos.MatriculaId.EstudianteId.NombreEstudiante + " " + datos.MatriculaId.EstudianteId.ApellidoEstudiante);
         },
         error: function (err) {
             toastr.error('No se pudo completar la acción.');
@@ -222,7 +229,8 @@ function mostrarInscripciones() {
                     html += '<td>Notas Ocultas</td>';
                 }
                 html += '<td>';
-                html += '<a href="#" onclick="detalles(' + item.Id + ')" class="badge badge-danger" data-toggle="modal" data-target="#exampleModalLong">Modificar</a>';
+                html += '<a href="#" onclick="detalles(' + item.Id + ')" class="badge badge-danger" data-toggle="modal" data-target="#exampleModalLong">Modificar</a> || ';
+                html += '<a href="#" onclick="detalles(' + item.Id + ')" class="badge badge-danger" data-toggle="modal" data-target="#statusModal">ModificarStatus</a>';
                 html += '</td>';
                 html += '</tr>';
             });
@@ -247,6 +255,8 @@ function limpiar() {
     $('#nota5').val('');
     $('#notafinal').val('');
     $('#status').val('');
+    $("#StatusStatus").val("");
+    $("#StatusMatriculaID").val()
 }
 
 /*metodo para buscar por codgio*/
@@ -290,7 +300,7 @@ function buscar(texto) {
                     html += '<td>Notas Ocultas</td>';
                 }
                 html += '<td>';
-                html += '<a href="#" onclick="detalles(' + item.Id + ')" class="badge badge-danger" data-toggle="modal" data-target="#exampleModalLong">Modificar</a>';
+                html += '<a href="#" onclick="detalles(' + item.Id + ')" class="badge badge-danger" data-toggle="modal" data-target="#statusModal">ModificarStatus</a>';
                 html += '</td>';
                 html += '</tr>';
             });
@@ -301,4 +311,45 @@ function buscar(texto) {
             toastr.error("No se pudo completar la acción.");
         }
     })
+}
+
+
+
+/*
+autor: Bryan campos
+funcion para cambiar el status por ciclo 
+tomando el id de la foranea MatriculaId
+*/
+function modificarStatus()
+{
+    if (!($("#StatusMatriculaID").val() == "" || $("#StatusStatus").val() == ""))
+    {
+        var obj = {
+            MatriculaId: { Id: $("#StatusMatriculaID").val(), Año: '', Ciclo: '', CarreraId: '', EstudianteId: '', GrupoId: '' },
+            Status: $("#StatusStatus").val()
+        }
+        $.ajax({
+            url: "/DetalleInscripcion/modificarStatus",
+            type: "POST",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            data: JSON.stringify(obj),
+            success: function (resp) {
+                if(resp>0)
+                {
+                    toastr.success("Se cambio el estado de las notas ", "Exito");
+                    mostrarInscripciones();
+                    limpiar();
+                }
+            },
+            error: function (err)
+            {
+                toastr.error("Algo salio mal");
+            }
+        })
+    }
+    else
+    {
+        toastr.warning("No dejes espacios vacios");
+    }
 }

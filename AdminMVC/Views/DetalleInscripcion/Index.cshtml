@@ -126,6 +126,47 @@
         </div>
     </div>
 </div>
+<!--Modal para camnbiar status-->
+<!-- Modal -->
+<div class="modal fade" id="statusModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Modificar status del ciclo</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
 
+                <!--Formulario-->
+                <div id="contenido" class="">
+                    <form id="statusMod">
+                        <div class="form-group">
+                            <input class="form-control text-center" id="StatusStudent" disabled/>
+                        </div>
+                        <label class="text-center"><strong>Si das click en cambiar se modificara el Status de todos los modulos del alumno</strong></label>
+                        <input type="hidden" id="StatusMatriculaID" name="Id" class="form-control" />
+                        <div class="form-group">
+                            <label>Visibilidad</label>
+                            <select id="StatusStatus" name="Status" class="form-control">
+                                <option value="">Selecciona un Status</option>
+                                <option value="0">Ocultar</option>
+                                <option value="1">Mostrar</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" id="btnGuardar" value="cambiar" class="btn btn-outline-primary" />
+                        </div>
+                    </form>
+                </div>
 
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                @*<button type="button" class="btn btn-primary">Save changes</button>*@
+            </div>
+        </div>
+    </div>
+</div>
 <script src="~/Scripts/detalleAJAX.js"></script>

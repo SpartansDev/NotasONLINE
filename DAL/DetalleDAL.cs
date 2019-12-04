@@ -235,5 +235,23 @@ namespace DAL
             return lista;
         }
         #endregion
+
+        #region metodo para cambiar estado a todas las notas que tengan MatriculaId y Ciclo iguales
+        public int ModificarStatus(DetalleInscripcion pDetalle)
+        {
+            int result = 0;
+            using (SqlConnection con = ConexionBD.Conectar())
+            {
+                con.Open();
+                string ssql = "update DetallesInscripcion set Status={0} where MatriculaId={1}";
+                string sentencia = string.Format(ssql, pDetalle.Status, pDetalle.MatriculaId.Id);
+                SqlCommand comando = new SqlCommand(sentencia, con);
+                comando.CommandType = CommandType.Text;
+                result = comando.ExecuteNonQuery();
+                con.Close();
+            }
+            return result;
+        }
+        #endregion
     }
 }

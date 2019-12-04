@@ -100,5 +100,13 @@ namespace AdminMVC.Controllers
             return Json(bl.buscarPorCodigo(pTexto), JsonRequestBehavior.AllowGet);
         }
         #endregion
+
+        #region cambiar todos los status de la inscripcion de ciclo
+        [HttpPost]
+        public JsonResult modificarStatus(DetalleInscripcion pDetalle)
+        {
+            return Json(bl.modificarStatus(pDetalle), JsonRequestBehavior.AllowGet);
+        }
+        #endregion
     }
 }

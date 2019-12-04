@@ -66,5 +66,12 @@ namespace BL
             return dal.buscarPorCodigo(pTexto);
         }
         #endregion
+
+        #region  retornamos metodo para cambiar estado a todas las notas que tengan MatriculaId y Ciclo iguales
+        public int modificarStatus(DetalleInscripcion pDetalle)
+        {
+            return dal.ModificarStatus(pDetalle);
+        }
+        #endregion
     }
 }
