@@ -414,7 +414,7 @@ function ModuloDependiente(id) {
             }
             else
             {
-                html += '<option>No hay modulo para esta carrera</option>';
+                html += '<option>No hay modulo para esta opcion</option>';
             }
             $("#moduloPorId").html(html);
         },

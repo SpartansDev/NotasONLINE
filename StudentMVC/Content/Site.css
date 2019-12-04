@@ -99,6 +99,43 @@ textarea {
     margin-bottom: 10px;
 }
 
+
+.spamDev{
+    background-color: #264385;
+    color: #fff;
+    width: 100%;
+    height: 6rem;
+}
+
+.spamDev ul {
+    overflow: hidden;
+	list-style: none;
+    margin: 0;
+}
+
+.spamDev ul li{
+    float: left;
+}
+
+.spamDev ul li a{
+    color: #fff;
+    font-size: 13px;
+	padding: 15px 9px;
+	display: block;
+	text-decoration: none;
+}
+
+.spamDev ul li span{
+	margin-right: 7px;
+}
+
+.spamDev ul li a:hover{
+    color: #567EF9;
+    text-decoration: none;
+}
+
+
+
 /* start Responsive design*/
 @media (min-width: 1200px) {
   .card-body a{
@@ -305,6 +342,13 @@ textarea {
         font-size: 17px;
         line-height: 20px;
         z-index: 1;
+    }
+
+    .spamDev{
+    background-color: #264385;
+    color: #fff;
+    width: 100%;
+    height: 18rem;
     }
 }
 
