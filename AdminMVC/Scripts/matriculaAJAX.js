@@ -38,8 +38,8 @@ function buscarRegistro(texto) {
             var html = '';
             $.each(data, function (key, item) {
                 html += '<tr>';
-                html += '<td>' + item.Id + '</td>';
                 html += '<td>' + item.EstudianteId.NombreEstudiante + '' + item.EstudianteId.ApellidoEstudiante + '</td>';
+                html += '<td>' + item.EstudianteId.Codigo + '</td>';
                 html += '<td>' + item.Año + '</td>';
                 html += '<td>' + item.Ciclo + '</td>';
                 html += '<td>' + item.CarreraId.NombreCarrera + '</td>';
@@ -69,8 +69,8 @@ function mostrarMatriculas() {
             var html = '';
             $.each(data, function (key, item) {
                 html += '<tr>';
-                html += '<td>' + item.Id + '</td>';
                 html += '<td>' + item.EstudianteId.NombreEstudiante + ' ' + item.EstudianteId.ApellidoEstudiante + '</td>';
+                html += '<td>' + item.EstudianteId.Codigo + '</td>';
                 html += '<td>' + item.Año+ '</td>';
                 html += '<td>' + item.Ciclo + '</td>';
                 html += '<td>' + item.CarreraId.NombreCarrera + '</td>';
